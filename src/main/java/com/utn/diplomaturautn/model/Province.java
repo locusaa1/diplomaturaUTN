@@ -1,15 +1,17 @@
 package com.utn.diplomaturautn.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Data
+@Builder
+@Component
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity

@@ -1,4 +1,4 @@
-use spring;
+use spring_sample;
 
 create table provinces
 (

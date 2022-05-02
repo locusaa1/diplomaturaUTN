@@ -24,4 +24,8 @@ public class ProvinceService {
     public List<Province> getAll(){
         return this.provinceRepository.findAll();
     }
+
+    public Province getById(int id){
+        return this.provinceRepository.getById(id);
+    }
 }

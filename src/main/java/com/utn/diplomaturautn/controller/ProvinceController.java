@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController //Specifies the URLS for the source in the class
-@RequestMapping("/province")
+@RequestMapping("/province") //Specifies the main URL for the class resource
 public class ProvinceController {
 
     private ProvinceService provinceService;
@@ -20,7 +20,12 @@ public class ProvinceController {
 
     @GetMapping("/")
     public List<Province> getAll(){
-        return provinceService.getAll();
+        return this.provinceService.getAll();
+    }
+
+    @GetMapping("{id}")
+    public Province getById(@PathVariable("id")int id){
+        return this.provinceService.getById(id);
     }
 
     @PostMapping("/")
