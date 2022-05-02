@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-/*@Data //Avoids boilerplate code (getters, setters, toString). (Lombok)
+@Data //Avoids boilerplate code (getters, setters, toString). (Lombok)
 @AllArgsConstructor //AutoGenerates the constructor with all the parameters for the class. (Lombok)
 @NoArgsConstructor //AutoGenerates the constructor with no parameters for the class. (Lombok)
 @Entity //Specifies that the class is an entity of the dB. (persistence)
@@ -15,11 +15,10 @@ import javax.persistence.*;
 public class Person {
 
     @Id //Specifies the primary key of the entity. (persistence)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //Specifies the generation strategy for the values of primary key. (persistence)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //Specifies the generation strategy for the values of primary key. (persistence)
     private long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", nullable = false) //Specifies the column name and his attributes
     private String name;
 
     @Column(name = "last_name", nullable = false)
@@ -28,5 +27,7 @@ public class Person {
     @Column(name = "dni", nullable = false, unique = true)
     private String dni;
 
-
-}*/
+    @OneToOne
+    @JoinColumn(name = "id_phone")
+    private Phone phone;
+}

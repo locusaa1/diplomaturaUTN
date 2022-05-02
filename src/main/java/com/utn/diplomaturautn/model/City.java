@@ -36,6 +36,4 @@ public class City {
 
     @Column(name = "postal_code", nullable = false, length = 30)
     private String postalCode;
-
-
 }
