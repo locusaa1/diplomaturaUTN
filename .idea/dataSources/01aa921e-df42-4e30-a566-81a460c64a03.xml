@@ -1266,7 +1266,7 @@ id_partido</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="352" parent="299" name="id">
-      <AutoIncrement>3</AutoIncrement>
+      <AutoIncrement>2</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1660,7 +1660,7 @@ id_destination_city</ColNames>
       <UnderlyingIndexName>number</UnderlyingIndexName>
     </key>
     <column id="432" parent="307" name="id">
-      <AutoIncrement>1</AutoIncrement>
+      <AutoIncrement>2</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>

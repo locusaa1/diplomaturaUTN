@@ -1,15 +1,14 @@
 package com.utn.diplomaturautn.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.apache.tomcat.util.buf.StringUtils;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @Builder
 @Component
 @AllArgsConstructor
@@ -27,4 +26,5 @@ public class Province {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "province")
     private List<City> cities;
+
 }

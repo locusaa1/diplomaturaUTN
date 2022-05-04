@@ -24,7 +24,7 @@ public class CityController {
 
     @GetMapping("/")
     public List<City> getAll() {
-
+        List<City> asd = this.cityService.getAll();
         return this.cityService.getAll();
     }
 
@@ -37,15 +37,5 @@ public class CityController {
                         name(cityDTO.getName()).
                         areaCode(cityDTO.getAreaCode()).
                         postalCode(cityDTO.getPostalCode()).build());
-    }
-
-    public City from(CityDTO cityDTO) {
-
-        return City.builder().
-                id(cityDTO.getId()).
-                province(this.provinceController.getById(cityDTO.getId())).
-                name(cityDTO.getName()).
-                areaCode(cityDTO.getAreaCode()).
-                postalCode(cityDTO.getPostalCode()).build();
     }
 }
