@@ -30,8 +30,4 @@ public class Person {
 
     @Column(name = "dni", nullable = false, unique = true)
     private String dni;
-
-    @OneToOne
-    @JoinColumn(name = "id_phone")
-    private Phone phone;
 }

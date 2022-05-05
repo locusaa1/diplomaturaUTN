@@ -24,6 +24,7 @@ public class CityController {
 
     @GetMapping("/")
     public List<City> getAll() {
+
         List<City> asd = this.cityService.getAll();
         return this.cityService.getAll();
     }

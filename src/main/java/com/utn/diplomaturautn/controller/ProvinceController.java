@@ -15,21 +15,25 @@ public class ProvinceController {
 
     @Autowired
     public void ProvinceService(ProvinceService provinceService) {
+
         this.provinceService = provinceService;
     }
 
     @GetMapping("/")
     public List<Province> getAll(){
+
         return this.provinceService.getAll();
     }
 
     @GetMapping("{id}")
     public Province getById(@PathVariable("id")int id){
+
         return this.provinceService.getById(id);
     }
 
     @PostMapping("/")
     public void addProvince(@RequestBody Province newProvince) {
+
         this.provinceService.addProvince(newProvince);
     }
 }
