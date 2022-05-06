@@ -14,18 +14,22 @@ public class ProvinceService {
 
     @Autowired
     public void ProvinceRepository(ProvinceRepository provinceRepository) {
+
         this.provinceRepository = provinceRepository;
     }
 
-    public void addProvince(Province province) {
-        this.provinceRepository.save(province);
+    public Province addProvince(Province province) {
+
+        return this.provinceRepository.save(province);
     }
 
-    public List<Province> getAll(){
+    public List<Province> getAll() {
+
         return this.provinceRepository.findAll();
     }
 
-    public Province getById(int id){
-        return this.provinceRepository.getById(id);
+    public Province getById(int id) {
+
+        return this.provinceRepository.findById(id).get();
     }
 }

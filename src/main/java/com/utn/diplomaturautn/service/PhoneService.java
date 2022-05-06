@@ -18,6 +18,7 @@ public class PhoneService {
         this.phoneRepository = phoneRepository;
     }
 
+
     public List<Phone> getAll() {
 
         return this.phoneRepository.findAll();

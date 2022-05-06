@@ -14,14 +14,22 @@ public class CityService {
 
     @Autowired
     public void CityRepository(CityRepository cityRepository) {
+
         this.cityRepository = cityRepository;
     }
 
-    public void addCity(City city) {
-        this.cityRepository.save(city);
+    public City addCity(City city) {
+
+        return this.cityRepository.save(city);
+    }
+
+    public City getById(int id) {
+
+        return this.cityRepository.findById(id).get();
     }
 
     public List<City> getAll() {
+
         return this.cityRepository.findAll();
     }
 }

@@ -22,6 +22,10 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Specifies the generation strategy for the values of primary key. (persistence)
     private int id;
 
+    @OneToOne
+    @JoinColumn(name = "id_city")
+    private City city;
+
     @Column(name = "name", nullable = false) //Specifies the column name and his attributes
     private String name;
 

@@ -2,7 +2,6 @@ package com.utn.diplomaturautn.controller;
 
 import com.utn.diplomaturautn.model.Phone;
 import com.utn.diplomaturautn.service.PhoneService;
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +33,7 @@ public class PhoneController {
     public ResponseEntity<Phone> response(Phone phone) {
 
         return ResponseEntity.
-                status(phone==null ?
+                status(phone == null ?
                         HttpStatus.NO_CONTENT :
                         HttpStatus.OK).
                 body(phone);
@@ -47,8 +46,8 @@ public class PhoneController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Phone> addPhone(@RequestBody String phone) {
+    public ResponseEntity<Phone> addPhone(@RequestBody String newPhone) {
 
-        return this.response(this.phoneService.addPhone(Phone.builder().number(phone).build()));
+        return this.response(this.phoneService.addPhone(Phone.builder().number(newPhone).build()));
     }
 }
