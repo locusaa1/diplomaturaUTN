@@ -21,7 +21,7 @@ public class Phone {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "number", nullable = false, unique = true)
+    @Column(name = "number", nullable = false, unique = true, length = 40)
     private String number;
 
 }

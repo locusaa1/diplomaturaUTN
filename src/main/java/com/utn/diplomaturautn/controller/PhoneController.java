@@ -52,8 +52,8 @@ public class PhoneController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Phone> addPhone(@RequestBody String newPhone) {
+    public ResponseEntity<Phone> addPhone(@RequestBody Phone phone) {
 
-        return this.response(this.phoneService.addPhone(Phone.builder().number(newPhone).build()));
+        return this.response(this.phoneService.addPhone(phone));
     }
 }
