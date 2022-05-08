@@ -45,6 +45,12 @@ public class PhoneController {
         return this.response(this.phoneService.getAll());
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity<Phone> getById(@RequestParam("id") int id) {
+
+        return this.response(this.phoneService.getById(id));
+    }
+
     @PostMapping("/")
     public ResponseEntity<Phone> addPhone(@RequestBody String newPhone) {
 

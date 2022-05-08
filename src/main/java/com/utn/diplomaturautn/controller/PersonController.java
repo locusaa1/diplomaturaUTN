@@ -3,6 +3,7 @@ package com.utn.diplomaturautn.controller;
 import com.utn.diplomaturautn.dataTransferObject.PersonDTO;
 import com.utn.diplomaturautn.model.Person;
 import com.utn.diplomaturautn.service.PersonService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -47,6 +48,12 @@ public class PersonController {
     public ResponseEntity<List<Person>> getAll() {
 
         return this.response(this.personService.getAll());
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<Person> getById(@RequestParam("id") int id){
+
+        return this.response(this.personService.getById(id));
     }
 
     @PostMapping("/")

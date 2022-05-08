@@ -24,6 +24,11 @@ public class PhoneService {
         return this.phoneRepository.findAll();
     }
 
+    public Phone getById(int id) {
+
+        return this.phoneRepository.findById(id).get();
+    }
+
     public Phone addPhone(Phone phone) {
 
         return this.phoneRepository.save(phone);

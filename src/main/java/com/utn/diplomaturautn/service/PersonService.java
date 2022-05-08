@@ -23,6 +23,11 @@ public class PersonService {
         return this.personRepository.findAll();
     }
 
+    public Person getById(int id){
+
+        return this.personRepository.findById(id).get();
+    }
+
     public Person addPerson(Person newPerson) {
 
         return this.personRepository.save(newPerson);
