@@ -48,7 +48,7 @@ public class CityController {
         return this.response(this.cityService.getAll());
     }
 
-    @GetMapping(value = "{id}")
+    @GetMapping("{id}")
     public ResponseEntity<City> getById(@RequestParam("id") int id) {
 
         return this.response(this.cityService.getById(id));
