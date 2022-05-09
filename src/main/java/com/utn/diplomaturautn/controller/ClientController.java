@@ -14,12 +14,12 @@ import java.util.List;
 @RequestMapping("/client")
 public class ClientController {
 
-    private ClientService clientService;
-    private PersonController personController;
-    private PhoneController phoneController;
+    private final ClientService clientService;
+    private final PersonController personController;
+    private final PhoneController phoneController;
 
     @Autowired
-    public void ClientService (ClientService clientService, PersonController personController, PhoneController phoneController){
+    public ClientController (ClientService clientService, PersonController personController, PhoneController phoneController){
 
         this.clientService = clientService;
         this.personController = personController;

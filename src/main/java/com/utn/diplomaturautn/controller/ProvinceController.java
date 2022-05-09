@@ -14,10 +14,10 @@ import java.util.List;
 @RequestMapping("/province") //Specifies the main URL for the class resource
 public class ProvinceController {
 
-    private ProvinceService provinceService;
+    private final ProvinceService provinceService;
 
     @Autowired
-    public void ProvinceService(ProvinceService provinceService) {
+    public ProvinceController(ProvinceService provinceService) {
 
         this.provinceService = provinceService;
     }

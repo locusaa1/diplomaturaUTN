@@ -13,10 +13,10 @@ import java.util.List;
 @RequestMapping("/phone")
 public class PhoneController {
 
-    private PhoneService phoneService;
+    private final PhoneService phoneService;
 
     @Autowired
-    public void phoneService(PhoneService phoneService) {
+    public PhoneController(PhoneService phoneService) {
 
         this.phoneService = phoneService;
     }

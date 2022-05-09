@@ -14,11 +14,11 @@ import java.util.List;
 @RequestMapping("/city")
 public class CityController {
 
-    private CityService cityService;
-    private ProvinceController provinceController;
+    private final CityService cityService;
+    private final ProvinceController provinceController;
 
     @Autowired
-    public void CityService(CityService cityService, ProvinceController provinceController) {
+    public CityController(CityService cityService, ProvinceController provinceController) {
 
         this.cityService = cityService;
         this.provinceController = provinceController;

@@ -3,7 +3,6 @@ package com.utn.diplomaturautn.controller;
 import com.utn.diplomaturautn.dataTransferObject.PersonDTO;
 import com.utn.diplomaturautn.model.Person;
 import com.utn.diplomaturautn.service.PersonService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +14,12 @@ import java.util.List;
 @RequestMapping("/person")
 public class PersonController {
 
-    private PersonService personService;
+    private final PersonService personService;
 
-    private CityController cityController;
+    private final CityController cityController;
 
     @Autowired
-    public void PersonService(PersonService personService, CityController cityController) {
+    public PersonController(PersonService personService, CityController cityController) {
 
         this.personService = personService;
         this.cityController = cityController;
