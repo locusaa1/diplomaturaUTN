@@ -2,6 +2,7 @@ package com.utn.diplomaturautn.controller;
 
 import com.utn.diplomaturautn.dataTransferObject.EmployeeDTO;
 import com.utn.diplomaturautn.model.Employee;
+import com.utn.diplomaturautn.model.User;
 import com.utn.diplomaturautn.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,7 +51,7 @@ public class EmployeeController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Employee> getById(@RequestParam("id") int id){
+    public ResponseEntity<Employee> getById(@RequestParam("id") int id) {
 
         return this.response(this.employeeService.getById(id));
     }
@@ -61,7 +62,8 @@ public class EmployeeController {
         return this.response(this.employeeService.
                 addEmployee(Employee.builder().
                         person(this.personController.getById(newEmployeeDTO.getIdPerson()).getBody()).
-                        username(newEmployeeDTO.getUsername()).
-                        password(newEmployeeDTO.getPassword()).build()));
+                        user(User.builder().
+                                username(newEmployeeDTO.getUsername()).
+                                password(newEmployeeDTO.getPassword()).build()).build()));
     }
 }

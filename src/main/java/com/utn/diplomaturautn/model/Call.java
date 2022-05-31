@@ -1,5 +1,6 @@
 package com.utn.diplomaturautn.model;
 
+import com.fasterxml.jackson.databind.DatabindException;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -7,6 +8,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.sql.Date;
+import java.sql.Time;
 
 @Data
 @Builder
@@ -44,6 +47,12 @@ public class Call {
     @OneToOne
     @JoinColumn(name = "id_bill")
     private Bill bill;
+
+    @Column(name = "start_date")
+    private Date startDate;
+
+    @Column(name = "start_time")
+    private Time startTime;
 
     @Column(name = "duration")
     private int duration;

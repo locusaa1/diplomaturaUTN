@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -30,4 +29,11 @@ public class Client {
     @OneToOne
     @JoinColumn(name = "id_phone")
     private Phone phone;
+
+    @OneToOne
+    @JoinColumn(name = "id_user")
+    private User user;
+
+    @Column(name = "active")
+    private boolean active;
 }

@@ -1,14 +1,12 @@
 package com.utn.diplomaturautn.model;
 
 import lombok.*;
-import org.apache.tomcat.util.buf.StringUtils;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 @Builder
 @Component
 @AllArgsConstructor

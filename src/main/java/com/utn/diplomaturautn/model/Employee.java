@@ -23,10 +23,10 @@ public class Employee {
     @JoinColumn(name = "id_person")
     private Person person;
 
-    @Column(name = "username", nullable = false, unique = true)
-    private String username;
+    @OneToOne
+    @JoinColumn(name = "id_user")
+    private User user;
 
-    @Column(name = "password", nullable = false)
-    private String password;
-
+    @Column(name = "active")
+    private boolean active;
 }

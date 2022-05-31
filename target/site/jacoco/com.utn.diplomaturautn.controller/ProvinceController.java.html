@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProvinceController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">diplomaturaUTN</a> &gt; <a href="index.source.html" class="el_package">com.utn.diplomaturautn.controller</a> &gt; <span class="el_source">ProvinceController.java</span></div><h1>ProvinceController.java</h1><pre class="source lang-java linenums">package com.utn.diplomaturautn.controller;
+
+import com.utn.diplomaturautn.dataTransferObject.ProvinceDTO;
+import com.utn.diplomaturautn.model.Province;
+import com.utn.diplomaturautn.service.ProvinceService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
+
+@RestController //Specifies the URLS for the source in the class
+@RequestMapping(&quot;api/province&quot;) //Specifies the main URL for the class resource
+public class ProvinceController {
+
+    private final ProvinceService provinceService;
+
+    @Autowired
+<span class="fc" id="L20">    public ProvinceController(ProvinceService provinceService) {</span>
+
+<span class="fc" id="L22">        this.provinceService = provinceService;</span>
+<span class="fc" id="L23">    }</span>
+
+    @GetMapping(&quot;/&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List&lt;Province&gt; getAll() {
+
+<span class="fc" id="L30">        return this.provinceService.getAll();</span>
+    }
+
+    @GetMapping(&quot;/{id}&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Province getById(@PathVariable(&quot;id&quot;) int id) {
+
+<span class="fc" id="L38">        return this.provinceService.getById(id);</span>
+    }
+
+    @PostMapping(&quot;/&quot;)
+    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
+    public Province addProvince(@RequestBody @Valid ProvinceDTO newProvinceDTO) {
+
+<span class="fc" id="L46">        return this.provinceService.addProvince(Province.builder().name(newProvinceDTO.getName()).build());</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

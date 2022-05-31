@@ -15,8 +15,12 @@ import net.bytebuddy.asm.Advice;
 public class PersonDTO {
 
     private int id;
+
     private int idCity;
+
     private String name;
+
     private String lastName;
+
     private String dni;
 }

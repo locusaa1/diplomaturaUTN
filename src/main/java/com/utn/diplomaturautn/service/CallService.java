@@ -1,0 +1,35 @@
+package com.utn.diplomaturautn.service;
+
+import com.utn.diplomaturautn.model.Call;
+import com.utn.diplomaturautn.repositroy.CallRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class CallService {
+
+    private final CallRepository callRepository;
+
+    @Autowired
+    public CallService(CallRepository callRepository) {
+
+        this.callRepository = callRepository;
+    }
+
+    public List<Call> getAll() {
+
+        return this.callRepository.findAll();
+    }
+
+    public Call getById(int id) {
+
+        return this.callRepository.getById(id);
+    }
+
+    public Call addCall(Call newCall) {
+
+        return this.callRepository.save(newCall);
+    }
+}

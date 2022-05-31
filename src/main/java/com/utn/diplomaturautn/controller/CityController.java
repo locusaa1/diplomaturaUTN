@@ -48,7 +48,7 @@ public class CityController {
         return this.response(this.cityService.getAll());
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<City> getById(@RequestParam("id") int id) {
 
         return this.response(this.cityService.getById(id));
@@ -60,7 +60,7 @@ public class CityController {
 
         return this.response(this.cityService.addCity(
                 City.builder().
-                        province(this.provinceController.getById(cityDTO.getIdProvince()).getBody()).
+                        province(this.provinceController.getById(cityDTO.getIdProvince())).
                         name(cityDTO.getName()).
                         areaCode(cityDTO.getAreaCode()).
                         postalCode(cityDTO.getPostalCode()).build()));

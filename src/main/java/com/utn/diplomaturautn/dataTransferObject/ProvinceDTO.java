@@ -1,26 +1,21 @@
 package com.utn.diplomaturautn.dataTransferObject;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.utn.diplomaturautn.model.Province;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import java.util.List;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProvinceDTO {
 
-    private Integer id;
-    private String name;
-    private List<CityDTO> cities;
+    private int id;
 
-    public static ProvinceDTO from (Province province){
-        return ProvinceDTO.builder().id(province.getId()).name(province.getName()).build();
-    }
+    @NotNull(message = "The name field can not be null.")
+    @NotBlank(message = "The name field is mandatory and not blank.")
+    @Size(max = 50, min = 1, message = "The name must have min:1 character and max:50")
+    private String name;
 }

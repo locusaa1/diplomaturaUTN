@@ -1,35 +1,41 @@
 package com.utn.diplomaturautn.service;
 
+import com.utn.diplomaturautn.dataTransferObject.ProvinceDTO;
 import com.utn.diplomaturautn.model.Province;
-import com.utn.diplomaturautn.repositroy.ProvinceRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class ProvinceService {
+public interface ProvinceService {
 
-    private ProvinceRepository provinceRepository;
+    /**
+     * Lists all provinces from the repository.
+     *
+     * @return a list of provinces.
+     */
+    List<Province> getAll();
 
-    @Autowired
-    public void ProvinceRepository(ProvinceRepository provinceRepository) {
+    /**
+     * Searches for the specific province id into the repository.
+     *
+     * @param id the id of the specific province.
+     * @return the specific Province object.
+     */
+    Province getById(int id);
 
-        this.provinceRepository = provinceRepository;
-    }
+    /**
+     * Adds a new province into the repository.
+     *
+     * @param newProvince the Province object to be saved.
+     * @return the Province object with his last form from the repository.
+     */
+    Province addProvince(Province newProvince);
 
-    public Province addProvince(Province province) {
-
-        return this.provinceRepository.save(province);
-    }
-
-    public List<Province> getAll() {
-
-        return this.provinceRepository.findAll();
-    }
-
-    public Province getById(int id) {
-
-        return this.provinceRepository.findById(id).get();
-    }
+    /**
+     * Modifies an existing province
+     *
+     * @param patchProvinceDTO the ProvinceDTO object to be applied as modification.
+     * @param provinceId the id of the province to be modified.
+     * @return the Province object with his last form from the repository.
+     */
+    Province modifyProvince(ProvinceDTO patchProvinceDTO, int provinceId);
 }
