@@ -26,28 +26,12 @@ public class PersonController implements PersonService {
         this.cityController = cityController;
     }
 
-    public ResponseEntity<List<Person>> response(List<Person> persons) {
-
-        return ResponseEntity.
-                status(persons.isEmpty() ?
-                        HttpStatus.NO_CONTENT :
-                        HttpStatus.OK).
-                body(persons);
-    }
-
-    public ResponseEntity<Person> response(Person person) {
-
-        return ResponseEntity.
-                status(person == null ?
-                        HttpStatus.NO_CONTENT :
-                        HttpStatus.OK).
-                body(person);
-    }
-
     @GetMapping("/")
-    public ResponseEntity<List<Person>> getAll() {
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<Person> getAll() {
 
-        return this.response(this.personServiceImpl.getAll());
+        return this.personService.getAll();
     }
 
     @GetMapping("{id}")

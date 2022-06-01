@@ -1,5 +1,6 @@
 package com.utn.diplomaturautn.service.impl;
 
+import com.utn.diplomaturautn.exception.NoContentException;
 import com.utn.diplomaturautn.model.Person;
 import com.utn.diplomaturautn.repositroy.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,15 @@ public class PersonServiceImpl {
 
     public List<Person> getAll() {
 
-        return this.personRepository.findAll();
+        List<Person> personList = this.personRepository.findAll();
+
+        if (personList.isEmpty()) {
+
+            throw new NoContentException("There is no content in the data base from this entity");
+        } else {
+
+            return personList;
+        }
     }
 
     public Person getById(int id){
