@@ -5,15 +5,15 @@ import com.utn.diplomaturautn.exception.NoContentException;
 import com.utn.diplomaturautn.exception.ResourceNotFoundException;
 import com.utn.diplomaturautn.model.Person;
 import com.utn.diplomaturautn.repositroy.PersonRepository;
+import com.utn.diplomaturautn.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PersonServiceImpl {
+public class PersonServiceImpl implements PersonService {
 
     private PersonRepository personRepository;
 
@@ -57,6 +57,12 @@ public class PersonServiceImpl {
 
     public Person addPerson(Person newPerson) {
 
-        return this.personRepository.save(newPerson);
+        try {
+
+            return this.personRepository.save(newPerson);
+        } catch (Exception exception) {
+
+            throw exception;
+        }
     }
 }

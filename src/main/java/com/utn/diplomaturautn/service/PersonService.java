@@ -25,8 +25,8 @@ public interface PersonService {
     /**
      * Adds a new person into the repository.
      *
-     * @param newPersonDTO the PersonDTO object to be saved.
+     * @param newPerson the Person object to be saved.
      * @return the Person object with his last form from the repository.
      */
-    Person addPerson(PersonDTO newPersonDTO);
+    Person addPerson(Person newPerson);
 }
