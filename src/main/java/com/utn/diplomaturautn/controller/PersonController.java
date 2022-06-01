@@ -34,14 +34,16 @@ public class PersonController implements PersonService {
         return this.personService.getAll();
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<Person> getById(@RequestParam("id") int id){
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Person getById(@PathVariable("id") int id){
 
-        return this.response(this.personServiceImpl.getById(id));
+        return this.personService.getById(id);
     }
 
     @PostMapping("/")
-    public ResponseEntity<Person> addPerson(@RequestBody PersonDTO newPersonDTO) {
+    public Person addPerson(@RequestBody PersonDTO newPersonDTO) {
 
         return this.response(
                 this.personServiceImpl.addPerson(
