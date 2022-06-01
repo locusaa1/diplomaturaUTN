@@ -3,6 +3,7 @@ package com.utn.diplomaturautn.controller;
 import com.utn.diplomaturautn.dataTransferObject.PersonDTO;
 import com.utn.diplomaturautn.model.Person;
 import com.utn.diplomaturautn.service.PersonService;
+import com.utn.diplomaturautn.service.impl.PersonServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,17 +12,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/person")
-public class PersonController {
+@RequestMapping("api/person")
+public class PersonController implements PersonService {
 
     private final PersonService personService;
 
     private final CityController cityController;
 
     @Autowired
-    public PersonController(PersonService personService, CityController cityController) {
+    public PersonController(PersonService personServiceImpl, CityController cityController) {
 
-        this.personService = personService;
+        this.personService = personServiceImpl;
         this.cityController = cityController;
     }
 
@@ -46,20 +47,20 @@ public class PersonController {
     @GetMapping("/")
     public ResponseEntity<List<Person>> getAll() {
 
-        return this.response(this.personService.getAll());
+        return this.response(this.personServiceImpl.getAll());
     }
 
     @GetMapping("{id}")
     public ResponseEntity<Person> getById(@RequestParam("id") int id){
 
-        return this.response(this.personService.getById(id));
+        return this.response(this.personServiceImpl.getById(id));
     }
 
     @PostMapping("/")
     public ResponseEntity<Person> addPerson(@RequestBody PersonDTO newPersonDTO) {
 
         return this.response(
-                this.personService.addPerson(
+                this.personServiceImpl.addPerson(
                         Person.builder().
                                 city(this.cityController.getById(newPersonDTO.getIdCity()).getBody()).
                                 name(newPersonDTO.getName()).

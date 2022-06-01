@@ -1,35 +1,32 @@
 package com.utn.diplomaturautn.service;
 
+import com.utn.diplomaturautn.dataTransferObject.PersonDTO;
 import com.utn.diplomaturautn.model.Person;
-import com.utn.diplomaturautn.repositroy.PersonRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class PersonService {
+public interface PersonService {
 
-    private PersonRepository personRepository;
+    /**
+     * Lists all persons from the repository.
+     *
+     * @return a list of persons.
+     */
+    List<Person> getAll();
 
-    @Autowired
-    public void PersonRepository(PersonRepository personRepository) {
+    /**
+     * Searches for the specific person id into the repository.
+     *
+     * @param id the id of the specific person.
+     * @return the specific Person object.
+     */
+    Person getById(int id);
 
-        this.personRepository = personRepository;
-    }
-
-    public List<Person> getAll() {
-
-        return this.personRepository.findAll();
-    }
-
-    public Person getById(int id){
-
-        return this.personRepository.findById(id).get();
-    }
-
-    public Person addPerson(Person newPerson) {
-
-        return this.personRepository.save(newPerson);
-    }
+    /**
+     * Adds a new person into the repository.
+     *
+     * @param newPersonDTO the PersonDTO object to be saved.
+     * @return the Person object with his last form from the repository.
+     */
+    Person addPerson(PersonDTO newPersonDTO);
 }
