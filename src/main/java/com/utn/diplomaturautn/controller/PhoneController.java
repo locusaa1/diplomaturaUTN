@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/phone")
+@RequestMapping("api/phone")
 public class PhoneController {
 
     private final PhoneService phoneService;
@@ -45,10 +45,18 @@ public class PhoneController {
         return this.response(this.phoneService.getAll());
     }
 
-    @GetMapping("{id}")
+    @GetMapping
     public ResponseEntity<Phone> getById(@RequestParam("id") int id) {
 
         return this.response(this.phoneService.getById(id));
+    }
+
+    @GetMapping("/{number}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Phone getByNumber(@PathVariable("number") String number) {
+
+        return this.phoneService.getByNumber(number);
     }
 
     @PostMapping("/")

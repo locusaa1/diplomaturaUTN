@@ -7,8 +7,18 @@
     <list default="true" id="ba7185cc-6f18-49d2-876f-35439a40052f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/CallController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/CallController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/dataTransferObject/PersonDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/dataTransferObject/PersonDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/CallService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/CallServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/PhoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/PhoneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/dataTransferObject/CallDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/dataTransferObject/CallDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/repositroy/PhoneRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/repositroy/PhoneRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/CallService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/CallService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/PhoneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/PhoneService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/CallServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/CallServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/ClientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/PersonController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/PersonController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/PhoneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/PhoneController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +95,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="JUnit.ProvinceServiceImplTest.getByIdTest">
+  <component name="RunManager" selected="Spring Boot.DiplomaturaUtnApplication">
     <configuration name="ProvinceServiceImplTest.addProvinceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="diplomaturaUTN" />
       <extension name="coverage">
@@ -226,7 +236,7 @@
       <workItem from="1653834498947" duration="9833000" />
       <workItem from="1653942722055" duration="16097000" />
       <workItem from="1654037606886" duration="7722000" />
-      <workItem from="1654121313571" duration="4088000" />
+      <workItem from="1654121313571" duration="6380000" />
     </task>
     <servers />
   </component>
