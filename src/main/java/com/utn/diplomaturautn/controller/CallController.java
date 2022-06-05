@@ -71,7 +71,20 @@ public class CallController {
                 this.phoneService.getById(client.getPhone().getId()));
     }
 
-    
+    @GetMapping("/date")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<Call> getByDateRange(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
+                                     @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to) {
+
+        Timestamp dateFrom = Timestamp.valueOf(from + " 00:00:00");
+
+        Timestamp dateTo = (to.equals(LocalDate.now().toString())) ?
+                Timestamp.valueOf(to.concat(" " + LocalTime.now().toString())) :
+                Timestamp.valueOf(to + " 23:59:59");
+
+        return this.callService.getByDateRange(dateFrom, dateTo);
+    }
 
     @PostMapping("/")
     @ResponseStatus(HttpStatus.OK)

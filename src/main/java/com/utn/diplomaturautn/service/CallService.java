@@ -33,7 +33,7 @@ public interface CallService {
     public Call addCall(Call newCall);
 
     /**
-     * Lists all calls from the repository that were made between the specifics dates.
+     * Lists all calls from the repository that were made between the specifics dates and matches the user phone.
      *
      * @param from        the main date of the filter.
      * @param to          the end date of the filter.
@@ -41,4 +41,13 @@ public interface CallService {
      * @return a list of calls filtered.
      */
     public List<Call> getByDateRangeAndUser(Timestamp from, Timestamp to, Phone originPhone);
+
+    /**
+     * List all calls from the repository that were made between the specifics dates.
+     *
+     * @param from the main date of the filter.
+     * @param to   the end date of the filter.
+     * @return a list of calls filtered.
+     */
+    public List<Call> getByDateRange(Timestamp from, Timestamp to);
 }
