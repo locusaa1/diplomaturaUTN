@@ -1,6 +1,6 @@
 package com.utn.diplomaturautn.model;
 
-import com.fasterxml.jackson.databind.DatabindException;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,8 +8,9 @@ import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.sql.Time;
+import java.sql.Timestamp;
+
+import static java.util.TimeZone.getTimeZone;
 
 @Data
 @Builder
@@ -25,11 +26,11 @@ public class Call {
     private int id;
 
     @OneToOne
-    @JoinColumn(name = "id_destination_phone")
+    @JoinColumn(name = "id_origin_phone")
     private Phone originPhone;
 
     @OneToOne
-    @JoinColumn(name = "id_origin_phone")
+    @JoinColumn(name = "id_destination_phone")
     private Phone destinationPhone;
 
     @OneToOne
@@ -48,11 +49,9 @@ public class Call {
     @JoinColumn(name = "id_bill")
     private Bill bill;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "start_date")
-    private Date startDate;
-
-    @Column(name = "start_time")
-    private Time startTime;
+    private Timestamp startDate;
 
     @Column(name = "duration")
     private int duration;

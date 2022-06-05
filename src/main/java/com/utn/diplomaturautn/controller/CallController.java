@@ -1,62 +1,88 @@
 package com.utn.diplomaturautn.controller;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.utn.diplomaturautn.dataTransferObject.CallDTO;
 import com.utn.diplomaturautn.model.Call;
+import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.service.CallService;
+import com.utn.diplomaturautn.service.ClientService;
+import com.utn.diplomaturautn.service.PhoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
+import javax.validation.Valid;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("/call")
+@RequestMapping("api/call")
 public class CallController {
 
     private final CallService callService;
 
+    private final PhoneService phoneService;
+
+    private final ClientService clientService;
+
     @Autowired
-    public CallController(CallService callService) {
+    public CallController(CallService callService, PhoneService phoneService, ClientService clientService) {
 
         this.callService = callService;
-    }
-
-    public ResponseEntity<List<Call>> response(List<Call> calls) {
-
-        return ResponseEntity.
-                status(calls.isEmpty() ?
-                        HttpStatus.NO_CONTENT :
-                        HttpStatus.OK).
-                body(calls);
-    }
-
-    public ResponseEntity<Call> response(Call call) {
-
-        return ResponseEntity.
-                status(call == null ?
-                        HttpStatus.NO_CONTENT :
-                        HttpStatus.OK).
-                body(call);
+        this.phoneService = phoneService;
+        this.clientService = clientService;
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<Call>> getAll() {
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<Call> getAll() {
 
-        return this.response(this.callService.getAll());
+        return this.callService.getAll();
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Call> getById(@PathParam("id") int id) {
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Call getById(@PathVariable("id") int id) {
 
-        return this.response(this.callService.getById(id));
+        return this.callService.getById(id);
     }
 
-    /*@PostMapping("/")
-    public ResponseEntity<Call> addCall(@RequestBody CallDTO newCallDTO) {
+    @GetMapping("/date&user")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<Call> getByDateRangeAndUser(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
+                                            @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to,
+                                            @RequestParam("user") int userId) {
 
-        return this.response(this.callService.
-                addCall(Call.builder().
-                        ))
-    }*/
+        Timestamp dateFrom = Timestamp.valueOf(from + " 00:00:00");
+
+        Timestamp dateTo = (to.equals(LocalDate.now().toString())) ?
+                Timestamp.valueOf(to.concat(" " + LocalTime.now().toString())) :
+                Timestamp.valueOf(to + " 23:59:59");
+
+        Client client = this.clientService.getById(userId);
+
+        return this.callService.getByDateRangeAndUser(dateFrom,
+                dateTo,
+                this.phoneService.getById(client.getPhone().getId()));
+    }
+
+    
+
+    @PostMapping("/")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Call addCall(@RequestBody @Valid CallDTO newCallDTO) {
+
+        return this.callService.addCall(
+                Call.builder().
+                        originPhone(this.phoneService.getByNumber(newCallDTO.getOriginPhone())).
+                        destinationPhone(this.phoneService.getByNumber(newCallDTO.getDestinationPhone())).
+                        startDate(Timestamp.valueOf(newCallDTO.getDateTime())).
+                        duration(newCallDTO.getDuration()).build());
+    }
 }

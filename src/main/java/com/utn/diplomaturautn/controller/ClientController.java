@@ -56,12 +56,12 @@ public class ClientController {
         return this.response(this.clientService.getById(id));
      }
 
-     @PostMapping("/")
+    /* @PostMapping("/")
     public ResponseEntity<Client> addClient(@RequestBody ClientDTO newClientDTO){
 
         return this.response(this.clientService.
                 addClient(Client.builder().
                         person(this.personController.getById(newClientDTO.getIdPerson()).getBody()).
                         phone(this.phoneController.getById(newClientDTO.getIdPhone()).getBody()).build()));
-     }
+     }*/
 }

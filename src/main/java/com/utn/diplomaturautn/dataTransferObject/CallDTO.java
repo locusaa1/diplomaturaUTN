@@ -1,5 +1,6 @@
 package com.utn.diplomaturautn.dataTransferObject;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,8 +14,12 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CallDTO {
 
-    private String origin;
-    private String destination;
+    private String originPhone;
+
+    private String destinationPhone;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private String dateTime;
-    private Long duration;
+
+    private int duration;
 }

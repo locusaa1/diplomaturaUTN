@@ -5,20 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba7185cc-6f18-49d2-876f-35439a40052f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aa921e-df42-4e30-a566-81a460c64a03.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01aa921e-df42-4e30-a566-81a460c64a03.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/DiplomaturaUtnApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/DiplomaturaUtnApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/CallController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/CallController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/PhoneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/PhoneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/dataTransferObject/CallDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/dataTransferObject/CallDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/exception/ApiExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/exception/ApiExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Call.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Call.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/repositroy/CallRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/repositroy/CallRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/repositroy/PhoneRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/repositroy/PhoneRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/CallService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/CallService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/PhoneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/PhoneService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/PersonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/PersonService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/CallServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/CallServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/DiplomaturaUtnApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/DiplomaturaUtnApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/CallController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/CallController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/ClientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/EmployeeController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/PersonController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/PersonController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/PhoneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/PhoneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/dataTransferObject/CallDTO$CallDTOBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/dataTransferObject/CallDTO$CallDTOBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/dataTransferObject/CallDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/dataTransferObject/CallDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/exception/ApiExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/exception/ApiExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Call$CallBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Call$CallBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Call.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Call.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Client$ClientBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Client$ClientBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/repositroy/CallRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/repositroy/CallRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/CallService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/CallService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/utn/diplomaturautn/serviceTest/ProvinceServiceImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/utn/diplomaturautn/serviceTest/ProvinceServiceImplTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +46,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -236,7 +254,11 @@
       <workItem from="1653834498947" duration="9833000" />
       <workItem from="1653942722055" duration="16097000" />
       <workItem from="1654037606886" duration="7722000" />
-      <workItem from="1654121313571" duration="6380000" />
+      <workItem from="1654121313571" duration="7444000" />
+      <workItem from="1654209150376" duration="8892000" />
+      <workItem from="1654294023371" duration="5015000" />
+      <workItem from="1654376145171" duration="12843000" />
+      <workItem from="1654446797857" duration="1136000" />
     </task>
     <servers />
   </component>
@@ -275,6 +297,15 @@
     </ignored-roots>
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/CallServiceImpl.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.utn.diplomaturautn.controller.CityController" memberName="provinceController" />
@@ -288,6 +319,10 @@
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="this.cityController" language="JAVA" />
         <watch expression="this.provinceRepository" language="JAVA" />
+        <watch expression="callsList" language="JAVA" />
+        <watch expression="callsList" language="JAVA" />
+        <watch expression="callsList" language="JAVA" />
+        <watch expression="callsList" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

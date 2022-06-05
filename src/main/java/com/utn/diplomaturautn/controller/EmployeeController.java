@@ -56,7 +56,7 @@ public class EmployeeController {
         return this.response(this.employeeService.getById(id));
     }
 
-    @PostMapping("/")
+    /*@PostMapping("/")
     public ResponseEntity<Employee> addEmployee(@RequestBody EmployeeDTO newEmployeeDTO) {
 
         return this.response(this.employeeService.
@@ -65,5 +65,5 @@ public class EmployeeController {
                         user(User.builder().
                                 username(newEmployeeDTO.getUsername()).
                                 password(newEmployeeDTO.getPassword()).build()).build()));
-    }
+    }*/
 }

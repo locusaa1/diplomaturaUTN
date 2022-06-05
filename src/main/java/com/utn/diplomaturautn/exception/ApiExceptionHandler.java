@@ -33,10 +33,10 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 timestamp(Time.valueOf(LocalTime.now())).build();
     }
 
-    @ExceptionHandler({SQLIntegrityConstraintViolationException.class, NothingToModifyException.class})
+    @ExceptionHandler({SQLIntegrityConstraintViolationException.class, NothingToModifyException.class, InvalidCallException.class})
     @ResponseStatus(HttpStatus.CONFLICT)
     @ResponseBody
-    public ErrorObject handleDuplicateEntryException(Exception exception) {
+    public ErrorObject handleConflictsException(Exception exception) {
 
         return ErrorObject.builder().
                 statusCode(HttpStatus.CONFLICT.value()).
@@ -54,7 +54,7 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(InvalidBeanFieldsException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    public ErrorObject handleInvalidBeanFieldsException(Exception exception) {
+    public ErrorObject handleBadRequestException(Exception exception) {
 
         return ErrorObject.builder().
                 statusCode(HttpStatus.BAD_REQUEST.value()).

@@ -1,6 +1,5 @@
 package com.utn.diplomaturautn.service;
 
-import com.utn.diplomaturautn.dataTransferObject.PersonDTO;
 import com.utn.diplomaturautn.model.Person;
 
 import java.util.List;

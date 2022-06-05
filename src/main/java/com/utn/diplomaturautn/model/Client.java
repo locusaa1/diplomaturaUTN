@@ -34,6 +34,6 @@ public class Client {
     @JoinColumn(name = "id_user")
     private User user;
 
-    @Column(name = "active")
-    private boolean active;
+    @Column(name = "condition")
+    private String active;
 }
