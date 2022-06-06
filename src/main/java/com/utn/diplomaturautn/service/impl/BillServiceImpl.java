@@ -46,7 +46,7 @@ public class BillServiceImpl implements BillService {
     }
 
     @Override
-    public List<Bill> getByDateRangeAndUser(Timestamp from, Timestamp to, Client client) {
+    public List<Bill> getByDateRangeAndClient(Timestamp from, Timestamp to, Client client) {
 
         Utils.compareDatesThrowingExceptions(from, to);
 
@@ -55,8 +55,13 @@ public class BillServiceImpl implements BillService {
         return this.checkEmptyListThrowsException(billsList);
     }
 
-    public List<Bill> getByDateRange(Timestamp form, Timestamp to){
+    @Override
+    public List<Bill> getByDateRange(Timestamp from, Timestamp to) {
 
-        
+        Utils.compareDatesThrowingExceptions(from, to);
+
+        Optional<List<Bill>> billsList = this.billRepository.findByGeneratedDateGreaterThanEqualAndGeneratedDateIsLessThanEqual(from, to);
+
+        return this.checkEmptyListThrowsException(billsList);
     }
 }

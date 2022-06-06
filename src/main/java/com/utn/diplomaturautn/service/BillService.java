@@ -31,7 +31,7 @@ public interface BillService {
      * @param client the id of the client into the database.
      * @return a list of bills filtered.
      */
-    List<Bill> getByDateRangeAndUser(Timestamp from, Timestamp to, Client client);
+    List<Bill> getByDateRangeAndClient(Timestamp from, Timestamp to, Client client);
 
     /**
      * Lists all bills from the repository that were made between the specifics dates.
