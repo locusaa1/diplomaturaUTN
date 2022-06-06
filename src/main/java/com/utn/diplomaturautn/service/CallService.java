@@ -20,7 +20,7 @@ public interface CallService {
      * Searches for the specific call id into the repository
      *
      * @param id the id of the specific call.
-     * @return the specific Cll object.
+     * @return the specific Call object.
      */
     public Call getById(int id);
 

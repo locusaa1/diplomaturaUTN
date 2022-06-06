@@ -51,12 +51,12 @@ public class CallController {
         return this.callService.getById(id);
     }
 
-    @GetMapping("/date&user")
+    @GetMapping("/date&client")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<Call> getByDateRangeAndUser(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
                                             @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to,
-                                            @RequestParam("user") int userId) {
+                                            @RequestParam("clientId") int clientId) {
 
         Timestamp dateFrom = Timestamp.valueOf(from + " 00:00:00");
 
@@ -64,7 +64,7 @@ public class CallController {
                 Timestamp.valueOf(to.concat(" " + LocalTime.now().toString())) :
                 Timestamp.valueOf(to + " 23:59:59");
 
-        Client client = this.clientService.getById(userId);
+        Client client = this.clientService.getById(clientId);
 
         return this.callService.getByDateRangeAndUser(dateFrom,
                 dateTo,

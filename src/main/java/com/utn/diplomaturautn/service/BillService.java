@@ -1,28 +1,44 @@
 package com.utn.diplomaturautn.service;
 
 import com.utn.diplomaturautn.model.Bill;
-import com.utn.diplomaturautn.repositroy.BillRepository;
-import org.springframework.stereotype.Service;
+import com.utn.diplomaturautn.model.Client;
 
+import java.sql.Timestamp;
 import java.util.List;
 
-@Service
-public class BillService {
+public interface BillService {
 
-    private final BillRepository billRepository;
+    /**
+     * Lists all bills from the repository.
+     *
+     * @return a list of bills.
+     */
+    List<Bill> getAll();
 
-    public BillService(BillRepository billRepository) {
+    /**
+     * Searches for the specific bill id into the repository.
+     *
+     * @param id the id of the specific bill.
+     * @return the specific Bill object.
+     */
+    Bill getById(int id);
 
-        this.billRepository = billRepository;
-    }
+    /**
+     * Lists all bills from the repository that were made between the specific dates and matches the user phone
+     *
+     * @param from   the main date of the filter.
+     * @param to     the end date of the filter.
+     * @param client the id of the client into the database.
+     * @return a list of bills filtered.
+     */
+    List<Bill> getByDateRangeAndUser(Timestamp from, Timestamp to, Client client);
 
-    public List<Bill> getAll() {
-
-        return this.billRepository.findAll();
-    }
-
-    public Bill getById(int id) {
-
-        return this.billRepository.findById(id).get();
-    }
+    /**
+     * Lists all bills from the repository that were made between the specifics dates.
+     *
+     * @param form the main date of the filter.
+     * @param to   the end date of the filter.
+     * @return a list of bills filtered.
+     */
+    List<Bill> getByDateRange(Timestamp form, Timestamp to);
 }

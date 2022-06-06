@@ -7,6 +7,7 @@ import com.utn.diplomaturautn.model.Call;
 import com.utn.diplomaturautn.model.Phone;
 import com.utn.diplomaturautn.repositroy.CallRepository;
 import com.utn.diplomaturautn.service.CallService;
+import com.utn.diplomaturautn.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,18 +28,7 @@ public class CallServiceImpl implements CallService {
         this.callRepository = callRepository;
     }
 
-    private void compareDatesThrowingExceptions(Timestamp from, Timestamp to) {
-
-        if (from.after(to)) {
-
-            throw new InvalidCallException("The date \"from\" must be before the date \"to\"");
-        } else if (to.after(Timestamp.valueOf(LocalDateTime.now()))) {
-
-            throw new InvalidCallException("The date \"to\" must be before the actual date");
-        }
-    }
-
-    private List<Call> checkEmptyListThrowingException(Optional<List<Call>> callsList) {
+    private List<Call> checkEmptyListThrowsException(Optional<List<Call>> callsList) {
 
         if (callsList.isEmpty()) {
 
@@ -59,22 +49,22 @@ public class CallServiceImpl implements CallService {
         return this.callRepository.getById(id);
     }
 
-    public List<Call> getByDateRangeAndUser(Timestamp from, Timestamp to, Phone userPhone) {
+    public List<Call> getByDateRangeAndUser(Timestamp from, Timestamp to, Phone clientPhone) {
 
-        this.compareDatesThrowingExceptions(from, to);
+        Utils.compareDatesThrowingExceptions(from, to);
 
-        Optional<List<Call>> callsList = this.callRepository.findByStartDateGreaterThanEqualAndStartDateIsLessThanEqualAndOriginPhone(from, to, userPhone);
+        Optional<List<Call>> callsList = this.callRepository.findByStartDateGreaterThanEqualAndStartDateIsLessThanEqualAndOriginPhone(from, to, clientPhone);
 
-        return this.checkEmptyListThrowingException(callsList);
+        return this.checkEmptyListThrowsException(callsList);
     }
 
     public List<Call> getByDateRange(Timestamp from, Timestamp to) {
 
-        this.compareDatesThrowingExceptions(from, to);
+        Utils.compareDatesThrowingExceptions(from, to);
 
         Optional<List<Call>> callsList = this.callRepository.findByStartDateGreaterThanEqualAndStartDateIsLessThanEqual(from, to);
 
-        return this.checkEmptyListThrowingException(callsList);
+        return this.checkEmptyListThrowsException(callsList);
     }
 
     public Call addCall(Call newCall) {

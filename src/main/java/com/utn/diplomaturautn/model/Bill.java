@@ -23,8 +23,8 @@ public class Bill {
     private int id;
 
     @OneToOne
-    @JoinColumn(name = "id_person")
-    private Person person;
+    @JoinColumn(name = "id_client")
+    private Client client;
 
     @Column(name = "calls_sum")
     private int callsSum;
