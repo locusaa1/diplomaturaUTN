@@ -1,35 +1,31 @@
 package com.utn.diplomaturautn.service;
 
 import com.utn.diplomaturautn.model.Fee;
-import com.utn.diplomaturautn.repositroy.FeeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class FeeService {
+public interface FeeService {
 
-    private final FeeRepository feeRepository;
+    /**
+     * Lists all fees from the repository.
+     *
+     * @return a list of fees
+     */
+    List<Fee> getAll();
 
-    @Autowired
-    public FeeService(FeeRepository feeRepository) {
+    /**
+     * Searches for the specific fee id into the repository
+     *
+     * @param id the id of the specific fee.
+     * @return the specific Fee object.
+     */
+    Fee getById(int id);
 
-        this.feeRepository = feeRepository;
-    }
-
-    public List<Fee> getAll() {
-
-        return this.feeRepository.findAll();
-    }
-
-    public Fee getById(int id) {
-
-        return this.feeRepository.findById(id).get();
-    }
-
-    public Fee addFee(Fee newFee) {
-
-        return this.feeRepository.save(newFee);
-    }
+    /**
+     * Adds a new fee into the repository
+     *
+     * @param newFee the Fee object to be saved.
+     * @return the Fee object with his last form from the repository.
+     */
+    Fee addFee(Fee newFee);
 }

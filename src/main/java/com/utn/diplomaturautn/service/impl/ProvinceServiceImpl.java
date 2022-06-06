@@ -31,7 +31,7 @@ public class ProvinceServiceImpl implements ProvinceService {
 
         if (provinceList.isEmpty()) {
 
-            throw new NoContentException("There is no content in the data base from this entity.");
+            throw new NoContentException("There is no content in the database from this entity.");
         } else {
 
             return provinceList;

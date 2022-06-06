@@ -28,7 +28,7 @@ public interface CallService {
      * Adds a new call into the repository.
      *
      * @param newCall the Call object to be saved.
-     * @return the Call object with his las form from the repository.
+     * @return the Call object with his last form from the repository.
      */
     public Call addCall(Call newCall);
 
