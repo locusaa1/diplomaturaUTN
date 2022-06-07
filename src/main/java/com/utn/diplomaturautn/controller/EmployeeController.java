@@ -1,9 +1,7 @@
 package com.utn.diplomaturautn.controller;
 
-import com.utn.diplomaturautn.dataTransferObject.EmployeeDTO;
 import com.utn.diplomaturautn.model.Employee;
-import com.utn.diplomaturautn.model.User;
-import com.utn.diplomaturautn.service.EmployeeService;
+import com.utn.diplomaturautn.service.impl.EmployeeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,14 +13,14 @@ import java.util.List;
 @RequestMapping("/employee")
 public class EmployeeController {
 
-    private final EmployeeService employeeService;
+    private final EmployeeServiceImpl employeeServiceImpl;
 
     private final PersonController personController;
 
     @Autowired
-    public EmployeeController(EmployeeService employeeService, PersonController personController) {
+    public EmployeeController(EmployeeServiceImpl employeeServiceImpl, PersonController personController) {
 
-        this.employeeService = employeeService;
+        this.employeeServiceImpl = employeeServiceImpl;
         this.personController = personController;
     }
 
@@ -47,13 +45,13 @@ public class EmployeeController {
     @GetMapping("/")
     public ResponseEntity<List<Employee>> getAll() {
 
-        return this.response(this.employeeService.getAll());
+        return this.response(this.employeeServiceImpl.getAll());
     }
 
     @GetMapping("{id}")
     public ResponseEntity<Employee> getById(@RequestParam("id") int id) {
 
-        return this.response(this.employeeService.getById(id));
+        return this.response(this.employeeServiceImpl.getById(id));
     }
 
     /*@PostMapping("/")

@@ -1,35 +1,31 @@
 package com.utn.diplomaturautn.service;
 
 import com.utn.diplomaturautn.model.Employee;
-import com.utn.diplomaturautn.repositroy.EmployeeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class EmployeeService {
+public interface EmployeeService {
 
-    private EmployeeRepository employeeRepository;
+    /**
+     * Lists all employees from the repository.
+     *
+     * @return a list of employees.
+     */
+    List<Employee> getAll();
 
-    @Autowired
-    public void EmployeeRepository(EmployeeRepository employeeRepository) {
+    /**
+     * Searches for the specific employee id into the repository.
+     *
+     * @param id the id of the specific employee.
+     * @return the specific Employee object.
+     */
+    Employee getById(int id);
 
-        this.employeeRepository = employeeRepository;
-    }
-
-    public List<Employee> getAll() {
-
-        return this.employeeRepository.findAll();
-    }
-
-    public Employee getById(int id) {
-
-        return this.employeeRepository.findById(id).get();
-    }
-
-    public Employee addEmployee(Employee newEmployee) {
-
-        return this.employeeRepository.save(newEmployee);
-    }
+    /**
+     * Adds a new employee into the repository.
+     *
+     * @param newEmployee the Employee object to be saved.
+     * @return the Employee object with his last form from the repository.
+     */
+    Employee addEmployee(Employee newEmployee);
 }

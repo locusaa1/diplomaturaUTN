@@ -17,7 +17,7 @@ public interface CallService {
     public List<Call> getAll();
 
     /**
-     * Searches for the specific call id into the repository
+     * Searches for the specific call id into the repository.
      *
      * @param id the id of the specific call.
      * @return the specific Call object.

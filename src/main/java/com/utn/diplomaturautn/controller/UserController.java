@@ -1,7 +1,7 @@
 package com.utn.diplomaturautn.controller;
 
 import com.utn.diplomaturautn.model.User;
-import com.utn.diplomaturautn.service.UserService;
+import com.utn.diplomaturautn.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,12 +13,12 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
-    private final UserService userService;
+    private final UserServiceImpl userServiceImpl;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserServiceImpl userServiceImpl) {
 
-        this.userService = userService;
+        this.userServiceImpl = userServiceImpl;
     }
 
     public ResponseEntity<List<User>> response(List<User> users) {
@@ -42,18 +42,18 @@ public class UserController {
     @GetMapping("/")
     public ResponseEntity<List<User>> getAll() {
 
-        return this.response(this.userService.getAll());
+        return this.response(this.userServiceImpl.getAll());
     }
 
     @GetMapping("{id}")
     public ResponseEntity<User> getById(@RequestParam("id") int id) {
 
-        return this.response(this.userService.getById(id));
+        return this.response(this.userServiceImpl.getById(id));
     }
 
     @PostMapping("/")
     public ResponseEntity<User> addUser(User newUser) {
 
-        return this.response(this.userService.addUser(newUser));
+        return this.response(this.userServiceImpl.addUser(newUser));
     }
 }

@@ -1,32 +1,28 @@
 package com.utn.diplomaturautn.model;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
+@ToString
 @Builder
 @Component
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonTypeName("employee")
 @Entity
 @Table(name = "employees")
-@PrimaryKeyJoinColumn(name = "id_person")
-public class Employee {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @OneToOne
-    @JoinColumn(name = "id_person")
-    private Person person;
+public class Employee extends Person {
 
     @OneToOne
     @JoinColumn(name = "id_user")
     private User user;
 
-    @Column(name = "active")
-    private boolean active;
+    @Column(name = "condition")
+    @Enumerated(value = EnumType.STRING)
+    private String condition;
 }

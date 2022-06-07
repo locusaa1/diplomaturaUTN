@@ -1,37 +1,31 @@
 package com.utn.diplomaturautn.service;
 
 import com.utn.diplomaturautn.model.User;
-import com.utn.diplomaturautn.repositroy.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class UserService {
+public interface UserService {
 
-    private final UserRepository userRepository;
+    /**
+     * Lists all users from the repository.
+     *
+     * @return a list of users.
+     */
+    List<User> getAll();
 
-    @Autowired
-    public UserService(UserRepository userRepository) {
+    /**
+     * Searches for the specific user id into the repository.
+     *
+     * @param id the id of the specific user.
+     * @return the specific User object.
+     */
+    User getById(int id);
 
-        this.userRepository = userRepository;
-    }
-
-    public List<User> getAll() {
-
-        return this.userRepository.findAll();
-    }
-
-    public User getById(int id) {
-
-        return this.userRepository.findById(id).get();
-    }
-
-    public User addUser(User newUser) {
-
-        return this.userRepository.save(newUser);
-    }
-
-
+    /**
+     * Adds a new user into the repository.
+     *
+     * @param newUser the User object to be saved.
+     * @return the User object with his las form from the repository.
+     */
+    User addUser(User newUser);
 }

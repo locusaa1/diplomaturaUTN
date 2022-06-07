@@ -5,7 +5,7 @@ import com.utn.diplomaturautn.dataTransferObject.CallDTO;
 import com.utn.diplomaturautn.model.Call;
 import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.service.CallService;
-import com.utn.diplomaturautn.service.ClientService;
+import com.utn.diplomaturautn.service.impl.ClientServiceImpl;
 import com.utn.diplomaturautn.service.PhoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,14 +25,14 @@ public class CallController {
 
     private final PhoneService phoneService;
 
-    private final ClientService clientService;
+    private final ClientServiceImpl clientServiceImpl;
 
     @Autowired
-    public CallController(CallService callService, PhoneService phoneService, ClientService clientService) {
+    public CallController(CallService callService, PhoneService phoneService, ClientServiceImpl clientServiceImpl) {
 
         this.callService = callService;
         this.phoneService = phoneService;
-        this.clientService = clientService;
+        this.clientServiceImpl = clientServiceImpl;
     }
 
     @GetMapping("/")
@@ -64,7 +64,7 @@ public class CallController {
                 Timestamp.valueOf(to.concat(" " + LocalTime.now().toString())) :
                 Timestamp.valueOf(to + " 23:59:59");
 
-        Client client = this.clientService.getById(clientId);
+        Client client = this.clientServiceImpl.getById(clientId);
 
         return this.callService.getByDateRangeAndUser(dateFrom,
                 dateTo,

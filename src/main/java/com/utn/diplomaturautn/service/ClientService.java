@@ -1,35 +1,31 @@
 package com.utn.diplomaturautn.service;
 
 import com.utn.diplomaturautn.model.Client;
-import com.utn.diplomaturautn.repositroy.ClientRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class ClientService {
+public interface ClientService {
 
-    private ClientRepository clientRepository;
+    /**
+     * Lists all clients from the repository.
+     *
+     * @return a list of clients.
+     */
+    List<Client> getAll();
 
-    @Autowired
-    public void ClientRepository(ClientRepository clientRepository){
+    /**
+     * Searches for the specific client id into the repository.
+     *
+     * @param id the id of the specific client.
+     * @return the specific Client object.
+     */
+    Client getById(int id);
 
-        this.clientRepository = clientRepository;
-    }
-
-    public List<Client> getAll(){
-
-        return this.clientRepository.findAll();
-    }
-
-    public Client getById(int id){
-
-        return this.clientRepository.findById(id).get();
-    }
-
-    public Client addClient(Client newClient){
-
-        return this.clientRepository.save(newClient);
-    }
+    /**
+     * Adds a new client into the repository.
+     *
+     * @param newClient The Client object to be saved.
+     * @return the Client object with his last form from the repository.
+     */
+    Client addClient(Client newClient);
 }

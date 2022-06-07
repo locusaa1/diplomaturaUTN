@@ -5,11 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba7185cc-6f18-49d2-876f-35439a40052f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_7_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_5_6_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_7_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aa921e-df42-4e30-a566-81a460c64a03.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01aa921e-df42-4e30-a566-81a460c64a03.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/FeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/FeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diplomaturaUTN.iml" beforeDir="false" afterPath="$PROJECT_DIR$/diplomaturaUTN.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/BillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/BillController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/CallController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/CallController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/PersonController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/repositroy/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/repositroy/ClientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/repositroy/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/repositroy/EmployeeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/repositroy/PersonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/repositroy/PersonRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/CallService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/CallService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/FeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/FeeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/ProvinceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/ProvinceServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/ClientServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/EmployeeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +39,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -58,34 +79,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/locus/Escritorio/demo-1&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;7ca72ccf61aac3209d9f79ba58e3bff2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/locus/Escritorio/demo/demo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "7ca72ccf61aac3209d9f79ba58e3bff2"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Spring Boot.DiplomaturaUtnApplication">
     <configuration name="ProvinceServiceImplTest.addProvinceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="diplomaturaUTN" />
@@ -232,7 +253,7 @@
       <workItem from="1654294023371" duration="5015000" />
       <workItem from="1654376145171" duration="12843000" />
       <workItem from="1654446797857" duration="11206000" />
-      <workItem from="1654550929554" duration="2771000" />
+      <workItem from="1654550929554" duration="16964000" />
     </task>
     <servers />
   </component>
