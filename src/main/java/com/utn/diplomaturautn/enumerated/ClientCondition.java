@@ -1,6 +1,6 @@
 package com.utn.diplomaturautn.enumerated;
 
-public enum clientCondition {
+public enum ClientCondition {
 
     ACTIVE, INACTIVE, DISCONTINUED;
 }

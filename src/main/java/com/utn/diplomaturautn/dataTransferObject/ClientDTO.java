@@ -1,19 +1,18 @@
 package com.utn.diplomaturautn.dataTransferObject;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.utn.diplomaturautn.enumerated.ClientCondition;
+import lombok.*;
 
 @Data
 @Builder
+@EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ClientDTO {
+public class ClientDTO extends UserDTO {
 
-    private int id;
-    private int idPerson;
-    private int idPhone;
+    private String phoneNumber;
+
+    private ClientCondition condition;
 }

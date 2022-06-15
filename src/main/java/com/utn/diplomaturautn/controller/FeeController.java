@@ -2,8 +2,8 @@ package com.utn.diplomaturautn.controller;
 
 import com.utn.diplomaturautn.dataTransferObject.FeeDTO;
 import com.utn.diplomaturautn.model.Fee;
+import com.utn.diplomaturautn.service.CityService;
 import com.utn.diplomaturautn.service.FeeService;
-import com.utn.diplomaturautn.service.impl.FeeServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,12 +15,12 @@ public class FeeController {
 
     private final FeeService feeService;
 
-    private final CityController cityController;
+    private final CityService cityService;
 
-    public FeeController(FeeService feeService, CityController cityController) {
+    public FeeController(FeeService feeService, CityService cityService) {
 
         this.feeService = feeService;
-        this.cityController = cityController;
+        this.cityService = cityService;
     }
 
     @GetMapping("/")
@@ -45,8 +45,8 @@ public class FeeController {
     public Fee addFee(@RequestBody FeeDTO newFeeDTO) {
 
         return this.feeService.addFee(Fee.builder().
-                originCity(this.cityController.getById(newFeeDTO.getIdOriginCity()).getBody()).
-                destinationCity(this.cityController.getById(newFeeDTO.getIdDestinationCity()).getBody()).
+                originCity(this.cityService.getById(newFeeDTO.getIdOriginCity())).
+                destinationCity(this.cityService.getById(newFeeDTO.getIdDestinationCity())).
                 cost(newFeeDTO.getCost()).
                 startTime(newFeeDTO.getStartTime()).
                 endTime(newFeeDTO.getEndTime()).build());

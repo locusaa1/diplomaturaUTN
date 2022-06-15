@@ -33,7 +33,12 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 timestamp(Time.valueOf(LocalTime.now())).build();
     }
 
-    @ExceptionHandler({SQLIntegrityConstraintViolationException.class, NothingToModifyException.class, InvalidCallException.class})
+    @ExceptionHandler({
+            SQLIntegrityConstraintViolationException.class,
+            NothingToModifyException.class,
+            InvalidCallException.class,
+            ErrorSavingEntityException.class
+    })
     @ResponseStatus(HttpStatus.CONFLICT)
     @ResponseBody
     public ErrorObject handleConflictsException(Exception exception) {
@@ -51,7 +56,10 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
 
     }
 
-    @ExceptionHandler(InvalidBeanFieldsException.class)
+    @ExceptionHandler({
+            InvalidBeanFieldsException.class,
+            InvalidPhoneException.class
+    })
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
     public ErrorObject handleBadRequestException(Exception exception) {

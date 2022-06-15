@@ -1,31 +1,15 @@
 package com.utn.diplomaturautn.service;
 
-import com.utn.diplomaturautn.model.User;
+import com.utn.diplomaturautn.model.Client;
+import com.utn.diplomaturautn.model.Employee;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
-import java.util.List;
+public interface UserService extends UserDetailsService{
 
-public interface UserService {
+    UserDetails loadUserByUsername(String username);
 
-    /**
-     * Lists all users from the repository.
-     *
-     * @return a list of users.
-     */
-    List<User> getAll();
+    UserDetails getByUsername(String username);
 
-    /**
-     * Searches for the specific user id into the repository.
-     *
-     * @param id the id of the specific user.
-     * @return the specific User object.
-     */
-    User getById(int id);
-
-    /**
-     * Adds a new user into the repository.
-     *
-     * @param newUser the User object to be saved.
-     * @return the User object with his las form from the repository.
-     */
-    User addUser(User newUser);
 }

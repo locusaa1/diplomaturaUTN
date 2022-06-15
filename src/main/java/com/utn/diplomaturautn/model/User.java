@@ -1,25 +1,20 @@
 package com.utn.diplomaturautn.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.utn.diplomaturautn.enumerated.UserType;
+import lombok.*;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
+@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Component
-@Builder
 @Entity
 @Table(name = "users")
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public abstract class User extends Person {
 
     @Column(name = "username")
     private String username;
@@ -29,5 +24,5 @@ public class User {
 
     @Column(name = "user_type")
     @Enumerated(value = EnumType.STRING)
-    private String userType;
+    private UserType userType;
 }

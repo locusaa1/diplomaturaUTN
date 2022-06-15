@@ -1344,7 +1344,7 @@ id_partido</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="368" parent="302" name="id">
-      <AutoIncrement>7</AutoIncrement>
+      <AutoIncrement>1</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -1501,293 +1501,263 @@ start_date</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="400" parent="304" name="id">
-      <AutoIncrement>4</AutoIncrement>
+      <AutoIncrement>2</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="401" parent="304" name="id_user">
+    <column id="401" parent="304" name="id_phone">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="402" parent="304" name="id_phone">
-      <DataType>int|0s</DataType>
+    <column id="402" parent="304" name="client_condition">
+      <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="403" parent="304" name="condition">
-      <DataType>varchar(10)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <foreign-key id="404" parent="304" name="fk_person_in_client">
+    <foreign-key id="403" parent="304" name="fk_user_in_client">
       <ColNames>id</ColNames>
-      <RefColNames>id</RefColNames>
-      <RefTableName>persons</RefTableName>
-    </foreign-key>
-    <foreign-key id="405" parent="304" name="fk_user_in_client">
-      <ColNames>id_user</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <foreign-key id="406" parent="304" name="fk_phone_in_client">
+    <foreign-key id="404" parent="304" name="fk_phone_in_client">
       <ColNames>id_phone</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>phones</RefTableName>
     </foreign-key>
-    <index id="407" parent="304" name="id_user">
-      <ColNames>id_user</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="408" parent="304" name="id_phone">
+    <index id="405" parent="304" name="id_phone">
       <ColNames>id_phone</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="409" parent="304" name="index_clients">
+    <index id="406" parent="304" name="index_clients">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="410" parent="304" name="PRIMARY">
+    <key id="407" parent="304" name="PRIMARY">
       <ColNames>id
-id_phone
-id_user</ColNames>
+id_phone</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <key id="411" parent="304" name="id_user">
-      <ColNames>id_user</ColNames>
-      <UnderlyingIndexName>id_user</UnderlyingIndexName>
-    </key>
-    <key id="412" parent="304" name="id_phone">
+    <key id="408" parent="304" name="id_phone">
       <ColNames>id_phone</ColNames>
       <UnderlyingIndexName>id_phone</UnderlyingIndexName>
     </key>
-    <column id="413" parent="305" name="id">
+    <column id="409" parent="305" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="414" parent="305" name="id_user">
-      <DataType>int|0s</DataType>
+    <column id="410" parent="305" name="employee_condition">
+      <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="415" parent="305" name="condition">
-      <DataType>varchar(10)|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <foreign-key id="416" parent="305" name="fk_person_in_employee">
+    <foreign-key id="411" parent="305" name="fk_user_in_employee">
       <ColNames>id</ColNames>
-      <RefColNames>id</RefColNames>
-      <RefTableName>persons</RefTableName>
-    </foreign-key>
-    <foreign-key id="417" parent="305" name="fk_user_in_employee">
-      <ColNames>id_user</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <index id="418" parent="305" name="fk_user_in_employee">
-      <ColNames>id_user</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="419" parent="305" name="PRIMARY">
-      <ColNames>id
-id_user</ColNames>
+    <key id="412" parent="305" name="PRIMARY">
+      <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <column id="420" parent="306" name="id">
+    <column id="413" parent="306" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="421" parent="306" name="id_origin_city">
+    <column id="414" parent="306" name="id_origin_city">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="422" parent="306" name="id_destination_city">
+    <column id="415" parent="306" name="id_destination_city">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="423" parent="306" name="cost">
+    <column id="416" parent="306" name="cost">
       <DataType>double|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="424" parent="306" name="start_time">
+    <column id="417" parent="306" name="start_time">
       <DataType>time|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="425" parent="306" name="end_time">
+    <column id="418" parent="306" name="end_time">
       <DataType>time|0s</DataType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <foreign-key id="426" parent="306" name="fk_origin_city_in_fee">
+    <foreign-key id="419" parent="306" name="fk_origin_city_in_fee">
       <ColNames>id_origin_city</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>cities</RefTableName>
     </foreign-key>
-    <foreign-key id="427" parent="306" name="fk_destination_city_in_fee">
+    <foreign-key id="420" parent="306" name="fk_destination_city_in_fee">
       <ColNames>id_destination_city</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>cities</RefTableName>
     </foreign-key>
-    <index id="428" parent="306" name="fk_origin_city_in_fee">
+    <index id="421" parent="306" name="fk_origin_city_in_fee">
       <ColNames>id_origin_city</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="429" parent="306" name="fk_destination_city_in_fee">
+    <index id="422" parent="306" name="fk_destination_city_in_fee">
       <ColNames>id_destination_city</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="430" parent="306" name="PRIMARY">
+    <key id="423" parent="306" name="PRIMARY">
       <ColNames>id
 id_origin_city
 id_destination_city</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <column id="431" parent="307" name="id">
-      <AutoIncrement>3</AutoIncrement>
+    <column id="424" parent="307" name="id">
+      <AutoIncrement>2</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="432" parent="307" name="id_city">
+    <column id="425" parent="307" name="id_city">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="433" parent="307" name="name">
+    <column id="426" parent="307" name="name">
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="434" parent="307" name="last_name">
+    <column id="427" parent="307" name="last_name">
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="435" parent="307" name="dni">
+    <column id="428" parent="307" name="dni">
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <foreign-key id="436" parent="307" name="fk_city_in_person">
+    <foreign-key id="429" parent="307" name="fk_city_in_person">
       <ColNames>id_city</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>cities</RefTableName>
     </foreign-key>
-    <index id="437" parent="307" name="dni">
+    <index id="430" parent="307" name="dni">
       <ColNames>dni</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="438" parent="307" name="fk_city_in_person">
+    <index id="431" parent="307" name="fk_city_in_person">
       <ColNames>id_city</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="439" parent="307" name="PRIMARY">
+    <key id="432" parent="307" name="PRIMARY">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <key id="440" parent="307" name="dni">
+    <key id="433" parent="307" name="dni">
       <ColNames>dni</ColNames>
       <UnderlyingIndexName>dni</UnderlyingIndexName>
     </key>
-    <column id="441" parent="308" name="id">
-      <AutoIncrement>3</AutoIncrement>
+    <column id="434" parent="308" name="id">
+      <AutoIncrement>2</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="442" parent="308" name="number">
+    <column id="435" parent="308" name="number">
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <index id="443" parent="308" name="number">
+    <index id="436" parent="308" name="number">
       <ColNames>number</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="444" parent="308" name="PRIMARY">
+    <key id="437" parent="308" name="PRIMARY">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <key id="445" parent="308" name="number">
+    <key id="438" parent="308" name="number">
       <ColNames>number</ColNames>
       <UnderlyingIndexName>number</UnderlyingIndexName>
     </key>
-    <column id="446" parent="309" name="id">
+    <column id="439" parent="309" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="447" parent="309" name="name">
+    <column id="440" parent="309" name="name">
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <index id="448" parent="309" name="name">
+    <index id="441" parent="309" name="name">
       <ColNames>name</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="449" parent="309" name="PRIMARY">
+    <key id="442" parent="309" name="PRIMARY">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <key id="450" parent="309" name="name">
+    <key id="443" parent="309" name="name">
       <ColNames>name</ColNames>
       <UnderlyingIndexName>name</UnderlyingIndexName>
     </key>
-    <column id="451" parent="310" name="id">
-      <AutoIncrement>3</AutoIncrement>
+    <column id="444" parent="310" name="id">
+      <AutoIncrement>2</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="452" parent="310" name="username">
+    <column id="445" parent="310" name="username">
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="453" parent="310" name="password">
-      <DataType>varchar(30)|0s</DataType>
+    <column id="446" parent="310" name="password">
+      <DataType>varchar(250)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="454" parent="310" name="user_type">
+    <column id="447" parent="310" name="user_type">
       <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <index id="455" parent="310" name="username">
+    <foreign-key id="448" parent="310" name="fk_person_in_user">
+      <ColNames>id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>persons</RefTableName>
+    </foreign-key>
+    <index id="449" parent="310" name="username">
       <ColNames>username</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="456" parent="310" name="PRIMARY">
+    <key id="450" parent="310" name="PRIMARY">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <key id="457" parent="310" name="username">
+    <key id="451" parent="310" name="username">
       <ColNames>username</ColNames>
       <UnderlyingIndexName>username</UnderlyingIndexName>
     </key>

@@ -6,6 +6,6 @@ import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.stereotype.Repository;
 
 @NoRepositoryBean
-public interface PersonRepository extends JpaRepository<Person, Integer> {
+public interface PersonRepository<T extends Person> extends JpaRepository<T, Integer> {
 
 }

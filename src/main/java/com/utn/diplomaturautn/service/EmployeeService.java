@@ -1,6 +1,9 @@
 package com.utn.diplomaturautn.service;
 
 import com.utn.diplomaturautn.model.Employee;
+import org.apache.catalina.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
@@ -28,4 +31,8 @@ public interface EmployeeService {
      * @return the Employee object with his last form from the repository.
      */
     Employee addEmployee(Employee newEmployee);
+
+    Employee reactiveEmployee(int id);
+
+    Employee deleteEmployee(int id);
 }

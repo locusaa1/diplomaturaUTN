@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.utn.diplomaturautn.model.Bill;
 import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.service.BillService;
-import com.utn.diplomaturautn.service.impl.ClientServiceImpl;
+import com.utn.diplomaturautn.service.ClientService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,12 +20,12 @@ public class BillController {
 
     private final BillService billService;
 
-    private final ClientServiceImpl clientServiceImpl;
+    private final ClientService clientService;
 
-    public BillController(BillService billService, ClientServiceImpl clientServiceImpl) {
+    public BillController(BillService billService, ClientService clientService) {
 
         this.billService = billService;
-        this.clientServiceImpl = clientServiceImpl;
+        this.clientService = clientService;
     }
 
     @GetMapping("/")
@@ -57,7 +57,7 @@ public class BillController {
                 Timestamp.valueOf(to.concat(" " + LocalTime.now().toString())) :
                 Timestamp.valueOf(to + " 23:59:59");
 
-        Client client = this.clientServiceImpl.getById(clientId);
+        Client client = this.clientService.getById(clientId);
 
         return this.billService.getByDateRangeAndClient(dateFrom,
                 dateTo,

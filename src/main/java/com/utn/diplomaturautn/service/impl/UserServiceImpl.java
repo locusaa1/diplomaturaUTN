@@ -1,38 +1,54 @@
 package com.utn.diplomaturautn.service.impl;
 
-import com.utn.diplomaturautn.model.User;
-import com.utn.diplomaturautn.repositroy.UserRepository;
+import com.utn.diplomaturautn.exception.InvalidBeanFieldsException;
+import com.utn.diplomaturautn.exception.ResourceNotFoundException;
+import com.utn.diplomaturautn.repositroy.ClientRepository;
+import com.utn.diplomaturautn.repositroy.EmployeeRepository;
 import com.utn.diplomaturautn.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final UserRepository userRepository;
+    private final ClientRepository clientRepository;
+
+    private final EmployeeRepository employeeRepository;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(ClientRepository clientRepository, EmployeeRepository employeeRepository) {
 
-        this.userRepository = userRepository;
+        this.clientRepository = clientRepository;
+        this.employeeRepository = employeeRepository;
     }
 
-    public List<User> getAll() {
+    public UserDetails getByUsername(String username) {
 
-        return this.userRepository.findAll();
+        if (username.isEmpty()) {
+
+            throw new InvalidBeanFieldsException("The username field is mandatory.");
+        } else {
+
+            Optional<UserDetails> user = this.clientRepository.findByUsernameEquals(username);
+
+            if (user.isEmpty()) {
+
+                user = this.employeeRepository.findByUsername(username);
+
+                if (user.isEmpty()) {
+
+                    throw new ResourceNotFoundException("There is not a register with the specific username.");
+                }
+            }
+            return user.get();
+        }
     }
 
-    public User getById(int id) {
+    public UserDetails loadUserByUsername(String username) {
 
-        return this.userRepository.findById(id).get();
+        return this.getByUsername(username);
     }
-
-    public User addUser(User newUser) {
-
-        return this.userRepository.save(newUser);
-    }
-
-
 }

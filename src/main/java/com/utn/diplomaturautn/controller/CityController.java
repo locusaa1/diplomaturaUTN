@@ -3,9 +3,9 @@ package com.utn.diplomaturautn.controller;
 import com.utn.diplomaturautn.dataTransferObject.CityDTO;
 import com.utn.diplomaturautn.model.City;
 import com.utn.diplomaturautn.service.CityService;
+import com.utn.diplomaturautn.service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,54 +15,41 @@ import java.util.List;
 public class CityController {
 
     private final CityService cityService;
-    private final ProvinceController provinceController;
+    private final ProvinceService provinceService;
 
     @Autowired
-    public CityController(CityService cityService, ProvinceController provinceController) {
+    public CityController(CityService cityService, ProvinceService provinceService) {
 
         this.cityService = cityService;
-        this.provinceController = provinceController;
-    }
-
-    public ResponseEntity<List<City>> response(List<City> cities) {
-
-        return ResponseEntity.
-                status(cities.isEmpty() ?
-                        HttpStatus.NO_CONTENT :
-                        HttpStatus.OK).
-                body(cities);
-    }
-
-    public ResponseEntity<City> response(City city) {
-
-        return ResponseEntity.
-                status(city == null ?
-                        HttpStatus.NO_CONTENT :
-                        HttpStatus.OK).
-                body(city);
+        this.provinceService = provinceService;
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<City>> getAll() {
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<City> getAll() {
 
-        return this.response(this.cityService.getAll());
+        return this.cityService.getAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<City> getById(@RequestParam("id") int id) {
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public City getById(@PathVariable("id") int id) {
 
-        return this.response(this.cityService.getById(id));
+        return this.cityService.getById(id);
     }
 
-
     @PostMapping("/")
-    public ResponseEntity<City> addCity(@RequestBody CityDTO cityDTO) {
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public City addCity(@RequestBody CityDTO cityDTO) {
 
-        return this.response(this.cityService.addCity(
+        return this.cityService.addCity(
                 City.builder().
-                        province(this.provinceController.getById(cityDTO.getIdProvince())).
+                        province(this.provinceService.getById(cityDTO.getIdProvince())).
                         name(cityDTO.getName()).
                         areaCode(cityDTO.getAreaCode()).
-                        postalCode(cityDTO.getPostalCode()).build()));
+                        postalCode(cityDTO.getPostalCode()).build());
     }
 }

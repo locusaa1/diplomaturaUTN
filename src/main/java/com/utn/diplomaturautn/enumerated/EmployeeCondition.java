@@ -1,6 +1,6 @@
 package com.utn.diplomaturautn.enumerated;
 
-public enum employeeCondition {
+public enum EmployeeCondition {
 
     ACTIVE, INACTIVE;
 }

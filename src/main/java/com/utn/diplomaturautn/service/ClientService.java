@@ -1,6 +1,8 @@
 package com.utn.diplomaturautn.service;
 
 import com.utn.diplomaturautn.model.Client;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
@@ -21,6 +23,7 @@ public interface ClientService {
      */
     Client getById(int id);
 
+
     /**
      * Adds a new client into the repository.
      *
@@ -28,4 +31,10 @@ public interface ClientService {
      * @return the Client object with his last form from the repository.
      */
     Client addClient(Client newClient);
+
+    Client discontinueClient(int id);
+
+    Client deleteClient(int id);
+
+    Client reactivateClient(int id);
 }

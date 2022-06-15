@@ -13,5 +13,4 @@ public class DiplomaturaUtnApplication {
 
         SpringApplication.run(DiplomaturaUtnApplication.class, args);
     }
-
 }

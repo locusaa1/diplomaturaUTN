@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Getter
 @Setter
 @ToString
-@Builder //Provides static method to build the Bean
 @Component
 @AllArgsConstructor //AutoGenerates the constructor with all the parameters for the class. (Lombok)
 @NoArgsConstructor //AutoGenerates the constructor with no parameters for the class. (Lombok)
