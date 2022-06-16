@@ -20,12 +20,4 @@ public interface FeeService {
      * @return the specific Fee object.
      */
     Fee getById(int id);
-
-    /**
-     * Adds a new fee into the repository
-     *
-     * @param newFee the Fee object to be saved.
-     * @return the Fee object with his last form from the repository.
-     */
-    Fee addFee(Fee newFee);
 }

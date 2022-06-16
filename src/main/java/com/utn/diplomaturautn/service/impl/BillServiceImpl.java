@@ -1,16 +1,25 @@
 package com.utn.diplomaturautn.service.impl;
 
+import com.utn.diplomaturautn.enumerated.UserType;
+import com.utn.diplomaturautn.exception.InvalidBillRequest;
 import com.utn.diplomaturautn.exception.NoContentException;
 import com.utn.diplomaturautn.model.Bill;
 import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.repositroy.BillRepository;
 import com.utn.diplomaturautn.service.BillService;
 import com.utn.diplomaturautn.utils.Utils;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class BillServiceImpl implements BillService {
@@ -22,14 +31,14 @@ public class BillServiceImpl implements BillService {
         this.billRepository = billRepository;
     }
 
-    private List<Bill> checkEmptyListThrowsException(Optional<List<Bill>> billsList) {
+    private List<Bill> checkEmptyListThrowsException(List<Bill> billList) {
 
-        if (billsList.isEmpty()) {
+        if (billList.isEmpty()) {
 
             throw new NoContentException("There is not a register between the specifics dates");
         } else {
 
-            return billsList.get();
+            return billList;
         }
     }
 
@@ -46,22 +55,48 @@ public class BillServiceImpl implements BillService {
     }
 
     @Override
-    public List<Bill> getByDateRangeAndClient(Timestamp from, Timestamp to, Client client) {
+    public List<Bill> getByDateRangeAndClient(String from, String to, Client client, Authentication auth) {
 
-        Utils.compareDatesThrowingExceptions(from, to);
+        List<Bill> billList = this.getByDateRange(from, to, auth);
 
-        Optional<List<Bill>> billsList = this.billRepository.findByGeneratedDateGreaterThanEqualAndGeneratedDateIsLessThanEqualAndClient(from, to, client);
-
-        return this.checkEmptyListThrowsException(billsList);
+        return this.checkEmptyListThrowsException(
+                billList.stream()
+                        .filter(b -> b.getClient().getUsername().equals(client.getUsername()))
+                        .collect(Collectors.toList()));
     }
 
     @Override
-    public List<Bill> getByDateRange(Timestamp from, Timestamp to) {
+    public List<Bill> getByDateRange(String from, String to, Authentication auth) {
 
-        Utils.compareDatesThrowingExceptions(from, to);
+        Timestamp timestampFrom = Timestamp.valueOf(from + " 00:00:00");
 
-        Optional<List<Bill>> billsList = this.billRepository.findByGeneratedDateGreaterThanEqualAndGeneratedDateIsLessThanEqual(from, to);
+        Timestamp timestampTo = (to.equals(LocalDate.now().toString())) ?
+                Timestamp.valueOf(to.concat(" " + LocalTime.now().toString())) :
+                Timestamp.valueOf(to + " 23:59:59");
 
-        return this.checkEmptyListThrowsException(billsList);
+        Utils.compareDatesThrowingExceptions(timestampFrom, timestampTo);
+
+        User userRequesting = (User) auth.getPrincipal();
+
+        Optional<List<Bill>> billsList = this.billRepository.findByGeneratedDateGreaterThanEqualAndGeneratedDateIsLessThanEqual(timestampFrom, timestampTo);
+
+        if (billsList.isPresent()) {
+
+            List<Bill> presentList = billsList.get();
+            List<Bill> finalList;
+            if (userRequesting.getAuthorities().contains(new SimpleGrantedAuthority(UserType.CLIENT.toString()))) {
+
+                finalList = presentList.stream()
+                        .filter(b -> b.getClient().getUsername().equals(userRequesting.getUsername()))
+                        .collect(Collectors.toList());
+            } else {
+
+                finalList = presentList;
+            }
+            return this.checkEmptyListThrowsException(finalList);
+        } else {
+
+            throw new NoContentException("There are not bills with the specifics filters.");
+        }
     }
 }

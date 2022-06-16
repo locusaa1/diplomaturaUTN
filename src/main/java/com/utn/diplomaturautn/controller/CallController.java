@@ -9,6 +9,7 @@ import com.utn.diplomaturautn.service.ClientService;
 import com.utn.diplomaturautn.service.PhoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -43,47 +44,12 @@ public class CallController {
         return this.callService.getAll();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public Call getById(@PathVariable("id") int id) {
 
         return this.callService.getById(id);
-    }
-
-    @GetMapping("/date&client")
-    @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
-    public List<Call> getByDateRangeAndUser(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
-                                            @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to,
-                                            @RequestParam("clientId") int clientId) {
-
-        Timestamp dateFrom = Timestamp.valueOf(from + " 00:00:00");
-
-        Timestamp dateTo = (to.equals(LocalDate.now().toString())) ?
-                Timestamp.valueOf(to.concat(" " + LocalTime.now().toString())) :
-                Timestamp.valueOf(to + " 23:59:59");
-
-        Client client = this.clientService.getById(clientId);
-
-        return this.callService.getByDateRangeAndUser(dateFrom,
-                dateTo,
-                this.phoneService.getById(client.getPhone().getId()));
-    }
-
-    @GetMapping("/date")
-    @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
-    public List<Call> getByDateRange(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
-                                     @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to) {
-
-        Timestamp dateFrom = Timestamp.valueOf(from + " 00:00:00");
-
-        Timestamp dateTo = (to.equals(LocalDate.now().toString())) ?
-                Timestamp.valueOf(to.concat(" " + LocalTime.now().toString())) :
-                Timestamp.valueOf(to + " 23:59:59");
-
-        return this.callService.getByDateRange(dateFrom, dateTo);
     }
 
     @PostMapping("/")
@@ -97,5 +63,26 @@ public class CallController {
                         destinationPhone(this.phoneService.getByNumber(newCallDTO.getDestinationPhone())).
                         startDate(Timestamp.valueOf(newCallDTO.getDateTime())).
                         duration(newCallDTO.getDuration()).build());
+    }
+
+    @GetMapping("/date&client")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<Call> getByDateRangeAndUser(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
+                                            @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to,
+                                            @RequestParam("clientId") int clientId,
+                                            Authentication auth) {
+
+        return this.callService.getByDateRangeAndUser(from, to, this.clientService.getById(clientId).getPhone(), auth);
+    }
+
+    @GetMapping("/date")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<Call> getByDateRange(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
+                                     @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to,
+                                     Authentication auth) {
+
+        return this.callService.getByDateRange(from, to, auth);
     }
 }

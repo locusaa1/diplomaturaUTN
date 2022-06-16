@@ -6,6 +6,7 @@ import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.service.BillService;
 import com.utn.diplomaturautn.service.ClientService;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -49,33 +50,19 @@ public class BillController {
     @ResponseBody
     public List<Bill> getByDateRangeAndClient(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
                                               @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to,
-                                              @RequestParam("client") int clientId) {
+                                              @RequestParam("client") int clientId,
+                                              Authentication auth) {
 
-        Timestamp dateFrom = Timestamp.valueOf(from + " 00:00:00");
-
-        Timestamp dateTo = (to.equals(LocalDate.now().toString())) ?
-                Timestamp.valueOf(to.concat(" " + LocalTime.now().toString())) :
-                Timestamp.valueOf(to + " 23:59:59");
-
-        Client client = this.clientService.getById(clientId);
-
-        return this.billService.getByDateRangeAndClient(dateFrom,
-                dateTo,
-                client);
+        return this.billService.getByDateRangeAndClient(from, to, this.clientService.getById(clientId), auth);
     }
 
     @GetMapping("/date")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<Bill> getByDateRange(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
-                                     @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to) {
+                                     @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to,
+                                     Authentication auth) {
 
-        Timestamp dateFrom = Timestamp.valueOf(from + " 00:00:00");
-
-        Timestamp dateTo = (to.equals(LocalDate.now().toString())) ?
-                Timestamp.valueOf(to.concat(" " + LocalTime.now().toString())) :
-                Timestamp.valueOf(to + " 23:59:59");
-
-        return this.billService.getByDateRange(dateFrom, dateTo);
+        return this.billService.getByDateRange(from, to, auth);
     }
 }

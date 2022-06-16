@@ -6,10 +6,6 @@ import com.utn.diplomaturautn.dataTransferObject.LoginDTO;
 import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.model.Employee;
 import com.utn.diplomaturautn.service.*;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -94,7 +90,7 @@ public class PersonController {
         return jwtService.createToken(userDetails);
     }
 
-    @PostMapping("/client/")
+    @PostMapping("/client")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public Client addClient(@RequestBody @Valid ClientDTO newClientDTO) {
@@ -134,7 +130,7 @@ public class PersonController {
         return this.clientService.deleteClient(clientId);
     }
 
-    @PostMapping("/employee/")
+    @PostMapping("/employee")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public Employee addEmployee(@RequestBody @Valid EmployeeDTO newEmployeeDTO) {

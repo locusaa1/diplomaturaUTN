@@ -4,7 +4,6 @@ import com.utn.diplomaturautn.exception.*;
 import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.repositroy.ClientRepository;
 import com.utn.diplomaturautn.service.ClientService;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

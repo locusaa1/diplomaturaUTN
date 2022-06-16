@@ -2,6 +2,7 @@ package com.utn.diplomaturautn.service;
 
 import com.utn.diplomaturautn.model.Call;
 import com.utn.diplomaturautn.model.Phone;
+import org.springframework.security.core.Authentication;
 
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -14,7 +15,7 @@ public interface CallService {
      *
      * @return a list of calls.
      */
-    public List<Call> getAll();
+    List<Call> getAll();
 
     /**
      * Searches for the specific call id into the repository.
@@ -22,7 +23,7 @@ public interface CallService {
      * @param id the id of the specific call.
      * @return the specific Call object.
      */
-    public Call getById(int id);
+    Call getById(int id);
 
     /**
      * Adds a new call into the repository.
@@ -30,7 +31,7 @@ public interface CallService {
      * @param newCall the Call object to be saved.
      * @return the Call object with his last form from the repository.
      */
-    public Call addCall(Call newCall);
+    Call addCall(Call newCall);
 
     /**
      * Lists all calls from the repository that were made between the specifics dates and matches the user phone.
@@ -40,7 +41,7 @@ public interface CallService {
      * @param originPhone the Phone of the user.
      * @return a list of calls filtered.
      */
-    public List<Call> getByDateRangeAndUser(Timestamp from, Timestamp to, Phone originPhone);
+    List<Call> getByDateRangeAndUser(String from, String to, Phone originPhone, Authentication auth);
 
     /**
      * List all calls from the repository that were made between the specifics dates.
@@ -49,5 +50,5 @@ public interface CallService {
      * @param to   the end date of the filter.
      * @return a list of calls filtered.
      */
-    public List<Call> getByDateRange(Timestamp from, Timestamp to);
+    List<Call> getByDateRange(String from, String to, Authentication auth);
 }

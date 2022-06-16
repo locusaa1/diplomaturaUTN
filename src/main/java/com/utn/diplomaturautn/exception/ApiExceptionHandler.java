@@ -70,6 +70,17 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                 timestamp(Time.valueOf(LocalTime.now())).build();
     }
 
+    @ExceptionHandler(InvalidBillRequest.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    @ResponseBody
+    public ErrorObject handleInvalidBillRequestException(Exception exception) {
+
+        return ErrorObject.builder().
+                statusCode(HttpStatus.FORBIDDEN.value()).
+                message(exception.getMessage()).
+                timestamp(Time.valueOf(LocalTime.now())).build();
+    }
+
     @Override
     public @NotNull ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, @NotNull HttpHeaders headers, @NotNull HttpStatus status, @NotNull WebRequest request) {
 

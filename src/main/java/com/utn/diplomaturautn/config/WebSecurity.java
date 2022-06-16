@@ -51,24 +51,63 @@ public class WebSecurity {
         http.csrf().disable()
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class)
+                //Authorization permit all for swagger
                 .authorizeRequests()
                 .antMatchers("/swagger-ui", "/swagger-ui.html", "/open-api/swagger-ui-custom.html", "/swagger-ui/index.html", "/configuration/**", "/swagger*/**", "/webjars/**").permitAll()
                 .antMatchers("/v2/api-docs/**", "/v3/api-docs/**").permitAll()
                 .and()
+                //Authorization permit all for login
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/api/person/login").permitAll()
                 .and()
+                //Authorization POST map for PersonController with Employee usertype
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/api/person/client/**",
-                        "/api/person/employee/**",
-                        "/api/person/client/",
-                        "/api/person/employee/").hasAuthority(UserType.EMPLOYEE.toString())
+                .antMatchers(HttpMethod.POST, "/api/person/client",
+                        "/api/person/employee").hasAuthority(UserType.EMPLOYEE.toString())
                 .and()
+                //Authorization PATCH map for the PersonController with Employee usertype
                 .authorizeRequests()
-                .antMatchers(HttpMethod.PATCH, "/api/person/client/**",
-                        "/api/person/employee/**",
-                        "/api/person/client/",
-                        "/api/person/employee/").hasAuthority(UserType.EMPLOYEE.toString())
+                .antMatchers(HttpMethod.PATCH, "/api/person/client/{id}",
+                        "/api/person/client/discontinue/{id}",
+                        "/api/person/client/reactivate/{id}",
+                        "/api/person/employee/{id}",
+                        "/api/person/employee/reactivate/{id}").hasAuthority(UserType.EMPLOYEE.toString())
+                .and()
+                //Authorization DELETE map for the PersonController with Employee usertype
+                .authorizeRequests()
+                .antMatchers(HttpMethod.DELETE, "/api/person/client/{id}",
+                        "/api/person/employee/{id}").hasAuthority(UserType.EMPLOYEE.toString())
+                .and()
+                //Authorization GET map for the FeeController with Employee usertype
+                .authorizeRequests()
+                .antMatchers(HttpMethod.GET,"/api/fee/",
+                        "/api/fee/{id}").hasAuthority(UserType.EMPLOYEE.toString())
+                .and()
+                //Authorization POST map for the CallController with ANTENNA usertype
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/api/call/").hasAuthority(UserType.ANTENNA.toString())
+                .and()
+                //Authorization GET map for the CallController with CLIENT usertype
+                .authorizeRequests()
+                .antMatchers(HttpMethod.GET,"/api/call/date").hasAuthority(UserType.CLIENT.toString())
+                .and()
+                //Authorization GET map for the CallController with EMPLOYEE usertype
+                .authorizeRequests()
+                .antMatchers(HttpMethod.GET,"/api/call/date",
+                        "/api/call/date&client",
+                        "/api/call/{id}",
+                        "/api/call/").hasAuthority(UserType.EMPLOYEE.toString())
+                .and()
+                //Authorization GET map for the BillController with CLIENT usertype
+                .authorizeRequests()
+                .antMatchers(HttpMethod.GET, "/api/bill/date").hasAuthority(UserType.CLIENT.toString())
+                .and()
+                //Authorization GET map for the BillController with EMPLOYEE usertype
+                .authorizeRequests()
+                .antMatchers(HttpMethod.GET,"/api/bill/date",
+                        "/api/bill/date&client",
+                        "/api/bill/{id}",
+                        "/api/bill/").hasAuthority(UserType.EMPLOYEE.toString())
                 .anyRequest().authenticated();
 
         return http.build();

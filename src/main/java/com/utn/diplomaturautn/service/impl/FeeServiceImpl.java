@@ -56,10 +56,4 @@ public class FeeServiceImpl implements FeeService {
             }
         }
     }
-
-    @Override
-    public Fee addFee(Fee newFee) {
-
-        return this.feeRepository.save(newFee);
-    }
 }
