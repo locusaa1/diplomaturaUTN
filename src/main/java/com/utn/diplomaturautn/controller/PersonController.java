@@ -102,6 +102,14 @@ public class PersonController {
         return this.clientService.addClient(this.fromClientDTOtoClient(newClientDTO));
     }
 
+    @PatchMapping("/client/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Client modifyClient(@RequestBody ClientDTO newClientDTO, @PathVariable("id") int clientId) {
+
+        return this.clientService.modifyClient(this.fromClientDTOtoClient(newClientDTO), clientId);
+    }
+
     @PatchMapping("/client/discontinue/{id}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -132,6 +140,14 @@ public class PersonController {
     public Employee addEmployee(@RequestBody @Valid EmployeeDTO newEmployeeDTO) {
 
         return this.employeeService.addEmployee(this.fromEmployeeDTOtoEmployee(newEmployeeDTO));
+    }
+
+    @PatchMapping("/employee/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Employee modifyEmployee(@RequestBody EmployeeDTO newEmployeeDTO, @PathVariable("id") int employeeId) {
+
+        return this.employeeService.modifyEmployee(this.fromEmployeeDTOtoEmployee(newEmployeeDTO), employeeId);
     }
 
     @PatchMapping("/employee/reactivate/{id}")

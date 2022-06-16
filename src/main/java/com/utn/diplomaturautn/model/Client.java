@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.utn.diplomaturautn.enumerated.ClientCondition;
 import com.utn.diplomaturautn.enumerated.UserType;
 import lombok.*;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -46,6 +47,16 @@ public class Client extends User implements UserDetails {
         this.setUserType(userType);
         this.phone = phone;
         this.condition = condition;
+    }
+
+    public Client modifyUsingClient(Client newData) {
+
+        this.modifyUsingUser(newData);
+        if (!Objects.isNull(newData.getPhone()) && !this.getPhone().equals(newData.getPhone())) {
+
+            this.setPhone(newData.getPhone());
+        }
+        return this;
     }
 
     @Override

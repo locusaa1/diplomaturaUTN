@@ -2,8 +2,6 @@ package com.utn.diplomaturautn.config;
 
 import com.utn.diplomaturautn.enumerated.UserType;
 import com.utn.diplomaturautn.filter.JwtAuthorizationFilter;
-import com.utn.diplomaturautn.service.ClientService;
-import com.utn.diplomaturautn.service.EmployeeService;
 import com.utn.diplomaturautn.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +12,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;

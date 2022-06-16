@@ -5,6 +5,7 @@ import com.utn.diplomaturautn.enumerated.ClientCondition;
 import com.utn.diplomaturautn.enumerated.EmployeeCondition;
 import com.utn.diplomaturautn.enumerated.UserType;
 import lombok.*;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Component;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -40,6 +42,12 @@ public class Employee extends User implements UserDetails {
         this.setPassword(password);
         this.setUserType(userType);
         this.condition = condition;
+    }
+
+    public Employee modifyUsingEmployee(Employee newData) {
+
+        this.modifyUsingUser(newData);
+        return this;
     }
 
     @Override

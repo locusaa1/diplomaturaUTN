@@ -4,6 +4,7 @@ import com.utn.diplomaturautn.exception.*;
 import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.repositroy.ClientRepository;
 import com.utn.diplomaturautn.service.ClientService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,7 @@ public class ClientServiceImpl implements ClientService {
         this.clientRepository = clientRepository;
     }
 
+    @Override
     public List<Client> getAll() {
 
         List<Client> clientList = this.clientRepository.findAll();
@@ -36,14 +38,15 @@ public class ClientServiceImpl implements ClientService {
         }
     }
 
-    public Client getById(int id) {
+    @Override
+    public Client getById(int clientId) {
 
-        if (id <= 0) {
+        if (clientId <= 0) {
 
             throw new InvalidBeanFieldsException("The id must be higher than 0.");
         } else {
 
-            Optional<Client> client = this.clientRepository.findById(id);
+            Optional<Client> client = this.clientRepository.findById(clientId);
 
             if (client.isEmpty()) {
 
@@ -55,6 +58,7 @@ public class ClientServiceImpl implements ClientService {
         }
     }
 
+    @Override
     public Client addClient(Client newClient) {
 
         try {
@@ -66,9 +70,25 @@ public class ClientServiceImpl implements ClientService {
         }
     }
 
-    public Client discontinueClient(int id) {
+    @Override
+    public Client modifyClient(Client clientNewData, int clientId) {
 
-        Client clientFound = this.getById(id);
+        Client clientFound = this.getById(clientId);
+
+        if (!clientFound.equals(clientNewData)) {
+
+            return this.clientRepository.save(clientFound.modifyUsingClient(clientNewData));
+
+        } else {
+
+            throw new NothingToModifyException("The new data matches all the client from the database, there is nothing to modify.");
+        }
+    }
+
+    @Override
+    public Client discontinueClient(int clientId) {
+
+        Client clientFound = this.getById(clientId);
 
         if (clientFound.getCondition() == DISCONTINUED) {
 
@@ -80,9 +100,10 @@ public class ClientServiceImpl implements ClientService {
         return this.clientRepository.save(clientFound);
     }
 
-    public Client reactivateClient(int id) {
+    @Override
+    public Client reactivateClient(int clientId) {
 
-        Client clientFound = this.getById(id);
+        Client clientFound = this.getById(clientId);
 
         if (clientFound.getCondition() == ACTIVE) {
 
@@ -94,9 +115,10 @@ public class ClientServiceImpl implements ClientService {
         return this.clientRepository.save(clientFound);
     }
 
-    public Client deleteClient(int id) {
+    @Override
+    public Client deleteClient(int clientId) {
 
-        Client clientFound = this.getById(id);
+        Client clientFound = this.getById(clientId);
 
         if (clientFound.getCondition() == INACTIVE) {
 

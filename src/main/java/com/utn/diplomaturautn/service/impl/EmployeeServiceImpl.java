@@ -38,14 +38,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee getById(int id) {
+    public Employee getById(int employeeId) {
 
-        if (id <= 0) {
+        if (employeeId <= 0) {
 
             throw new InvalidBeanFieldsException("The id must be higher than 0.");
         } else {
 
-            Optional<Employee> employee = this.employeeRepository.findById(id);
+            Optional<Employee> employee = this.employeeRepository.findById(employeeId);
 
             if (employee.isEmpty()) {
 
@@ -70,9 +70,22 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee reactiveEmployee(int id) {
+    public Employee modifyEmployee(Employee employeeNewData, int employeeId) {
 
-        Employee employeeFound = this.getById(id);
+        Employee employeeFound = this.getById(employeeId);
+
+        if (!employeeFound.equals(employeeNewData)) {
+
+            return this.employeeRepository.save(employeeFound.modifyUsingEmployee(employeeNewData));
+        } else {
+            throw new NothingToModifyException("The new data matches all the employee from the database, there is nothing to modify.");
+        }
+    }
+
+    @Override
+    public Employee reactiveEmployee(int employeeId) {
+
+        Employee employeeFound = this.getById(employeeId);
 
         if (employeeFound.getCondition() == ACTIVE) {
 
@@ -85,9 +98,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee deleteEmployee(int id) {
+    public Employee deleteEmployee(int employeeId) {
 
-        Employee employeeFound = this.getById(id);
+        Employee employeeFound = this.getById(employeeId);
 
         if (employeeFound.getCondition() == INACTIVE) {
 
