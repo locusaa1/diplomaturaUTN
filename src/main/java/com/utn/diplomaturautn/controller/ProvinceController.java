@@ -45,12 +45,4 @@ public class ProvinceController {
 
         return this.provinceService.addProvince(Province.builder().name(newProvinceDTO.getName()).build());
     }
-
-    @PatchMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
-    public Province modifyProvince(@RequestBody @Valid ProvinceDTO patchProvinceDTO, @PathVariable("id") int provinceId) {
-
-        return this.provinceService.modifyProvince(patchProvinceDTO, provinceId);
-    }
 }

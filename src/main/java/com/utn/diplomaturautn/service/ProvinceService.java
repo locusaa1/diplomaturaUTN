@@ -29,13 +29,4 @@ public interface ProvinceService {
      * @return the Province object with his last form from the repository.
      */
     Province addProvince(Province newProvince);
-
-    /**
-     * Modifies an existing province
-     *
-     * @param patchProvinceDTO the ProvinceDTO object to be applied as modification.
-     * @param provinceId the id of the province to be modified.
-     * @return the Province object with his last form from the repository.
-     */
-    Province modifyProvince(ProvinceDTO patchProvinceDTO, int provinceId);
 }

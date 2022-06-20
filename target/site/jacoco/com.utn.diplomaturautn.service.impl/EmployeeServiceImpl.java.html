@@ -26,33 +26,33 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public List&lt;Employee&gt; getAll() {
 
-<span class="nc" id="L29">        List&lt;Employee&gt; employeeList = this.employeeRepository.findAll();</span>
+<span class="fc" id="L29">        List&lt;Employee&gt; employeeList = this.employeeRepository.findAll();</span>
 
-<span class="nc bnc" id="L31" title="All 2 branches missed.">        if (employeeList.isEmpty()) {</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">        if (employeeList.isEmpty()) {</span>
 
-<span class="nc" id="L33">            throw new NoContentException(&quot;There is no content in the database from this entity.&quot;);</span>
+<span class="fc" id="L33">            throw new NoContentException(&quot;There is no content in the database from this entity.&quot;);</span>
         } else {
 
-<span class="nc" id="L36">            return employeeList;</span>
+<span class="fc" id="L36">            return employeeList;</span>
         }
     }
 
     @Override
     public Employee getById(int employeeId) {
 
-<span class="nc bnc" id="L43" title="All 2 branches missed.">        if (employeeId &lt;= 0) {</span>
+<span class="pc bpc" id="L43" title="1 of 2 branches missed.">        if (employeeId &lt;= 0) {</span>
 
 <span class="nc" id="L45">            throw new InvalidBeanFieldsException(&quot;The id must be higher than 0.&quot;);</span>
         } else {
 
-<span class="nc" id="L48">            Optional&lt;Employee&gt; employee = this.employeeRepository.findById(employeeId);</span>
+<span class="fc" id="L48">            Optional&lt;Employee&gt; employee = this.employeeRepository.findById(employeeId);</span>
 
-<span class="nc bnc" id="L50" title="All 2 branches missed.">            if (employee.isEmpty()) {</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">            if (employee.isEmpty()) {</span>
 
 <span class="nc" id="L52">                throw new ResourceNotFoundException(&quot;There is not a register with the specific id.&quot;);</span>
             } else {
 
-<span class="nc" id="L55">                return employee.get();</span>
+<span class="fc" id="L55">                return employee.get();</span>
             }
         }
     }
@@ -62,54 +62,54 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         try {
 
-<span class="nc" id="L65">            return this.employeeRepository.save(newEmployee);</span>
-<span class="nc" id="L66">        } catch (Exception exception) {</span>
+<span class="fc" id="L65">            return this.employeeRepository.save(newEmployee);</span>
+<span class="fc" id="L66">        } catch (Exception exception) {</span>
 
-<span class="nc" id="L68">            throw new ErrorSavingEntityException(&quot;Saving the entity failed. Nested exception message: &quot; + exception.getMessage());</span>
+<span class="fc" id="L68">            throw new ErrorSavingEntityException(&quot;Saving the entity failed. Nested exception message: &quot; + exception.getMessage());</span>
         }
     }
 
     @Override
     public Employee modifyEmployee(Employee employeeNewData, int employeeId) {
 
-<span class="nc" id="L75">        Employee employeeFound = this.getById(employeeId);</span>
+<span class="fc" id="L75">        Employee employeeFound = this.getById(employeeId);</span>
 
-<span class="nc bnc" id="L77" title="All 2 branches missed.">        if (!employeeFound.equals(employeeNewData)) {</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">        if (!employeeFound.equals(employeeNewData)) {</span>
 
-<span class="nc" id="L79">            return this.employeeRepository.save(employeeFound.modifyUsingEmployee(employeeNewData));</span>
+<span class="fc" id="L79">            return this.employeeRepository.save(employeeFound.modifyUsingEmployee(employeeNewData));</span>
         } else {
-<span class="nc" id="L81">            throw new NothingToModifyException(&quot;The new data matches all the employee from the database, there is nothing to modify.&quot;);</span>
+<span class="fc" id="L81">            throw new NothingToModifyException(&quot;The new data matches all the employee from the database, there is nothing to modify.&quot;);</span>
         }
     }
 
     @Override
     public Employee reactiveEmployee(int employeeId) {
 
-<span class="nc" id="L88">        Employee employeeFound = this.getById(employeeId);</span>
+<span class="fc" id="L88">        Employee employeeFound = this.getById(employeeId);</span>
 
-<span class="nc bnc" id="L90" title="All 2 branches missed.">        if (employeeFound.getCondition() == ACTIVE) {</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">        if (employeeFound.getCondition() == ACTIVE) {</span>
 
-<span class="nc" id="L92">            throw new NothingToModifyException(&quot;The employee is already active.&quot;);</span>
+<span class="fc" id="L92">            throw new NothingToModifyException(&quot;The employee is already active.&quot;);</span>
         } else {
 
-<span class="nc" id="L95">            employeeFound.setCondition(ACTIVE);</span>
+<span class="fc" id="L95">            employeeFound.setCondition(ACTIVE);</span>
         }
-<span class="nc" id="L97">        return this.employeeRepository.save(employeeFound);</span>
+<span class="fc" id="L97">        return this.employeeRepository.save(employeeFound);</span>
     }
 
     @Override
     public Employee deleteEmployee(int employeeId) {
 
-<span class="nc" id="L103">        Employee employeeFound = this.getById(employeeId);</span>
+<span class="fc" id="L103">        Employee employeeFound = this.getById(employeeId);</span>
 
-<span class="nc bnc" id="L105" title="All 2 branches missed.">        if (employeeFound.getCondition() == INACTIVE) {</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">        if (employeeFound.getCondition() == INACTIVE) {</span>
 
-<span class="nc" id="L107">            throw new NothingToModifyException(&quot;The employee is already inactive.&quot;);</span>
+<span class="fc" id="L107">            throw new NothingToModifyException(&quot;The employee is already inactive.&quot;);</span>
         } else {
 
-<span class="nc" id="L110">            employeeFound.setCondition(INACTIVE);</span>
+<span class="fc" id="L110">            employeeFound.setCondition(INACTIVE);</span>
         }
-<span class="nc" id="L112">        return employeeRepository.save(employeeFound);</span>
+<span class="fc" id="L112">        return employeeRepository.save(employeeFound);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

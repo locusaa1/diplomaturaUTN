@@ -67,32 +67,4 @@ public class ProvinceServiceImpl implements ProvinceService {
             throw exception;
         }
     }
-
-    public Province modifyProvince(ProvinceDTO patchProvince, int provinceId) {
-
-        if (provinceId <= 0) {
-
-            throw new InvalidBeanFieldsException("The id must be higher than 0.");
-        } else {
-
-            Optional<Province> storedProvince = this.provinceRepository.findById(provinceId);
-
-            if (storedProvince.isEmpty()) {
-
-                throw new ResourceNotFoundException("There is not a register with the specific id.");
-            } else {
-
-                Province province = storedProvince.get();
-
-                if (province.getName().equals(patchProvince.getName())) {
-
-                    throw new NothingToModifyException("The stored register can not be updated with the same attributes.");
-                } else {
-
-                    province.setName(patchProvince.getName());
-                    return this.provinceRepository.save(province);
-                }
-            }
-        }
-    }
 }

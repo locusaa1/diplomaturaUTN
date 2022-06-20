@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CityServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">diplomaturaUTN</a> &gt; <a href="index.source.html" class="el_package">com.utn.diplomaturautn.service.impl</a> &gt; <span class="el_source">CityServiceImpl.java</span></div><h1>CityServiceImpl.java</h1><pre class="source lang-java linenums">package com.utn.diplomaturautn.service.impl;
 
+import com.utn.diplomaturautn.exception.InvalidBeanFieldsException;
+import com.utn.diplomaturautn.exception.NoContentException;
+import com.utn.diplomaturautn.exception.ResourceNotFoundException;
 import com.utn.diplomaturautn.model.City;
 import com.utn.diplomaturautn.repositroy.CityRepository;
 import com.utn.diplomaturautn.service.CityService;
@@ -7,31 +10,48 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-<span class="fc" id="L12">public class CityServiceImpl implements CityService {</span>
+<span class="fc" id="L16">public class CityServiceImpl implements CityService {</span>
 
     private CityRepository cityRepository;
 
     @Autowired
     public void CityRepository(CityRepository cityRepository) {
 
-<span class="fc" id="L19">        this.cityRepository = cityRepository;</span>
-<span class="fc" id="L20">    }</span>
-
-    public City addCity(City city) {
-
-<span class="nc" id="L24">        return this.cityRepository.save(city);</span>
-    }
-
-    public City getById(int id) {
-
-<span class="nc" id="L29">        return this.cityRepository.findById(id).get();</span>
-    }
+<span class="fc" id="L23">        this.cityRepository = cityRepository;</span>
+<span class="fc" id="L24">    }</span>
 
     public List&lt;City&gt; getAll() {
 
-<span class="nc" id="L34">        return this.cityRepository.findAll();</span>
+<span class="fc" id="L28">        List&lt;City&gt; cityList = this.cityRepository.findAll();</span>
+
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (!cityList.isEmpty()) {</span>
+
+<span class="fc" id="L32">            return cityList;</span>
+        } else {
+
+<span class="fc" id="L35">            throw new NoContentException(&quot;There is no content in the database from this entity&quot;);</span>
+        }
+    }
+
+    public City getById(int cityId) {
+
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        if (cityId &gt; 0) {</span>
+
+<span class="fc" id="L43">            Optional&lt;City&gt; cityFound = this.cityRepository.findById(cityId);</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">            if (cityFound.isPresent()) {</span>
+
+<span class="fc" id="L46">                return cityFound.get();</span>
+            } else {
+
+<span class="fc" id="L49">                throw new ResourceNotFoundException(&quot;There is not a register with the specific id.&quot;);</span>
+            }
+        } else {
+
+<span class="fc" id="L53">            throw new InvalidBeanFieldsException(&quot;The id must be higher than 0.&quot;);</span>
+        }
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -67,33 +67,5 @@ import java.util.Optional;
 <span class="fc" id="L67">            throw exception;</span>
         }
     }
-
-    public Province modifyProvince(ProvinceDTO patchProvince, int provinceId) {
-
-<span class="nc bnc" id="L73" title="All 2 branches missed.">        if (provinceId &lt;= 0) {</span>
-
-<span class="nc" id="L75">            throw new InvalidBeanFieldsException(&quot;The id must be higher than 0.&quot;);</span>
-        } else {
-
-<span class="nc" id="L78">            Optional&lt;Province&gt; storedProvince = this.provinceRepository.findById(provinceId);</span>
-
-<span class="nc bnc" id="L80" title="All 2 branches missed.">            if (storedProvince.isEmpty()) {</span>
-
-<span class="nc" id="L82">                throw new ResourceNotFoundException(&quot;There is not a register with the specific id.&quot;);</span>
-            } else {
-
-<span class="nc" id="L85">                Province province = storedProvince.get();</span>
-
-<span class="nc bnc" id="L87" title="All 2 branches missed.">                if (province.getName().equals(patchProvince.getName())) {</span>
-
-<span class="nc" id="L89">                    throw new NothingToModifyException(&quot;The stored register can not be updated with the same attributes.&quot;);</span>
-                } else {
-
-<span class="nc" id="L92">                    province.setName(patchProvince.getName());</span>
-<span class="nc" id="L93">                    return this.provinceRepository.save(province);</span>
-                }
-            }
-        }
-    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

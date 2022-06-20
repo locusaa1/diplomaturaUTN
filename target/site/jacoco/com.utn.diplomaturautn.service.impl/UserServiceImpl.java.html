@@ -27,29 +27,29 @@ public class UserServiceImpl implements UserService {
 
     public UserDetails getByUsername(String username) {
 
-<span class="nc bnc" id="L30" title="All 2 branches missed.">        if (username.isEmpty()) {</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (username.isEmpty()) {</span>
 
-<span class="nc" id="L32">            throw new InvalidBeanFieldsException(&quot;The username field is mandatory.&quot;);</span>
+<span class="fc" id="L32">            throw new InvalidBeanFieldsException(&quot;The username field is mandatory.&quot;);</span>
         } else {
 
-<span class="nc" id="L35">            Optional&lt;UserDetails&gt; user = this.clientRepository.findByUsernameEquals(username);</span>
+<span class="fc" id="L35">            Optional&lt;UserDetails&gt; user = this.clientRepository.findByUsernameEquals(username);</span>
 
-<span class="nc bnc" id="L37" title="All 2 branches missed.">            if (user.isEmpty()) {</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">            if (user.isEmpty()) {</span>
 
-<span class="nc" id="L39">                user = this.employeeRepository.findByUsername(username);</span>
+<span class="fc" id="L39">                user = this.employeeRepository.findByUsername(username);</span>
 
-<span class="nc bnc" id="L41" title="All 2 branches missed.">                if (user.isEmpty()) {</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">                if (user.isEmpty()) {</span>
 
-<span class="nc" id="L43">                    throw new ResourceNotFoundException(&quot;There is not a register with the specific username.&quot;);</span>
+<span class="fc" id="L43">                    throw new ResourceNotFoundException(&quot;There is not a register with the specific username.&quot;);</span>
                 }
             }
-<span class="nc" id="L46">            return user.get();</span>
+<span class="fc" id="L46">            return user.get();</span>
         }
     }
 
     public UserDetails loadUserByUsername(String username) {
 
-<span class="nc" id="L52">        return this.getByUsername(username);</span>
+<span class="fc" id="L52">        return this.getByUsername(username);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

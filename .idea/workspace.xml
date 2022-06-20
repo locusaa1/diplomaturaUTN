@@ -6,11 +6,62 @@
   <component name="ChangeListManager">
     <list default="true" id="ba7185cc-6f18-49d2-876f-35439a40052f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/utn/diplomaturautn/data/DataForModels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/utn/diplomaturautn/data/DataForModels.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/CityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/CityService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/CityServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/CityServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/ProvinceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/ProvinceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/ProvinceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/ProvinceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/ProvinceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/ProvinceServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/ProvinceController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/ProvinceController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/ProvinceService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/ProvinceService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/EmployeeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/EmployeeServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/ProvinceServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/ProvinceServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/target/jacoco.exec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/ProvinceController.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/ProvinceController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/ProvinceController.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/ProvinceController.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Client.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Client.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Employee$EmployeeBuilder.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Employee$EmployeeBuilder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Employee.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Employee.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Employee.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Employee.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/CityServiceImpl.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/CityServiceImpl.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/CityServiceImpl.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/CityServiceImpl.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/EmployeeServiceImpl.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/EmployeeServiceImpl.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/EmployeeServiceImpl.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/EmployeeServiceImpl.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/FeeServiceImpl.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/FeeServiceImpl.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/FeeServiceImpl.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/FeeServiceImpl.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/ProvinceServiceImpl.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/ProvinceServiceImpl.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/ProvinceServiceImpl.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/ProvinceServiceImpl.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/UserServiceImpl.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/UserServiceImpl.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/UserServiceImpl.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/UserServiceImpl.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2022-06-19T16-35-33_874.dumpstream" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.DiplomaturaUtnApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.DiplomaturaUtnApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.ProvinceServiceImplTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.AddClientTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.AddClientTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.DeleteClientTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.DeleteClientTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.DiscontinueClientTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.DiscontinueClientTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.GetAllTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.GetAllTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.GetByIdTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.GetByIdTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.ModifyClientTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.ModifyClientTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.ReactivateClientTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.ReactivateClientTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.DiplomaturaUtnApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.DiplomaturaUtnApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.ProvinceServiceImplTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.clientServiceImplTest.AddClientTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.clientServiceImplTest.AddClientTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.clientServiceImplTest.DeleteClientTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.clientServiceImplTest.DeleteClientTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.clientServiceImplTest.DiscontinueClientTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.clientServiceImplTest.DiscontinueClientTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.clientServiceImplTest.GetAllTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.clientServiceImplTest.GetAllTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.clientServiceImplTest.GetByIdTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.clientServiceImplTest.GetByIdTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.clientServiceImplTest.ModifyClientTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.clientServiceImplTest.ModifyClientTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.clientServiceImplTest.ReactivateClientTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.clientServiceImplTest.ReactivateClientTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/utn/diplomaturautn/data/DataForModels.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/utn/diplomaturautn/data/DataForModels.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/utn/diplomaturautn/serviceTest/ProvinceServiceImplTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,82 +145,82 @@
       <recent name="com.utn.diplomaturautn.config" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.GetByIdTest.getById_ResourceNotFoundException">
-    <configuration name="GetAllTest.getAllTest_NoContentException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.GetById.getById_ResourceNotFoundException">
+    <configuration name="GetById.getById_ResourceNotFoundException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="diplomaturaUTN" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.cityServiceImplTest.*" />
+          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.cityServiceImplTest" />
-      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.cityServiceImplTest.GetAllTest" />
-      <option name="METHOD_NAME" value="getAllTest_NoContentException" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GetAllTest.getAllTest_Successful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="diplomaturaUTN" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.cityServiceImplTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.cityServiceImplTest" />
-      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.cityServiceImplTest.GetAllTest" />
-      <option name="METHOD_NAME" value="getAllTest_Successful" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GetByIdTest.getById_InvalidBeanFieldsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="diplomaturaUTN" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.cityServiceImplTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.cityServiceImplTest" />
-      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.cityServiceImplTest.GetByIdTest" />
-      <option name="METHOD_NAME" value="getById_InvalidBeanFieldsException" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GetByIdTest.getById_ResourceNotFoundException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="diplomaturaUTN" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.cityServiceImplTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.cityServiceImplTest" />
-      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.cityServiceImplTest.GetByIdTest" />
+      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.employeeServiceImplTest" />
+      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.GetById" />
       <option name="METHOD_NAME" value="getById_ResourceNotFoundException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GetByIdTest.getById_Successful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GetByUsernameTest.getByUsername_InvalidBeanFieldsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="diplomaturaUTN" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.cityServiceImplTest.*" />
+          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.userServiceImplTest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.cityServiceImplTest" />
-      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.cityServiceImplTest.GetByIdTest" />
-      <option name="METHOD_NAME" value="getById_Successful" />
+      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.userServiceImplTest" />
+      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.userServiceImplTest.GetByUsernameTest" />
+      <option name="METHOD_NAME" value="getByUsername_InvalidBeanFieldsException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GetByUsernameTest.getByUsername_ResourceNotFoundException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="diplomaturaUTN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.userServiceImplTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.userServiceImplTest" />
+      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.userServiceImplTest.GetByUsernameTest" />
+      <option name="METHOD_NAME" value="getByUsername_ResourceNotFoundException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GetByUsernameTest.getByUsername_getsEmployee_Successful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="diplomaturaUTN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.userServiceImplTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.userServiceImplTest" />
+      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.userServiceImplTest.GetByUsernameTest" />
+      <option name="METHOD_NAME" value="getByUsername_getsEmployee_Successful" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoadByUsernameTest.loadByUsername_Successful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="diplomaturaUTN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.userServiceImplTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.userServiceImplTest" />
+      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.userServiceImplTest.LoadByUsernameTest" />
+      <option name="METHOD_NAME" value="loadByUsername_Successful" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -184,11 +235,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GetByIdTest.getById_ResourceNotFoundException" />
-        <item itemvalue="JUnit.GetByIdTest.getById_InvalidBeanFieldsException" />
-        <item itemvalue="JUnit.GetByIdTest.getById_Successful" />
-        <item itemvalue="JUnit.GetAllTest.getAllTest_NoContentException" />
-        <item itemvalue="JUnit.GetAllTest.getAllTest_Successful" />
+        <item itemvalue="JUnit.GetById.getById_ResourceNotFoundException" />
+        <item itemvalue="JUnit.LoadByUsernameTest.loadByUsername_Successful" />
+        <item itemvalue="JUnit.GetByUsernameTest.getByUsername_ResourceNotFoundException" />
+        <item itemvalue="JUnit.GetByUsernameTest.getByUsername_InvalidBeanFieldsException" />
+        <item itemvalue="JUnit.GetByUsernameTest.getByUsername_getsEmployee_Successful" />
       </list>
     </recent_temporary>
   </component>
@@ -250,7 +301,7 @@
       <workItem from="1655385001466" duration="35203000" />
       <workItem from="1655506560419" duration="1649000" />
       <workItem from="1655590139871" duration="13845000" />
-      <workItem from="1655659481740" duration="20034000" />
+      <workItem from="1655659481740" duration="24677000" />
     </task>
     <servers />
   </component>
