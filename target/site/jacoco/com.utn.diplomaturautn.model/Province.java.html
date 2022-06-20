@@ -6,24 +6,24 @@ import org.springframework.stereotype.Component;
 import javax.persistence.*;
 import java.util.List;
 
-<span class="pc bpc" id="L9" title="13 of 24 branches missed.">@Data</span>
-<span class="pc" id="L10">@Builder</span>
+<span class="nc bnc" id="L9" title="All 24 branches missed.">@Data</span>
+<span class="nc" id="L10">@Builder</span>
 @Component
-<span class="fc" id="L12">@AllArgsConstructor</span>
-<span class="fc" id="L13">@NoArgsConstructor</span>
+<span class="nc" id="L12">@AllArgsConstructor</span>
+<span class="nc" id="L13">@NoArgsConstructor</span>
 @Entity
 @Table(name = &quot;provinces&quot;)
 public class Province {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-<span class="fc" id="L20">    private int id;</span>
+<span class="nc" id="L20">    private int id;</span>
 
     @Column(name = &quot;name&quot;, nullable = false, length = 50)
-<span class="fc" id="L23">    private String name;</span>
+<span class="nc" id="L23">    private String name;</span>
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = &quot;province&quot;)
-<span class="fc" id="L26">    private List&lt;City&gt; cities;</span>
+<span class="nc" id="L26">    private List&lt;City&gt; cities;</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

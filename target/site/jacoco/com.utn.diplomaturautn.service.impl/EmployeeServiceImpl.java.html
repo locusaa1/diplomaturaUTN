@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EmployeeServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">diplomaturaUTN</a> &gt; <a href="index.source.html" class="el_package">com.utn.diplomaturautn.service.impl</a> &gt; <span class="el_source">EmployeeServiceImpl.java</span></div><h1>EmployeeServiceImpl.java</h1><pre class="source lang-java linenums">package com.utn.diplomaturautn.service.impl;
+
+import com.utn.diplomaturautn.exception.*;
+import com.utn.diplomaturautn.model.Employee;
+import com.utn.diplomaturautn.repositroy.EmployeeRepository;
+import com.utn.diplomaturautn.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+import static com.utn.diplomaturautn.enumerated.EmployeeCondition.*;
+
+@Service
+public class EmployeeServiceImpl implements EmployeeService {
+
+    private final EmployeeRepository employeeRepository;
+
+    @Autowired
+<span class="fc" id="L21">    public EmployeeServiceImpl(EmployeeRepository employeeRepository) {</span>
+
+<span class="fc" id="L23">        this.employeeRepository = employeeRepository;</span>
+<span class="fc" id="L24">    }</span>
+
+    @Override
+    public List&lt;Employee&gt; getAll() {
+
+<span class="nc" id="L29">        List&lt;Employee&gt; employeeList = this.employeeRepository.findAll();</span>
+
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        if (employeeList.isEmpty()) {</span>
+
+<span class="nc" id="L33">            throw new NoContentException(&quot;There is no content in the database from this entity.&quot;);</span>
+        } else {
+
+<span class="nc" id="L36">            return employeeList;</span>
+        }
+    }
+
+    @Override
+    public Employee getById(int employeeId) {
+
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        if (employeeId &lt;= 0) {</span>
+
+<span class="nc" id="L45">            throw new InvalidBeanFieldsException(&quot;The id must be higher than 0.&quot;);</span>
+        } else {
+
+<span class="nc" id="L48">            Optional&lt;Employee&gt; employee = this.employeeRepository.findById(employeeId);</span>
+
+<span class="nc bnc" id="L50" title="All 2 branches missed.">            if (employee.isEmpty()) {</span>
+
+<span class="nc" id="L52">                throw new ResourceNotFoundException(&quot;There is not a register with the specific id.&quot;);</span>
+            } else {
+
+<span class="nc" id="L55">                return employee.get();</span>
+            }
+        }
+    }
+
+    @Override
+    public Employee addEmployee(Employee newEmployee) {
+
+        try {
+
+<span class="nc" id="L65">            return this.employeeRepository.save(newEmployee);</span>
+<span class="nc" id="L66">        } catch (Exception exception) {</span>
+
+<span class="nc" id="L68">            throw new ErrorSavingEntityException(&quot;Saving the entity failed. Nested exception message: &quot; + exception.getMessage());</span>
+        }
+    }
+
+    @Override
+    public Employee modifyEmployee(Employee employeeNewData, int employeeId) {
+
+<span class="nc" id="L75">        Employee employeeFound = this.getById(employeeId);</span>
+
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        if (!employeeFound.equals(employeeNewData)) {</span>
+
+<span class="nc" id="L79">            return this.employeeRepository.save(employeeFound.modifyUsingEmployee(employeeNewData));</span>
+        } else {
+<span class="nc" id="L81">            throw new NothingToModifyException(&quot;The new data matches all the employee from the database, there is nothing to modify.&quot;);</span>
+        }
+    }
+
+    @Override
+    public Employee reactiveEmployee(int employeeId) {
+
+<span class="nc" id="L88">        Employee employeeFound = this.getById(employeeId);</span>
+
+<span class="nc bnc" id="L90" title="All 2 branches missed.">        if (employeeFound.getCondition() == ACTIVE) {</span>
+
+<span class="nc" id="L92">            throw new NothingToModifyException(&quot;The employee is already active.&quot;);</span>
+        } else {
+
+<span class="nc" id="L95">            employeeFound.setCondition(ACTIVE);</span>
+        }
+<span class="nc" id="L97">        return this.employeeRepository.save(employeeFound);</span>
+    }
+
+    @Override
+    public Employee deleteEmployee(int employeeId) {
+
+<span class="nc" id="L103">        Employee employeeFound = this.getById(employeeId);</span>
+
+<span class="nc bnc" id="L105" title="All 2 branches missed.">        if (employeeFound.getCondition() == INACTIVE) {</span>
+
+<span class="nc" id="L107">            throw new NothingToModifyException(&quot;The employee is already inactive.&quot;);</span>
+        } else {
+
+<span class="nc" id="L110">            employeeFound.setCondition(INACTIVE);</span>
+        }
+<span class="nc" id="L112">        return employeeRepository.save(employeeFound);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

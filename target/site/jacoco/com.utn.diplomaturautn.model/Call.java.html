@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Call.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">diplomaturaUTN</a> &gt; <a href="index.source.html" class="el_package">com.utn.diplomaturautn.model</a> &gt; <span class="el_source">Call.java</span></div><h1>Call.java</h1><pre class="source lang-java linenums">package com.utn.diplomaturautn.model;
 
-import com.fasterxml.jackson.databind.DatabindException;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,56 +8,55 @@ import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.sql.Time;
+import java.sql.Timestamp;
 
-<span class="pc bpc" id="L14" title="68 of 76 branches missed.">@Data</span>
-<span class="nc" id="L15">@Builder</span>
+import static java.util.TimeZone.getTimeZone;
+
+<span class="nc bnc" id="L15" title="All 68 branches missed.">@Data</span>
+<span class="nc" id="L16">@Builder</span>
 @Component
-<span class="nc" id="L17">@AllArgsConstructor</span>
-<span class="fc" id="L18">@NoArgsConstructor</span>
+<span class="nc" id="L18">@AllArgsConstructor</span>
+<span class="nc" id="L19">@NoArgsConstructor</span>
 @Entity
 @Table(name = &quot;calls&quot;)
 public class Call {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-<span class="fc" id="L25">    private int id;</span>
-
-    @OneToOne
-    @JoinColumn(name = &quot;id_destination_phone&quot;)
-<span class="fc" id="L29">    private Phone originPhone;</span>
+<span class="nc" id="L26">    private int id;</span>
 
     @OneToOne
     @JoinColumn(name = &quot;id_origin_phone&quot;)
-<span class="fc" id="L33">    private Phone destinationPhone;</span>
+<span class="nc" id="L30">    private Phone originPhone;</span>
+
+    @OneToOne
+    @JoinColumn(name = &quot;id_destination_phone&quot;)
+<span class="nc" id="L34">    private Phone destinationPhone;</span>
 
     @OneToOne
     @JoinColumn(name = &quot;id_origin_city&quot;)
-<span class="fc" id="L37">    private City originCity;</span>
+<span class="nc" id="L38">    private City originCity;</span>
 
     @OneToOne
     @JoinColumn(name = &quot;id_destination_city&quot;)
-<span class="fc" id="L41">    private City destinationCity;</span>
+<span class="nc" id="L42">    private City destinationCity;</span>
 
     @OneToOne
     @JoinColumn(name = &quot;id_fee&quot;)
-<span class="fc" id="L45">    private Fee fee;</span>
+<span class="nc" id="L46">    private Fee fee;</span>
 
     @OneToOne
     @JoinColumn(name = &quot;id_bill&quot;)
-<span class="fc" id="L49">    private Bill bill;</span>
+<span class="nc" id="L50">    private Bill bill;</span>
 
+    @JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;)
     @Column(name = &quot;start_date&quot;)
-<span class="fc" id="L52">    private Date startDate;</span>
-
-    @Column(name = &quot;start_time&quot;)
-<span class="fc" id="L55">    private Time startTime;</span>
+<span class="nc" id="L54">    private Timestamp startDate;</span>
 
     @Column(name = &quot;duration&quot;)
-<span class="fc" id="L58">    private int duration;</span>
+<span class="nc" id="L57">    private int duration;</span>
 
     @Column(name = &quot;total&quot;)
-<span class="fc" id="L61">    private double total;</span>
+<span class="nc" id="L60">    private double total;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

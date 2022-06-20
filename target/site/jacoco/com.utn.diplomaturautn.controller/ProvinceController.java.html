@@ -17,17 +17,17 @@ public class ProvinceController {
     private final ProvinceService provinceService;
 
     @Autowired
-<span class="fc" id="L20">    public ProvinceController(ProvinceService provinceService) {</span>
+<span class="nc" id="L20">    public ProvinceController(ProvinceService provinceService) {</span>
 
-<span class="fc" id="L22">        this.provinceService = provinceService;</span>
-<span class="fc" id="L23">    }</span>
+<span class="nc" id="L22">        this.provinceService = provinceService;</span>
+<span class="nc" id="L23">    }</span>
 
     @GetMapping(&quot;/&quot;)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List&lt;Province&gt; getAll() {
 
-<span class="fc" id="L30">        return this.provinceService.getAll();</span>
+<span class="nc" id="L30">        return this.provinceService.getAll();</span>
     }
 
     @GetMapping(&quot;/{id}&quot;)
@@ -35,7 +35,7 @@ public class ProvinceController {
     @ResponseBody
     public Province getById(@PathVariable(&quot;id&quot;) int id) {
 
-<span class="fc" id="L38">        return this.provinceService.getById(id);</span>
+<span class="nc" id="L38">        return this.provinceService.getById(id);</span>
     }
 
     @PostMapping(&quot;/&quot;)
@@ -43,7 +43,15 @@ public class ProvinceController {
     @ResponseBody
     public Province addProvince(@RequestBody @Valid ProvinceDTO newProvinceDTO) {
 
-<span class="fc" id="L46">        return this.provinceService.addProvince(Province.builder().name(newProvinceDTO.getName()).build());</span>
+<span class="nc" id="L46">        return this.provinceService.addProvince(Province.builder().name(newProvinceDTO.getName()).build());</span>
+    }
+
+    @PatchMapping(&quot;/{id}&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Province modifyProvince(@RequestBody @Valid ProvinceDTO patchProvinceDTO, @PathVariable(&quot;id&quot;) int provinceId) {
+
+<span class="nc" id="L54">        return this.provinceService.modifyProvince(patchProvinceDTO, provinceId);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

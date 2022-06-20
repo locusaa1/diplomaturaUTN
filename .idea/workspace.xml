@@ -5,53 +5,159 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba7185cc-6f18-49d2-876f-35439a40052f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/exception/InvalidBillRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/exception/InvalidBillRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aa921e-df42-4e30-a566-81a460c64a03.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01aa921e-df42-4e30-a566-81a460c64a03.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_test_5_7_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/config/WebSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/config/WebSecurity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/BillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/BillController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/CallController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/CallController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/CityController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/FeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/FeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diplomaturaUTN.iml" beforeDir="false" afterPath="$PROJECT_DIR$/diplomaturaUTN.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/PersonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/PhoneController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/dataTransferObject/ClientDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/dataTransferObject/ClientDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/dataTransferObject/EmployeeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/dataTransferObject/EmployeeDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/exception/ApiExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/exception/ApiExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/BillService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/BillService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/CallService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/CallService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/FeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/FeeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/BillServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/BillServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/CallServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/CallServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/CityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/CityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/CityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/CityServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/ClientServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/FeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/FeeServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/PhoneServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/PhoneServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/utn/diplomaturautn/controllerTest/ProvinceControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/utn/diplomaturautn/serviceTest/ProvinceServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/utn/diplomaturautn/serviceTest/provinceServiceImplTest/ProvinceServiceImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/config/WebSecurity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/config/WebSecurity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/BillController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/BillController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/CityController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/FeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/FeeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/CallController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/CallController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/PersonController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/PersonController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/PhoneController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/dataTransferObject/ClientDTO$ClientDTOBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/dataTransferObject/ClientDTO$ClientDTOBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/dataTransferObject/ClientDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/dataTransferObject/ClientDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/dataTransferObject/EmployeeDTO$EmployeeDTOBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/dataTransferObject/EmployeeDTO$EmployeeDTOBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/dataTransferObject/EmployeeDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/dataTransferObject/EmployeeDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/exception/ApiExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/exception/ApiExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/filter/JwtAuthorizationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/filter/JwtAuthorizationFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Client$ClientBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Client$ClientBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Employee$EmployeeBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Employee$EmployeeBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Employee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/BillService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/BillService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/ClientService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/ClientService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/EmployeeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/EmployeeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/FeeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/FeeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/BillServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/BillServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/CallService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/CallService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/CallServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/CallServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/ClientServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/ClientServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/EmployeeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/EmployeeServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/FeeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/FeeServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/PhoneServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/PhoneServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/diplomaturaUTN-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/diplomaturaUTN-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/target/jacoco.exec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/BillController.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/BillController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/BillController.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/BillController.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/CallController.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/CallController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/CallController.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/CallController.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/CityController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/CityController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/ClientController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/ClientController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/EmployeeController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/EmployeeController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/FeeController.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/FeeController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/FeeController.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/FeeController.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/PersonController.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/PersonController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/PersonController.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/PersonController.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/PhoneController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/PhoneController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/ProvinceController.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/ProvinceController.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/ProvinceController.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/ProvinceController.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/UserController.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/UserController.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.controller/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/CallDTO$CallDTOBuilder.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/CallDTO$CallDTOBuilder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/CallDTO.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/CallDTO.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/CallDTO.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/CallDTO.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/ClientDTO$ClientDTOBuilder.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/ClientDTO$ClientDTOBuilder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/ClientDTO.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/ClientDTO.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/ClientDTO.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/ClientDTO.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/EmployeeDTO$EmployeeDTOBuilder.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/EmployeeDTO$EmployeeDTOBuilder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/EmployeeDTO.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/EmployeeDTO.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/EmployeeDTO.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/EmployeeDTO.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/PersonDTO$PersonDTOBuilder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/PersonDTO.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/PersonDTO.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/PersonDTO.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/PersonDTO.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/ProvinceDTO$ProvinceDTOBuilder.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/ProvinceDTO$ProvinceDTOBuilder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/ProvinceDTO.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/ProvinceDTO.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/ProvinceDTO.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/ProvinceDTO.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.dataTransferObject/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.exception/ApiExceptionHandler.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.exception/ApiExceptionHandler.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.exception/ApiExceptionHandler.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.exception/ApiExceptionHandler.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.exception/ErrorObject$ErrorObjectBuilder.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.exception/ErrorObject$ErrorObjectBuilder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.exception/ErrorObject.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.exception/ErrorObject.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.exception/ErrorObject.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.exception/ErrorObject.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.exception/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.exception/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.exception/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.exception/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Bill$BillBuilder.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Bill$BillBuilder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Bill.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Bill.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Bill.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Bill.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Call$CallBuilder.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Call$CallBuilder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Call.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Call.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Call.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Call.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/City.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/City.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/City.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/City.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Client$ClientBuilder.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Client$ClientBuilder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Client.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Client.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Client.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Client.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Employee$EmployeeBuilder.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Employee$EmployeeBuilder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Employee.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Employee.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Employee.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Employee.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Fee.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Fee.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Fee.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Fee.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Person$PersonBuilder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Person.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Person.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Person.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Person.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Phone.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Phone.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Phone.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Phone.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Province$ProvinceBuilder.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Province$ProvinceBuilder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Province.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Province.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Province.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/Province.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/User$UserBuilder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/User.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/User.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/User.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/User.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.model/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/ProvinceServiceImpl.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/ProvinceServiceImpl.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/ProvinceServiceImpl.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/ProvinceServiceImpl.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service.impl/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/BillService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/BillService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/CallService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/CallService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/CityService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/CityService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/ClientService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/ClientService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/EmployeeService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/EmployeeService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/FeeService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/FeeService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/PersonService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/PersonService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/PhoneService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/PhoneService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/UserService.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/UserService.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn.service/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn/DiplomaturaUtnApplication.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn/DiplomaturaUtnApplication.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn/DiplomaturaUtnApplication.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/com.utn.diplomaturautn/DiplomaturaUtnApplication.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sonar/.sonar_lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sonar/report-task.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2022-05-30T18-59-37_439.dumpstream" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.DiplomaturaUtnApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.DiplomaturaUtnApplicationTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.controllerTest.ProvinceControllerTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.ProvinceServiceImplTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.ProvinceServiceImplTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.DiplomaturaUtnApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.DiplomaturaUtnApplicationTests.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.controllerTest.ProvinceControllerTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.ProvinceServiceImplTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.ProvinceServiceImplTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/utn/diplomaturautn/controllerTest/ProvinceControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/utn/diplomaturautn/serviceTest/ProvinceServiceImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/utn/diplomaturautn/serviceTest/ProvinceServiceImplTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,6 +226,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;7ca72ccf61aac3209d9f79ba58e3bff2&quot;
   },
@@ -129,82 +236,86 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Spring Boot.DiplomaturaUtnApplication">
-    <configuration name="ProvinceServiceImplTest.addProvinceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.utn.diplomaturautn.config" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.AddEmployeeTest.addEmployee_ErrorSavingEntityException">
+    <configuration name="AddEmployeeTest.addEmployee_ErrorSavingEntityException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="diplomaturaUTN" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.*" />
+          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest" />
-      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.ProvinceServiceImplTest" />
-      <option name="METHOD_NAME" value="addProvinceTest" />
+      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.employeeServiceImplTest" />
+      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.AddEmployeeTest" />
+      <option name="METHOD_NAME" value="addEmployee_ErrorSavingEntityException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProvinceServiceImplTest.addProvinceTestThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AddEmployeeTest.addEmployee_Successful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="diplomaturaUTN" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.*" />
+          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest" />
-      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.ProvinceServiceImplTest" />
-      <option name="METHOD_NAME" value="addProvinceTestThrowsException" />
+      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.employeeServiceImplTest" />
+      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.AddEmployeeTest" />
+      <option name="METHOD_NAME" value="addEmployee_Successful" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProvinceServiceImplTest.getAllTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DeleteEmployeeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="diplomaturaUTN" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.*" />
+          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest" />
-      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.ProvinceServiceImplTest" />
-      <option name="METHOD_NAME" value="getAllTest" />
+      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.employeeServiceImplTest" />
+      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.DeleteEmployeeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeleteEmployeeTest.deleteEmployee_Successful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="diplomaturaUTN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.employeeServiceImplTest" />
+      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.DeleteEmployeeTest" />
+      <option name="METHOD_NAME" value="deleteEmployee_Successful" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProvinceServiceImplTest.getAllTestThrowsNoContentException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ReactivateEmployeeTest.reactivateClient_NothingToModifyException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="diplomaturaUTN" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.*" />
+          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest" />
-      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.ProvinceServiceImplTest" />
-      <option name="METHOD_NAME" value="getAllTestThrowsNoContentException" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProvinceServiceImplTest.getByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="diplomaturaUTN" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest" />
-      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.ProvinceServiceImplTest" />
-      <option name="METHOD_NAME" value="getByIdTest" />
+      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.employeeServiceImplTest" />
+      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.ReactivateEmployeeTest" />
+      <option name="METHOD_NAME" value="reactivateClient_NothingToModifyException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -219,11 +330,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ProvinceServiceImplTest.getByIdTest" />
-        <item itemvalue="JUnit.ProvinceServiceImplTest.getAllTest" />
-        <item itemvalue="JUnit.ProvinceServiceImplTest.getAllTestThrowsNoContentException" />
-        <item itemvalue="JUnit.ProvinceServiceImplTest.addProvinceTest" />
-        <item itemvalue="JUnit.ProvinceServiceImplTest.addProvinceTestThrowsException" />
+        <item itemvalue="JUnit.AddEmployeeTest.addEmployee_ErrorSavingEntityException" />
+        <item itemvalue="JUnit.AddEmployeeTest.addEmployee_Successful" />
+        <item itemvalue="JUnit.DeleteEmployeeTest" />
+        <item itemvalue="JUnit.DeleteEmployeeTest.deleteEmployee_Successful" />
+        <item itemvalue="JUnit.ReactivateEmployeeTest.reactivateClient_NothingToModifyException" />
       </list>
     </recent_temporary>
   </component>
@@ -282,7 +393,10 @@
       <workItem from="1655240850591" duration="25240000" />
       <workItem from="1655324576112" duration="21479000" />
       <workItem from="1655354333322" duration="1705000" />
-      <workItem from="1655385001466" duration="2940000" />
+      <workItem from="1655385001466" duration="35203000" />
+      <workItem from="1655506560419" duration="1649000" />
+      <workItem from="1655590139871" duration="13845000" />
+      <workItem from="1655659481740" duration="17534000" />
     </task>
     <servers />
   </component>
@@ -321,8 +435,18 @@
     </ignored-roots>
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/PersonController.java</url>
+          <line>98</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="java.util.Optional" memberName="value" />
         <PinnedItemInfo parentTag="com.utn.diplomaturautn.controller.CityController" memberName="provinceController" />
       </pinned-members>
     </pin-to-top-manager>
@@ -330,6 +454,7 @@
       <configuration name="JUnit">
         <watch expression="this.provinceService" language="JAVA" />
         <watch expression="((MockMethodInterceptor)this.mockitoInterceptor).handler" custom="com.utn.diplomaturautn.service.ProvinceService,com.utn.diplomaturautn.controllerTest.ProvinceControllerTest,org.mockito.internal.creation.bytebuddy.MockMethodInterceptor" />
+        <watch expression="this" />
       </configuration>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="this.cityController" language="JAVA" />
@@ -350,6 +475,12 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/diplomaturaUTN$ClientServiceImplTest.ic" NAME="ClientServiceImplTest Coverage Results" MODIFIED="1655592962859" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.utn.diplomaturautn.serviceTest.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/diplomaturaUTN$ProvinceServiceImplTest.ic" NAME="ProvinceServiceImplTest Coverage Results" MODIFIED="1655591669120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.utn.diplomaturautn.serviceTest.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/diplomaturaUTN$ProvinceControllerTest.ic" NAME="ProvinceControllerTest Coverage Results" MODIFIED="1653615835803" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.utn.diplomaturautn.controllerTest.*</FILTER>
     </SUITE>

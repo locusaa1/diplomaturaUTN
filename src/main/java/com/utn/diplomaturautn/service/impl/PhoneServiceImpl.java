@@ -1,5 +1,6 @@
 package com.utn.diplomaturautn.service.impl;
 
+import com.utn.diplomaturautn.exception.ErrorSavingEntityException;
 import com.utn.diplomaturautn.exception.InvalidPhoneException;
 import com.utn.diplomaturautn.exception.ResourceNotFoundException;
 import com.utn.diplomaturautn.model.Phone;
@@ -39,7 +40,16 @@ public class PhoneServiceImpl implements PhoneService {
         if (phoneNumber.startsWith(areaCode)) {
 
             Phone newPhone = new Phone(0, phoneNumber);
-            return this.phoneRepository.save(newPhone);
+
+            try {
+
+                return this.phoneRepository.save(newPhone);
+            } catch (Exception exception) {
+
+                throw new ErrorSavingEntityException("Saving the entity failed. Nested exception message: " + exception.getMessage());
+            }
+
+
         } else {
 
             throw new InvalidPhoneException("The user phone number does not match his city area code.");

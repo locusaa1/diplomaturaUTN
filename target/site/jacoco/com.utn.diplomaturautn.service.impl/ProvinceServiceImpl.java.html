@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProvinceServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">diplomaturaUTN</a> &gt; <a href="index.source.html" class="el_package">com.utn.diplomaturautn.service.impl</a> &gt; <span class="el_source">ProvinceServiceImpl.java</span></div><h1>ProvinceServiceImpl.java</h1><pre class="source lang-java linenums">package com.utn.diplomaturautn.service.impl;
 
+import com.utn.diplomaturautn.dataTransferObject.ProvinceDTO;
 import com.utn.diplomaturautn.exception.InvalidBeanFieldsException;
 import com.utn.diplomaturautn.exception.NoContentException;
+import com.utn.diplomaturautn.exception.NothingToModifyException;
 import com.utn.diplomaturautn.exception.ResourceNotFoundException;
 import com.utn.diplomaturautn.model.Province;
 import com.utn.diplomaturautn.repositroy.ProvinceRepository;
@@ -13,44 +15,44 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-<span class="fc" id="L16">public class ProvinceServiceImpl implements ProvinceService {</span>
+<span class="fc" id="L18">public class ProvinceServiceImpl implements ProvinceService {</span>
 
     private ProvinceRepository provinceRepository;
 
     @Autowired
     public void ProvinceRepository(ProvinceRepository provinceRepository) {
 
-<span class="fc" id="L23">        this.provinceRepository = provinceRepository;</span>
-<span class="fc" id="L24">    }</span>
+<span class="fc" id="L25">        this.provinceRepository = provinceRepository;</span>
+<span class="fc" id="L26">    }</span>
 
     public List&lt;Province&gt; getAll() {
 
-<span class="fc" id="L28">        List&lt;Province&gt; provinceList = this.provinceRepository.findAll();</span>
+<span class="fc" id="L30">        List&lt;Province&gt; provinceList = this.provinceRepository.findAll();</span>
 
-<span class="fc bfc" id="L30" title="All 2 branches covered.">        if (provinceList.isEmpty()) {</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if (provinceList.isEmpty()) {</span>
 
-<span class="fc" id="L32">            throw new NoContentException(&quot;There is no content on the data base from this entity.&quot;);</span>
+<span class="fc" id="L34">            throw new NoContentException(&quot;There is no content in the database from this entity.&quot;);</span>
         } else {
 
-<span class="fc" id="L35">            return provinceList;</span>
+<span class="fc" id="L37">            return provinceList;</span>
         }
     }
 
     public Province getById(int id) {
 
-<span class="fc bfc" id="L41" title="All 2 branches covered.">        if (id &lt;= 0) {</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        if (id &lt;= 0) {</span>
 
-<span class="fc" id="L43">            throw new InvalidBeanFieldsException(&quot;The id must be higher than 0.&quot;);</span>
+<span class="fc" id="L45">            throw new InvalidBeanFieldsException(&quot;The id must be higher than 0.&quot;);</span>
         } else {
 
-<span class="fc" id="L46">            Optional&lt;Province&gt; province = this.provinceRepository.findById(id);</span>
+<span class="fc" id="L48">            Optional&lt;Province&gt; province = this.provinceRepository.findById(id);</span>
 
-<span class="fc bfc" id="L48" title="All 2 branches covered.">            if (province.isEmpty()) {</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">            if (province.isEmpty()) {</span>
 
-<span class="fc" id="L50">                throw new ResourceNotFoundException(&quot;There is not a register with the specific id.&quot;);</span>
+<span class="fc" id="L52">                throw new ResourceNotFoundException(&quot;There is not a register with the specific id.&quot;);</span>
             } else {
 
-<span class="fc" id="L53">                return province.get();</span>
+<span class="fc" id="L55">                return province.get();</span>
             }
         }
     }
@@ -59,10 +61,38 @@ import java.util.Optional;
 
         try {
 
-<span class="fc" id="L62">            return this.provinceRepository.save(newProvince);</span>
-<span class="fc" id="L63">        } catch (Exception exception) {</span>
+<span class="fc" id="L64">            return this.provinceRepository.save(newProvince);</span>
+<span class="fc" id="L65">        } catch (Exception exception) {</span>
 
-<span class="fc" id="L65">            throw exception;</span>
+<span class="fc" id="L67">            throw exception;</span>
+        }
+    }
+
+    public Province modifyProvince(ProvinceDTO patchProvince, int provinceId) {
+
+<span class="nc bnc" id="L73" title="All 2 branches missed.">        if (provinceId &lt;= 0) {</span>
+
+<span class="nc" id="L75">            throw new InvalidBeanFieldsException(&quot;The id must be higher than 0.&quot;);</span>
+        } else {
+
+<span class="nc" id="L78">            Optional&lt;Province&gt; storedProvince = this.provinceRepository.findById(provinceId);</span>
+
+<span class="nc bnc" id="L80" title="All 2 branches missed.">            if (storedProvince.isEmpty()) {</span>
+
+<span class="nc" id="L82">                throw new ResourceNotFoundException(&quot;There is not a register with the specific id.&quot;);</span>
+            } else {
+
+<span class="nc" id="L85">                Province province = storedProvince.get();</span>
+
+<span class="nc bnc" id="L87" title="All 2 branches missed.">                if (province.getName().equals(patchProvince.getName())) {</span>
+
+<span class="nc" id="L89">                    throw new NothingToModifyException(&quot;The stored register can not be updated with the same attributes.&quot;);</span>
+                } else {
+
+<span class="nc" id="L92">                    province.setName(patchProvince.getName());</span>
+<span class="nc" id="L93">                    return this.provinceRepository.save(province);</span>
+                }
+            }
         }
     }
 }

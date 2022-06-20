@@ -1,5 +1,8 @@
 package com.utn.diplomaturautn.service.impl;
 
+import com.utn.diplomaturautn.exception.InvalidBeanFieldsException;
+import com.utn.diplomaturautn.exception.NoContentException;
+import com.utn.diplomaturautn.exception.ResourceNotFoundException;
 import com.utn.diplomaturautn.model.City;
 import com.utn.diplomaturautn.repositroy.CityRepository;
 import com.utn.diplomaturautn.service.CityService;
@@ -7,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CityServiceImpl implements CityService {
@@ -19,18 +23,34 @@ public class CityServiceImpl implements CityService {
         this.cityRepository = cityRepository;
     }
 
-    public City addCity(City city) {
-
-        return this.cityRepository.save(city);
-    }
-
-    public City getById(int id) {
-
-        return this.cityRepository.findById(id).get();
-    }
-
     public List<City> getAll() {
 
-        return this.cityRepository.findAll();
+        List<City> cityList = this.cityRepository.findAll();
+
+        if (!cityList.isEmpty()) {
+
+            return cityList;
+        } else {
+
+            throw new NoContentException("There is no content in the database from this entity");
+        }
+    }
+
+    public City getById(int cityId) {
+
+        if (cityId > 0) {
+
+            Optional<City> cityFound = this.cityRepository.findById(cityId);
+            if (cityFound.isPresent()) {
+
+                return cityFound.get();
+            } else {
+
+                throw new ResourceNotFoundException("There is not a register with the specific id.");
+            }
+        } else {
+
+            throw new InvalidBeanFieldsException("The id must be higher than 0.");
+        }
     }
 }

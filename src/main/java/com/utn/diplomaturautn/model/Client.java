@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.utn.diplomaturautn.enumerated.ClientCondition;
 import com.utn.diplomaturautn.enumerated.UserType;
 import lombok.*;
-import org.apache.commons.lang.StringUtils;
+import org.hibernate.Hibernate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Objects;
 
@@ -36,8 +35,9 @@ public class Client extends User implements UserDetails {
     private ClientCondition condition;
 
     @Builder
-    public Client(City city, String name, String lastName, String dni, String username, String password, UserType userType, Phone phone, ClientCondition condition) {
+    public Client(int id, City city, String name, String lastName, String dni, String username, String password, UserType userType, Phone phone, ClientCondition condition) {
 
+        this.setId(id);
         this.setCity(city);
         this.setName(name);
         this.setLastName(lastName);
@@ -86,5 +86,31 @@ public class Client extends User implements UserDetails {
     public boolean isEnabled() {
 
         return (this.getCondition() == ClientCondition.ACTIVE);
+    }
+
+    @Override
+    public boolean equals(Object c) {
+
+        if (c instanceof Client) {
+
+            Client cli = (Client) c;
+
+            return this.getName().equals(cli.getName())
+                    && this.getLastName().equals(cli.getLastName())
+                    && this.getDni().equals(cli.getDni())
+                    && this.getCity().equals(cli.getCity())
+                    && this.getUsername().equals(cli.getUsername())
+                    && this.getUserType().equals(cli.getUserType())
+                    && this.getPhone().equals(cli.phone)
+                    && this.getCondition().equals(cli.getCondition());
+        } else {
+            return false;
+        }
+    }
+
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WebSecurity.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">diplomaturaUTN</a> &gt; <a href="index.source.html" class="el_package">com.utn.diplomaturautn.config</a> &gt; <span class="el_source">WebSecurity.java</span></div><h1>WebSecurity.java</h1><pre class="source lang-java linenums">package com.utn.diplomaturautn.config;
+
+import com.utn.diplomaturautn.enumerated.UserType;
+import com.utn.diplomaturautn.filter.JwtAuthorizationFilter;
+import com.utn.diplomaturautn.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+@Configuration
+@EnableWebSecurity(debug = true)
+public class WebSecurity {
+
+    private final JwtAuthorizationFilter jwtAuthorizationFilter;
+
+    private final UserService userService;
+
+    private final PasswordEncoder passwordEncoder;
+
+    @Autowired
+<span class="nc" id="L31">    public WebSecurity(JwtAuthorizationFilter jwtAuthorizationFilter, UserService userService, PasswordEncoder passwordEncoder) {</span>
+
+<span class="nc" id="L33">        this.jwtAuthorizationFilter = jwtAuthorizationFilter;</span>
+<span class="nc" id="L34">        this.userService = userService;</span>
+<span class="nc" id="L35">        this.passwordEncoder = passwordEncoder;</span>
+<span class="nc" id="L36">    }</span>
+
+    @Autowired
+    protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+
+<span class="nc" id="L41">        auth.userDetailsService(userService).passwordEncoder(passwordEncoder);</span>
+<span class="nc" id="L42">    }</span>
+
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+<span class="nc" id="L46">        return authenticationConfiguration.getAuthenticationManager();</span>
+    }
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+<span class="nc" id="L51">        http.csrf().disable()</span>
+<span class="nc" id="L52">                .sessionManagement(session -&gt; session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))</span>
+<span class="nc" id="L53">                .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class)</span>
+                //Authorization permit all for swagger
+<span class="nc" id="L55">                .authorizeRequests()</span>
+<span class="nc" id="L56">                .antMatchers(&quot;/swagger-ui&quot;, &quot;/swagger-ui.html&quot;, &quot;/open-api/swagger-ui-custom.html&quot;, &quot;/swagger-ui/index.html&quot;, &quot;/configuration/**&quot;, &quot;/swagger*/**&quot;, &quot;/webjars/**&quot;).permitAll()</span>
+<span class="nc" id="L57">                .antMatchers(&quot;/v2/api-docs/**&quot;, &quot;/v3/api-docs/**&quot;).permitAll()</span>
+<span class="nc" id="L58">                .and()</span>
+                //Authorization permit all for login
+<span class="nc" id="L60">                .authorizeRequests()</span>
+<span class="nc" id="L61">                .antMatchers(HttpMethod.POST, &quot;/api/person/login&quot;).permitAll()</span>
+<span class="nc" id="L62">                .and()</span>
+                //Authorization POST map for PersonController with Employee usertype
+<span class="nc" id="L64">                .authorizeRequests()</span>
+<span class="nc" id="L65">                .antMatchers(HttpMethod.POST, &quot;/api/person/client&quot;,</span>
+<span class="nc" id="L66">                        &quot;/api/person/employee&quot;).hasAuthority(UserType.EMPLOYEE.toString())</span>
+<span class="nc" id="L67">                .and()</span>
+                //Authorization PATCH map for the PersonController with Employee usertype
+<span class="nc" id="L69">                .authorizeRequests()</span>
+<span class="nc" id="L70">                .antMatchers(HttpMethod.PATCH, &quot;/api/person/client/{id}&quot;,</span>
+                        &quot;/api/person/client/discontinue/{id}&quot;,
+                        &quot;/api/person/client/reactivate/{id}&quot;,
+                        &quot;/api/person/employee/{id}&quot;,
+<span class="nc" id="L74">                        &quot;/api/person/employee/reactivate/{id}&quot;).hasAuthority(UserType.EMPLOYEE.toString())</span>
+<span class="nc" id="L75">                .and()</span>
+                //Authorization DELETE map for the PersonController with Employee usertype
+<span class="nc" id="L77">                .authorizeRequests()</span>
+<span class="nc" id="L78">                .antMatchers(HttpMethod.DELETE, &quot;/api/person/client/{id}&quot;,</span>
+<span class="nc" id="L79">                        &quot;/api/person/employee/{id}&quot;).hasAuthority(UserType.EMPLOYEE.toString())</span>
+<span class="nc" id="L80">                .and()</span>
+                //Authorization GET map for the FeeController with Employee usertype
+<span class="nc" id="L82">                .authorizeRequests()</span>
+<span class="nc" id="L83">                .antMatchers(HttpMethod.GET,&quot;/api/fee/&quot;,</span>
+<span class="nc" id="L84">                        &quot;/api/fee/{id}&quot;).hasAuthority(UserType.EMPLOYEE.toString())</span>
+<span class="nc" id="L85">                .and()</span>
+                //Authorization POST map for the CallController with ANTENNA usertype
+<span class="nc" id="L87">                .authorizeRequests()</span>
+<span class="nc" id="L88">                .antMatchers(HttpMethod.POST, &quot;/api/call/&quot;).hasAuthority(UserType.ANTENNA.toString())</span>
+<span class="nc" id="L89">                .and()</span>
+                //Authorization GET map for the CallController with CLIENT usertype
+<span class="nc" id="L91">                .authorizeRequests()</span>
+<span class="nc" id="L92">                .antMatchers(HttpMethod.GET,&quot;/api/call/date&quot;).hasAuthority(UserType.CLIENT.toString())</span>
+<span class="nc" id="L93">                .and()</span>
+                //Authorization GET map for the CallController with EMPLOYEE usertype
+<span class="nc" id="L95">                .authorizeRequests()</span>
+<span class="nc" id="L96">                .antMatchers(HttpMethod.GET,&quot;/api/call/date&quot;,</span>
+                        &quot;/api/call/date&amp;client&quot;,
+                        &quot;/api/call/{id}&quot;,
+<span class="nc" id="L99">                        &quot;/api/call/&quot;).hasAuthority(UserType.EMPLOYEE.toString())</span>
+<span class="nc" id="L100">                .and()</span>
+                //Authorization GET map for the BillController with CLIENT usertype
+<span class="nc" id="L102">                .authorizeRequests()</span>
+<span class="nc" id="L103">                .antMatchers(HttpMethod.GET, &quot;/api/bill/date&quot;).hasAuthority(UserType.CLIENT.toString())</span>
+<span class="nc" id="L104">                .and()</span>
+                //Authorization GET map for the BillController with EMPLOYEE usertype
+<span class="nc" id="L106">                .authorizeRequests()</span>
+<span class="nc" id="L107">                .antMatchers(HttpMethod.GET,&quot;/api/bill/date&quot;,</span>
+                        &quot;/api/bill/date&amp;client&quot;,
+                        &quot;/api/bill/{id}&quot;,
+<span class="nc" id="L110">                        &quot;/api/bill/&quot;).hasAuthority(UserType.EMPLOYEE.toString())</span>
+<span class="nc" id="L111">                .anyRequest().authenticated();</span>
+
+<span class="nc" id="L113">        return http.build();</span>
+    }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -8,6 +8,7 @@ import com.utn.diplomaturautn.model.Employee;
 import com.utn.diplomaturautn.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -91,7 +92,7 @@ public class PersonController {
     }
 
     @PostMapping("/client")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public Client addClient(@RequestBody @Valid ClientDTO newClientDTO) {
 

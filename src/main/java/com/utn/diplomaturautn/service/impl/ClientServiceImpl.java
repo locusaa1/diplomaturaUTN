@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import static com.utn.diplomaturautn.enumerated.ClientCondition.*;
@@ -30,7 +31,7 @@ public class ClientServiceImpl implements ClientService {
 
         if (clientList.isEmpty()) {
 
-            throw new NoContentException("There is no content in the database form this entity.");
+            throw new NoContentException("There is no content in the database from this entity.");
         } else {
 
             return clientList;

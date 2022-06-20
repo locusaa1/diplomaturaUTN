@@ -32,8 +32,9 @@ public class Employee extends User implements UserDetails {
     private EmployeeCondition condition;
 
     @Builder
-    public Employee(City city, String name, String lastName, String dni, String username, String password, UserType userType, EmployeeCondition condition) {
+    public Employee(int id, City city, String name, String lastName, String dni, String username, String password, UserType userType, EmployeeCondition condition) {
 
+        this.setId(id);
         this.setCity(city);
         this.setName(name);
         this.setLastName(lastName);
@@ -77,5 +78,30 @@ public class Employee extends User implements UserDetails {
     public boolean isEnabled() {
 
         return (this.getCondition() == EmployeeCondition.ACTIVE);
+    }
+
+    @Override
+    public boolean equals(Object e) {
+
+        if (e instanceof Employee) {
+
+            Employee emp = (Employee) e;
+
+            return this.getName().equals(emp.getName())
+                    && this.getLastName().equals(emp.getLastName())
+                    && this.getDni().equals(emp.getDni())
+                    && this.getCity().equals(emp.getCity())
+                    && this.getUsername().equals(emp.getUsername())
+                    && this.getUserType().equals(emp.getUserType())
+                    && this.getCondition().equals(emp.getCondition());
+        } else {
+            return false;
+        }
+    }
+
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }

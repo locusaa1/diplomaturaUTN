@@ -33,15 +33,20 @@ import java.util.Map;
 <span class="nc" id="L33">                timestamp(Time.valueOf(LocalTime.now())).build();</span>
     }
 
-    @ExceptionHandler(SQLIntegrityConstraintViolationException.class)
+    @ExceptionHandler({
+            SQLIntegrityConstraintViolationException.class,
+            NothingToModifyException.class,
+            InvalidCallException.class,
+            ErrorSavingEntityException.class
+    })
     @ResponseStatus(HttpStatus.CONFLICT)
     @ResponseBody
-    public ErrorObject handleDuplicateEntryException(SQLIntegrityConstraintViolationException exception) {
+    public ErrorObject handleConflictsException(Exception exception) {
 
-<span class="nc" id="L41">        return ErrorObject.builder().</span>
-<span class="nc" id="L42">                statusCode(HttpStatus.CONFLICT.value()).</span>
-<span class="nc" id="L43">                message(exception.getMessage()).</span>
-<span class="nc" id="L44">                timestamp(Time.valueOf(LocalTime.now())).build();</span>
+<span class="nc" id="L46">        return ErrorObject.builder().</span>
+<span class="nc" id="L47">                statusCode(HttpStatus.CONFLICT.value()).</span>
+<span class="nc" id="L48">                message(exception.getMessage()).</span>
+<span class="nc" id="L49">                timestamp(Time.valueOf(LocalTime.now())).build();</span>
     }
 
     @ExceptionHandler(NoContentException.class)
@@ -49,35 +54,49 @@ import java.util.Map;
     @ResponseBody
     public void handleNoContentException() {
 
-<span class="nc" id="L52">    }</span>
+<span class="nc" id="L57">    }</span>
 
-    @ExceptionHandler(InvalidBeanFieldsException.class)
+    @ExceptionHandler({
+            InvalidBeanFieldsException.class,
+            InvalidPhoneException.class
+    })
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    public ErrorObject handleInvalidBeanFieldsException(Exception exception) {
+    public ErrorObject handleBadRequestException(Exception exception) {
 
-<span class="nc" id="L59">        return ErrorObject.builder().</span>
-<span class="nc" id="L60">                statusCode(HttpStatus.BAD_REQUEST.value()).</span>
-<span class="nc" id="L61">                message(exception.getMessage()).</span>
-<span class="nc" id="L62">                timestamp(Time.valueOf(LocalTime.now())).build();</span>
+<span class="nc" id="L67">        return ErrorObject.builder().</span>
+<span class="nc" id="L68">                statusCode(HttpStatus.BAD_REQUEST.value()).</span>
+<span class="nc" id="L69">                message(exception.getMessage()).</span>
+<span class="nc" id="L70">                timestamp(Time.valueOf(LocalTime.now())).build();</span>
+    }
+
+    @ExceptionHandler(InvalidBillRequest.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    @ResponseBody
+    public ErrorObject handleInvalidBillRequestException(Exception exception) {
+
+<span class="nc" id="L78">        return ErrorObject.builder().</span>
+<span class="nc" id="L79">                statusCode(HttpStatus.FORBIDDEN.value()).</span>
+<span class="nc" id="L80">                message(exception.getMessage()).</span>
+<span class="nc" id="L81">                timestamp(Time.valueOf(LocalTime.now())).build();</span>
     }
 
     @Override
     public @NotNull ResponseEntity&lt;Object&gt; handleMethodArgumentNotValid(MethodArgumentNotValidException ex, @NotNull HttpHeaders headers, @NotNull HttpStatus status, @NotNull WebRequest request) {
 
-<span class="fc" id="L68">        Map&lt;String, String&gt; errors = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L87">        Map&lt;String, String&gt; errors = new HashMap&lt;&gt;();</span>
 
-<span class="fc" id="L70">        ex.getBindingResult().getAllErrors().</span>
-<span class="fc" id="L71">                forEach((error) -&gt; {</span>
-<span class="fc" id="L72">                    String fieldName = ((FieldError) error).getField();</span>
-<span class="fc" id="L73">                    String message = error.getDefaultMessage();</span>
-<span class="fc" id="L74">                    errors.put(fieldName, message);</span>
-<span class="fc" id="L75">                });</span>
+<span class="nc" id="L89">        ex.getBindingResult().getAllErrors().</span>
+<span class="nc" id="L90">                forEach((error) -&gt; {</span>
+<span class="nc" id="L91">                    String fieldName = ((FieldError) error).getField();</span>
+<span class="nc" id="L92">                    String message = error.getDefaultMessage();</span>
+<span class="nc" id="L93">                    errors.put(fieldName, message);</span>
+<span class="nc" id="L94">                });</span>
 
-<span class="fc" id="L77">        return new ResponseEntity&lt;&gt;(ErrorObject.builder().</span>
-<span class="fc" id="L78">                statusCode(HttpStatus.BAD_REQUEST.value()).</span>
-<span class="fc" id="L79">                message(errors.toString()).</span>
-<span class="fc" id="L80">                timestamp(Time.valueOf(LocalTime.now())).build(), HttpStatus.BAD_REQUEST);</span>
+<span class="nc" id="L96">        return new ResponseEntity&lt;&gt;(ErrorObject.builder().</span>
+<span class="nc" id="L97">                statusCode(HttpStatus.BAD_REQUEST.value()).</span>
+<span class="nc" id="L98">                message(errors.toString()).</span>
+<span class="nc" id="L99">                timestamp(Time.valueOf(LocalTime.now())).build(), HttpStatus.BAD_REQUEST);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

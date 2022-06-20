@@ -1,3 +1,11 @@
-com\utn\diplomaturautn\controllerTest\ProvinceControllerTest.class
-com\utn\diplomaturautn\DiplomaturaUtnApplicationTests.class
+com\utn\diplomaturautn\serviceTest\clientServiceImplTest\ReactivateClientTest.class
+com\utn\diplomaturautn\serviceTest\clientServiceImplTest\ClientServiceImplTest.class
+com\utn\diplomaturautn\data\DataForModels.class
+com\utn\diplomaturautn\serviceTest\clientServiceImplTest\DiscontinueClientTest.class
 com\utn\diplomaturautn\serviceTest\ProvinceServiceImplTest.class
+com\utn\diplomaturautn\serviceTest\clientServiceImplTest\AddClientTest.class
+com\utn\diplomaturautn\serviceTest\clientServiceImplTest\GetAllTest.class
+com\utn\diplomaturautn\serviceTest\clientServiceImplTest\ModifyClientTest.class
+com\utn\diplomaturautn\serviceTest\clientServiceImplTest\DeleteClientTest.class
+com\utn\diplomaturautn\serviceTest\clientServiceImplTest\GetByIdTest.class
+com\utn\diplomaturautn\DiplomaturaUtnApplicationTests.class

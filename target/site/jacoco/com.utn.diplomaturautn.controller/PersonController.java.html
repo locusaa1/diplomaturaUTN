@@ -1,70 +1,166 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PersonController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">diplomaturaUTN</a> &gt; <a href="index.source.html" class="el_package">com.utn.diplomaturautn.controller</a> &gt; <span class="el_source">PersonController.java</span></div><h1>PersonController.java</h1><pre class="source lang-java linenums">package com.utn.diplomaturautn.controller;
 
-import com.utn.diplomaturautn.dataTransferObject.PersonDTO;
-import com.utn.diplomaturautn.model.Person;
-import com.utn.diplomaturautn.service.PersonService;
+import com.utn.diplomaturautn.dataTransferObject.ClientDTO;
+import com.utn.diplomaturautn.dataTransferObject.EmployeeDTO;
+import com.utn.diplomaturautn.dataTransferObject.LoginDTO;
+import com.utn.diplomaturautn.model.Client;
+import com.utn.diplomaturautn.model.Employee;
+import com.utn.diplomaturautn.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.validation.Valid;
 
 @RestController
-@RequestMapping(&quot;/person&quot;)
+@RequestMapping(&quot;api/person&quot;)
 public class PersonController {
 
-    private final PersonService personService;
+    private final UserService userService;
 
-    private final CityController cityController;
+    private final ClientService clientService;
+
+    private final EmployeeService employeeService;
+
+    private final CityService cityService;
+
+    private final PhoneService phoneService;
+
+    private final JwtService jwtService;
+
+    private final AuthenticationManager authenticationManager;
+
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-<span class="fc" id="L22">    public PersonController(PersonService personService, CityController cityController) {</span>
+<span class="nc" id="L41">    public PersonController(UserService userService, ClientService clientService, EmployeeService employeeService, CityService cityService, PhoneService phoneService, JwtService jwtService, AuthenticationManager authenticationManager, PasswordEncoder passwordEncoder) {</span>
 
-<span class="fc" id="L24">        this.personService = personService;</span>
-<span class="fc" id="L25">        this.cityController = cityController;</span>
-<span class="fc" id="L26">    }</span>
+<span class="nc" id="L43">        this.userService = userService;</span>
+<span class="nc" id="L44">        this.cityService = cityService;</span>
+<span class="nc" id="L45">        this.clientService = clientService;</span>
+<span class="nc" id="L46">        this.employeeService = employeeService;</span>
+<span class="nc" id="L47">        this.phoneService = phoneService;</span>
+<span class="nc" id="L48">        this.jwtService = jwtService;</span>
+<span class="nc" id="L49">        this.authenticationManager = authenticationManager;</span>
+<span class="nc" id="L50">        this.passwordEncoder = passwordEncoder;</span>
+<span class="nc" id="L51">    }</span>
 
-    public ResponseEntity&lt;List&lt;Person&gt;&gt; response(List&lt;Person&gt; persons) {
+    private Client fromClientDTOtoClient(ClientDTO clientDTO) {
 
-<span class="nc" id="L30">        return ResponseEntity.</span>
-<span class="nc bnc" id="L31" title="All 2 branches missed.">                status(persons.isEmpty() ?</span>
-<span class="nc" id="L32">                        HttpStatus.NO_CONTENT :</span>
-<span class="nc" id="L33">                        HttpStatus.OK).</span>
-<span class="nc" id="L34">                body(persons);</span>
+<span class="nc" id="L55">        return Client.builder().</span>
+<span class="nc" id="L56">                city(this.cityService.getById(</span>
+<span class="nc" id="L57">                        clientDTO.getCityId())).</span>
+<span class="nc" id="L58">                name(clientDTO.getName()).</span>
+<span class="nc" id="L59">                lastName(clientDTO.getLastName()).</span>
+<span class="nc" id="L60">                dni(clientDTO.getDni()).</span>
+<span class="nc" id="L61">                username(clientDTO.getUsername()).</span>
+<span class="nc" id="L62">                password(this.passwordEncoder.encode(</span>
+<span class="nc" id="L63">                        clientDTO.getPassword())).</span>
+<span class="nc" id="L64">                userType(clientDTO.getUserType()).</span>
+<span class="nc" id="L65">                phone(this.phoneService.addPhone(</span>
+<span class="nc" id="L66">                        this.cityService.getById(clientDTO.getCityId()).getAreaCode(), clientDTO.getPhoneNumber())).</span>
+<span class="nc" id="L67">                condition(clientDTO.getCondition()).build();</span>
     }
 
-    public ResponseEntity&lt;Person&gt; response(Person person) {
+    private Employee fromEmployeeDTOtoEmployee(EmployeeDTO employeeDTO) {
 
-<span class="nc" id="L39">        return ResponseEntity.</span>
-<span class="nc bnc" id="L40" title="All 2 branches missed.">                status(person == null ?</span>
-<span class="nc" id="L41">                        HttpStatus.NO_CONTENT :</span>
-<span class="nc" id="L42">                        HttpStatus.OK).</span>
-<span class="nc" id="L43">                body(person);</span>
+<span class="nc" id="L72">        return Employee.builder().</span>
+<span class="nc" id="L73">                city(this.cityService.getById(employeeDTO.getCityId())).</span>
+<span class="nc" id="L74">                name(employeeDTO.getName()).</span>
+<span class="nc" id="L75">                lastName(employeeDTO.getLastName()).</span>
+<span class="nc" id="L76">                dni(employeeDTO.getDni()).</span>
+<span class="nc" id="L77">                username(employeeDTO.getUsername()).</span>
+<span class="nc" id="L78">                password(passwordEncoder.encode(employeeDTO.getPassword())).</span>
+<span class="nc" id="L79">                userType(employeeDTO.getUserType()).</span>
+<span class="nc" id="L80">                condition(employeeDTO.getCondition()).build();</span>
     }
 
-    @GetMapping(&quot;/&quot;)
-    public ResponseEntity&lt;List&lt;Person&gt;&gt; getAll() {
+    @PostMapping(&quot;/login&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public String login(@RequestBody @Valid LoginDTO loginDTO) {
 
-<span class="nc" id="L49">        return this.response(this.personService.getAll());</span>
+<span class="nc" id="L88">        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginDTO.getUsername(), loginDTO.getPassword());</span>
+<span class="nc" id="L89">        this.authenticationManager.authenticate(authenticationToken);</span>
+<span class="nc" id="L90">        UserDetails userDetails = userService.loadUserByUsername(loginDTO.getUsername());</span>
+<span class="nc" id="L91">        return jwtService.createToken(userDetails);</span>
     }
 
-    @GetMapping(&quot;{id}&quot;)
-    public ResponseEntity&lt;Person&gt; getById(@RequestParam(&quot;id&quot;) int id){
+    @PostMapping(&quot;/client&quot;)
+    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
+    public Client addClient(@RequestBody @Valid ClientDTO newClientDTO) {
 
-<span class="nc" id="L55">        return this.response(this.personService.getById(id));</span>
+<span class="nc" id="L99">        return this.clientService.addClient(this.fromClientDTOtoClient(newClientDTO));</span>
     }
 
-    @PostMapping(&quot;/&quot;)
-    public ResponseEntity&lt;Person&gt; addPerson(@RequestBody PersonDTO newPersonDTO) {
+    @PatchMapping(&quot;/client/{id}&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Client modifyClient(@RequestBody ClientDTO newClientDTO, @PathVariable(&quot;id&quot;) int clientId) {
 
-<span class="nc" id="L61">        return this.response(</span>
-<span class="nc" id="L62">                this.personService.addPerson(</span>
-<span class="nc" id="L63">                        Person.builder().</span>
-<span class="nc" id="L64">                                city(this.cityController.getById(newPersonDTO.getIdCity()).getBody()).</span>
-<span class="nc" id="L65">                                name(newPersonDTO.getName()).</span>
-<span class="nc" id="L66">                                lastName(newPersonDTO.getLastName()).</span>
-<span class="nc" id="L67">                                dni(newPersonDTO.getDni()).build()));</span>
+<span class="nc" id="L107">        return this.clientService.modifyClient(this.fromClientDTOtoClient(newClientDTO), clientId);</span>
+    }
+
+    @PatchMapping(&quot;/client/discontinue/{id}&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Client discontinueClient(@PathVariable(&quot;id&quot;) int clientId) {
+
+<span class="nc" id="L115">        return this.clientService.discontinueClient(clientId);</span>
+    }
+
+    @PatchMapping(&quot;/client/reactivate/{id}&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Client reactivateClient(@PathVariable(&quot;id&quot;) int clientId) {
+
+<span class="nc" id="L123">        return this.clientService.reactivateClient(clientId);</span>
+    }
+
+    @DeleteMapping(&quot;/client/{id}&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Client deleteClient(@PathVariable(&quot;id&quot;) int clientId) {
+
+<span class="nc" id="L131">        return this.clientService.deleteClient(clientId);</span>
+    }
+
+    @PostMapping(&quot;/employee&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Employee addEmployee(@RequestBody @Valid EmployeeDTO newEmployeeDTO) {
+
+<span class="nc" id="L139">        return this.employeeService.addEmployee(this.fromEmployeeDTOtoEmployee(newEmployeeDTO));</span>
+    }
+
+    @PatchMapping(&quot;/employee/{id}&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Employee modifyEmployee(@RequestBody EmployeeDTO newEmployeeDTO, @PathVariable(&quot;id&quot;) int employeeId) {
+
+<span class="nc" id="L147">        return this.employeeService.modifyEmployee(this.fromEmployeeDTOtoEmployee(newEmployeeDTO), employeeId);</span>
+    }
+
+    @PatchMapping(&quot;/employee/reactivate/{id}&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Employee reactivateEmployee(@PathVariable(&quot;id&quot;) int employeeId) {
+
+<span class="nc" id="L155">        return this.employeeService.reactiveEmployee(employeeId);</span>
+    }
+
+    @DeleteMapping(&quot;/employee/{id}&quot;)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Employee deleteEmployee(@PathVariable(&quot;id&quot;) int employeeId) {
+
+<span class="nc" id="L163">        return this.employeeService.deleteEmployee(employeeId);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
