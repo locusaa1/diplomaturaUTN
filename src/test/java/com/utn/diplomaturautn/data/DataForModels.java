@@ -7,6 +7,7 @@ import com.utn.diplomaturautn.model.*;
 import org.springframework.security.test.context.support.WithMockUser;
 
 import javax.xml.crypto.Data;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -26,6 +27,43 @@ public final class DataForModels {
                 .id(1)
                 .province(DataForModels.newProvince())
                 .name("Mar del Plata").build();
+    }
+
+    public static City newCity2() {
+
+        return City.builder()
+                .id(2)
+                .province(DataForModels.newProvince())
+                .name("Tandil").build();
+    }
+
+    public static List<City> cityList() {
+
+        List<City> cityList = new ArrayList<>();
+        cityList.add(newCity());
+        cityList.add(newCity());
+        cityList.add(newCity());
+        return cityList;
+    }
+
+    public static Fee newFee() {
+
+        return Fee.builder()
+                .id(1)
+                .originCity(DataForModels.newCity())
+                .destinationCity(DataForModels.newCity2())
+                .cost(22.20)
+                .startTime(Time.valueOf("00:00:00"))
+                .endTime(Time.valueOf("23:59:59")).build();
+    }
+
+    public static List<Fee> feeList() {
+
+        List<Fee> feeList = new ArrayList<>();
+        feeList.add(DataForModels.newFee());
+        feeList.add(DataForModels.newFee());
+        feeList.add(DataForModels.newFee());
+        return feeList;
     }
 
     public static Phone newPhone() {
