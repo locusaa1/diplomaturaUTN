@@ -1,5 +1,6 @@
 package com.utn.diplomaturautn.model;
 
+import com.utn.diplomaturautn.dataTransferObject.FeeResponseDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Builder
@@ -38,4 +41,25 @@ public class Fee {
 
     @Column(name = "end_time", nullable = false)
     private Time endTime;
+
+    public FeeResponseDTO fromFeeToResponseDTO() {
+
+        return new FeeResponseDTO(
+                this.originCity.getName(),
+                this.destinationCity.getName(),
+                this.cost,
+                this.startTime,
+                this.endTime);
+    }
+
+    public static List<FeeResponseDTO> fromFeeListToResponseDTO(List<Fee> fees) {
+
+        List<FeeResponseDTO> feesResponse = new ArrayList<>();
+
+        for (Fee f : fees) {
+
+            feesResponse.add(f.fromFeeToResponseDTO());
+        }
+        return feesResponse;
+    }
 }

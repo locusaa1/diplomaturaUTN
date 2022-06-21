@@ -1,5 +1,6 @@
 package com.utn.diplomaturautn.service.impl;
 
+import com.utn.diplomaturautn.enumerated.ClientCondition;
 import com.utn.diplomaturautn.enumerated.UserType;
 import com.utn.diplomaturautn.exception.InvalidCallException;
 import com.utn.diplomaturautn.exception.NoContentException;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
@@ -54,16 +56,34 @@ public class CallServiceImpl implements CallService {
         return this.callRepository.getById(id);
     }
 
-    public Call addCall(Call newCall) {
+    public Call addCall(Call newCall, Client originClient) {
 
-        try {
+        if (!newCall.getOriginPhone().equals(newCall.getDestinationPhone())) {
 
-            Call resultId = this.callRepository.save(newCall);
-            this.callRepository.refresh(resultId);
-            return resultId;
-        } catch (Exception exception) {
+            if (!newCall.getStartDate().after(Timestamp.valueOf(LocalDateTime.now()))) {
 
-            throw new InvalidCallException(exception.getMessage());
+                if (originClient.getCondition().equals(ClientCondition.ACTIVE)) {
+
+                    try {
+
+                        Call resultId = this.callRepository.save(newCall);
+                        this.callRepository.refresh(resultId);
+                        return resultId;
+                    } catch (Exception exception) {
+
+                        throw new InvalidCallException(exception.getCause().getCause().toString());
+                    }
+                } else {
+
+                    throw new InvalidCallException("The client that makes the call must be active.");
+                }
+            } else {
+
+                throw new InvalidCallException("The date of the call must be before the current date and time");
+            }
+        } else {
+
+            throw new InvalidCallException("You can not call your own phone.");
         }
     }
 

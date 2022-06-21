@@ -1,6 +1,7 @@
 package com.utn.diplomaturautn.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.utn.diplomaturautn.dataTransferObject.CallResponseDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.util.TimeZone.getTimeZone;
 
@@ -58,4 +61,29 @@ public class Call {
 
     @Column(name = "total")
     private double total;
+
+    public CallResponseDTO fromCallToResponseDTO() {
+
+        return new CallResponseDTO(
+                this.originPhone.getNumber(),
+                this.destinationPhone.getNumber(),
+                this.originCity.getName(),
+                this.destinationCity.getName(),
+                this.fee.getCost(),
+                this.startDate,
+                this.duration,
+                this.total);
+    }
+
+    public static List<CallResponseDTO> fromCallListToResponseDTO(List<Call> calls){
+
+        List<CallResponseDTO> callsResponse = new ArrayList<>();
+
+        for (Call c : calls){
+
+            callsResponse.add(c.fromCallToResponseDTO());
+        }
+
+        return callsResponse;
+    }
 }

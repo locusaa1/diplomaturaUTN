@@ -1,20 +1,19 @@
 package com.utn.diplomaturautn.model;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.utn.diplomaturautn.enumerated.ClientCondition;
+import com.utn.diplomaturautn.dataTransferObject.EmployeeResponseDTO;
 import com.utn.diplomaturautn.enumerated.EmployeeCondition;
 import com.utn.diplomaturautn.enumerated.UserType;
 import lombok.*;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
 
 @Getter
 @Setter
@@ -49,6 +48,29 @@ public class Employee extends User implements UserDetails {
 
         this.modifyUsingUser(newData);
         return this;
+    }
+
+    public EmployeeResponseDTO fromEmployeeToResponseDTO() {
+
+        return new EmployeeResponseDTO(
+                this.getName(),
+                this.getLastName(),
+                this.getDni(),
+                this.getCity().getName(),
+                this.getUsername(),
+                this.getCondition(),
+                this.getUserType());
+    }
+
+    public static List<EmployeeResponseDTO> fromEmployeeListToResponse(List<Employee> employees) {
+
+        List<EmployeeResponseDTO> employeesResponse = new ArrayList<>();
+
+        for (Employee e : employees) {
+
+            employeesResponse.add(e.fromEmployeeToResponseDTO());
+        }
+        return employeesResponse;
     }
 
     @Override

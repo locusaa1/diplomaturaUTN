@@ -2,6 +2,7 @@ package com.utn.diplomaturautn.controller;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.utn.diplomaturautn.dataTransferObject.CallDTO;
+import com.utn.diplomaturautn.dataTransferObject.CallResponseDTO;
 import com.utn.diplomaturautn.model.Call;
 import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.service.CallService;
@@ -39,50 +40,52 @@ public class CallController {
     @GetMapping("/")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List<Call> getAll() {
+    public List<CallResponseDTO> getAll() {
 
-        return this.callService.getAll();
+        return Call.fromCallListToResponseDTO(this.callService.getAll());
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Call getById(@PathVariable("id") int id) {
+    public CallResponseDTO getById(@PathVariable("id") int id) {
 
-        return this.callService.getById(id);
+        return this.callService.getById(id).fromCallToResponseDTO();
     }
 
     @PostMapping("/")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Call addCall(@RequestBody @Valid CallDTO newCallDTO) {
+    public CallResponseDTO addCall(@RequestBody @Valid CallDTO newCallDTO) {
 
         return this.callService.addCall(
-                Call.builder().
-                        originPhone(this.phoneService.getByNumber(newCallDTO.getOriginPhone())).
-                        destinationPhone(this.phoneService.getByNumber(newCallDTO.getDestinationPhone())).
-                        startDate(Timestamp.valueOf(newCallDTO.getDateTime())).
-                        duration(newCallDTO.getDuration()).build());
+                        Call.builder().
+                                originPhone(this.phoneService.getByNumber(newCallDTO.getOriginPhone())).
+                                destinationPhone(this.phoneService.getByNumber(newCallDTO.getDestinationPhone())).
+                                startDate(Timestamp.valueOf(newCallDTO.getDateTime())).
+                                duration(newCallDTO.getDuration()).build(),
+                        this.clientService.getByPhone(this.phoneService.getByNumber(newCallDTO.getOriginPhone())))
+                .fromCallToResponseDTO();
     }
 
     @GetMapping("/date&client")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List<Call> getByDateRangeAndUser(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
-                                            @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to,
-                                            @RequestParam("clientId") int clientId,
-                                            Authentication auth) {
+    public List<CallResponseDTO> getByDateRangeAndUser(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
+                                                       @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to,
+                                                       @RequestParam("clientId") int clientId,
+                                                       Authentication auth) {
 
-        return this.callService.getByDateRangeAndUser(from, to, this.clientService.getById(clientId).getPhone(), auth);
+        return Call.fromCallListToResponseDTO(this.callService.getByDateRangeAndUser(from, to, this.clientService.getById(clientId).getPhone(), auth));
     }
 
     @GetMapping("/date")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List<Call> getByDateRange(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
-                                     @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to,
-                                     Authentication auth) {
+    public List<CallResponseDTO> getByDateRange(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
+                                                @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to,
+                                                Authentication auth) {
 
-        return this.callService.getByDateRange(from, to, auth);
+        return Call.fromCallListToResponseDTO(this.callService.getByDateRange(from, to, auth));
     }
 }

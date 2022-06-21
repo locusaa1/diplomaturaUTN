@@ -1,6 +1,7 @@
 package com.utn.diplomaturautn.service;
 
 import com.utn.diplomaturautn.model.Call;
+import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.model.Phone;
 import org.springframework.security.core.Authentication;
 
@@ -31,7 +32,7 @@ public interface CallService {
      * @param newCall the Call object to be saved.
      * @return the Call object with his last form from the repository.
      */
-    Call addCall(Call newCall);
+    Call addCall(Call newCall, Client originClient);
 
     /**
      * Lists all calls from the repository that were made between the specifics dates and matches the user phone.

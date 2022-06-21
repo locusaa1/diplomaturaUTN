@@ -1,11 +1,15 @@
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\feeServiceImplTest\FeeServiceImplTest.java
+E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\billServiceImplTest\GetAllTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\userServiceImplTest\UserServiceImplTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\data\DataForModels.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\userServiceImplTest\GetByUsernameTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\clientServiceImplTest\AddClientTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\clientServiceImplTest\DeleteClientTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\clientServiceImplTest\DiscontinueClientTest.java
+E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\billServiceImplTest\BillServiceImplTest.java
+E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\billServiceImplTest\GetByDateRangeTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\cityServiceImplTest\CityServiceImplTest.java
+E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\billServiceImplTest\GetByIdTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\clientServiceImplTest\ReactivateClientTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\employeeServiceImplTest\AddEmployeeTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\employeeServiceImplTest\GetById.java

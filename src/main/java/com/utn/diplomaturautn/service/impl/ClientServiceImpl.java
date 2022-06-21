@@ -2,10 +2,12 @@ package com.utn.diplomaturautn.service.impl;
 
 import com.utn.diplomaturautn.exception.*;
 import com.utn.diplomaturautn.model.Client;
+import com.utn.diplomaturautn.model.Phone;
 import com.utn.diplomaturautn.repositroy.ClientRepository;
 import com.utn.diplomaturautn.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
@@ -59,6 +61,27 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
+    public Client getByPhone(Phone clientPhone) {
+
+        if (!clientPhone.getNumber().isEmpty()) {
+
+            Optional<Client> client = this.clientRepository.findByPhoneEquals(clientPhone);
+
+            if (client.isPresent()) {
+
+                return client.get();
+            } else {
+
+                throw new ResourceNotFoundException("There is not a register with the specific phone");
+            }
+        } else {
+
+            throw new InvalidBeanFieldsException("You have to specify the phone number");
+        }
+    }
+
+    @Override
+    @Transactional
     public Client addClient(Client newClient) {
 
         try {
@@ -66,7 +89,7 @@ public class ClientServiceImpl implements ClientService {
             return this.clientRepository.save(newClient);
         } catch (Exception exception) {
 
-            throw new ErrorSavingEntityException("Saving the entity failed. Nested exception message: " + exception.getMessage());
+            throw new ErrorSavingEntityException("Saving the entity failed. Nested exception message: " + exception.getCause().toString());
         }
     }
 

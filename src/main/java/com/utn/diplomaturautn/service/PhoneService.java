@@ -15,4 +15,6 @@ public interface PhoneService {
     Phone addPhone(String areaCode, String phoneNumber);
 
     Phone getByNumber(String number);
+
+    void deletePhoneByNumber(String number);
 }

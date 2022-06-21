@@ -1,14 +1,15 @@
 package com.utn.diplomaturautn.controller;
 
-import com.utn.diplomaturautn.dataTransferObject.ClientDTO;
-import com.utn.diplomaturautn.dataTransferObject.EmployeeDTO;
-import com.utn.diplomaturautn.dataTransferObject.LoginDTO;
+import com.utn.diplomaturautn.dataTransferObject.*;
+import com.utn.diplomaturautn.enumerated.ClientCondition;
+import com.utn.diplomaturautn.enumerated.EmployeeCondition;
+import com.utn.diplomaturautn.enumerated.UserType;
+import com.utn.diplomaturautn.exception.ErrorSavingEntityException;
 import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.model.Employee;
 import com.utn.diplomaturautn.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("api/person")
@@ -61,10 +63,10 @@ public class PersonController {
                 username(clientDTO.getUsername()).
                 password(this.passwordEncoder.encode(
                         clientDTO.getPassword())).
-                userType(clientDTO.getUserType()).
+                userType(UserType.CLIENT).
                 phone(this.phoneService.addPhone(
                         this.cityService.getById(clientDTO.getCityId()).getAreaCode(), clientDTO.getPhoneNumber())).
-                condition(clientDTO.getCondition()).build();
+                condition(ClientCondition.ACTIVE).build();
     }
 
     private Employee fromEmployeeDTOtoEmployee(EmployeeDTO employeeDTO) {
@@ -76,8 +78,8 @@ public class PersonController {
                 dni(employeeDTO.getDni()).
                 username(employeeDTO.getUsername()).
                 password(passwordEncoder.encode(employeeDTO.getPassword())).
-                userType(employeeDTO.getUserType()).
-                condition(employeeDTO.getCondition()).build();
+                userType(UserType.EMPLOYEE).
+                condition(EmployeeCondition.ACTIVE).build();
     }
 
     @PostMapping("/login")
@@ -94,72 +96,110 @@ public class PersonController {
     @PostMapping("/client")
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public Client addClient(@RequestBody @Valid ClientDTO newClientDTO) {
+    public ClientResponseDTO addClient(@RequestBody @Valid ClientDTO newClientDTO) {
 
-        return this.clientService.addClient(this.fromClientDTOtoClient(newClientDTO));
+        try {
+
+            return this.clientService.addClient(this.fromClientDTOtoClient(newClientDTO)).fromClientToResponseDTO();
+        } catch (ErrorSavingEntityException exception) {
+            this.phoneService.deletePhoneByNumber(newClientDTO.getPhoneNumber());
+            throw exception;
+        }
+    }
+
+    @GetMapping("/client")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<ClientResponseDTO> getAllClients() {
+
+        return Client.fromClientListToResponseDTO(this.clientService.getAll());
+    }
+
+    @GetMapping("/client/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public ClientResponseDTO getClientById(@PathVariable("id") int clientId) {
+
+        return this.clientService.getById(clientId).fromClientToResponseDTO();
     }
 
     @PatchMapping("/client/{id}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Client modifyClient(@RequestBody ClientDTO newClientDTO, @PathVariable("id") int clientId) {
+    public ClientResponseDTO modifyClient(@RequestBody ClientDTO newClientDTO, @PathVariable("id") int clientId) {
 
-        return this.clientService.modifyClient(this.fromClientDTOtoClient(newClientDTO), clientId);
+        return this.clientService.modifyClient(this.fromClientDTOtoClient(newClientDTO), clientId).fromClientToResponseDTO();
     }
 
     @PatchMapping("/client/discontinue/{id}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Client discontinueClient(@PathVariable("id") int clientId) {
+    public ClientResponseDTO discontinueClient(@PathVariable("id") int clientId) {
 
-        return this.clientService.discontinueClient(clientId);
+        return this.clientService.discontinueClient(clientId).fromClientToResponseDTO();
     }
 
     @PatchMapping("/client/reactivate/{id}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Client reactivateClient(@PathVariable("id") int clientId) {
+    public ClientResponseDTO reactivateClient(@PathVariable("id") int clientId) {
 
-        return this.clientService.reactivateClient(clientId);
+        return this.clientService.reactivateClient(clientId).fromClientToResponseDTO();
     }
 
     @DeleteMapping("/client/{id}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Client deleteClient(@PathVariable("id") int clientId) {
+    public ClientResponseDTO deleteClient(@PathVariable("id") int clientId) {
 
-        return this.clientService.deleteClient(clientId);
+        return this.clientService.deleteClient(clientId).fromClientToResponseDTO();
     }
 
     @PostMapping("/employee")
+    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseBody
+    public EmployeeResponseDTO addEmployee(@RequestBody @Valid EmployeeDTO newEmployeeDTO) {
+
+        return this.employeeService.addEmployee(this.fromEmployeeDTOtoEmployee(newEmployeeDTO)).fromEmployeeToResponseDTO();
+    }
+
+    @GetMapping("/employee")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Employee addEmployee(@RequestBody @Valid EmployeeDTO newEmployeeDTO) {
+    public List<EmployeeResponseDTO> getAllEmployees() {
 
-        return this.employeeService.addEmployee(this.fromEmployeeDTOtoEmployee(newEmployeeDTO));
+        return Employee.fromEmployeeListToResponse(this.employeeService.getAll());
+    }
+
+    @GetMapping("/employee/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public EmployeeResponseDTO getEmployeeById(@PathVariable("id") int employeeId) {
+
+        return this.employeeService.getById(employeeId).fromEmployeeToResponseDTO();
     }
 
     @PatchMapping("/employee/{id}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Employee modifyEmployee(@RequestBody EmployeeDTO newEmployeeDTO, @PathVariable("id") int employeeId) {
+    public EmployeeResponseDTO modifyEmployee(@RequestBody EmployeeDTO newEmployeeDTO, @PathVariable("id") int employeeId) {
 
-        return this.employeeService.modifyEmployee(this.fromEmployeeDTOtoEmployee(newEmployeeDTO), employeeId);
+        return this.employeeService.modifyEmployee(this.fromEmployeeDTOtoEmployee(newEmployeeDTO), employeeId).fromEmployeeToResponseDTO();
     }
 
     @PatchMapping("/employee/reactivate/{id}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Employee reactivateEmployee(@PathVariable("id") int employeeId) {
+    public EmployeeResponseDTO reactivateEmployee(@PathVariable("id") int employeeId) {
 
-        return this.employeeService.reactiveEmployee(employeeId);
+        return this.employeeService.reactiveEmployee(employeeId).fromEmployeeToResponseDTO();
     }
 
     @DeleteMapping("/employee/{id}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Employee deleteEmployee(@PathVariable("id") int employeeId) {
+    public EmployeeResponseDTO deleteEmployee(@PathVariable("id") int employeeId) {
 
-        return this.employeeService.deleteEmployee(employeeId);
+        return this.employeeService.deleteEmployee(employeeId).fromEmployeeToResponseDTO();
     }
 }

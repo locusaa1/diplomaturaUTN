@@ -9,6 +9,7 @@ import com.utn.diplomaturautn.service.PhoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -67,5 +68,18 @@ public class PhoneServiceImpl implements PhoneService {
 
             return phone.get();
         }
+    }
+
+    @Transactional
+    public void deletePhoneByNumber(String number) {
+
+        try {
+
+            this.phoneRepository.deletePhoneByNumber(number);
+        } catch (Exception exception) {
+
+            throw new InvalidPhoneException("Something went wrong trying to delete the specific phone number: " + exception.getCause().toString());
+        }
+
     }
 }

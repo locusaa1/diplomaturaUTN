@@ -1,6 +1,7 @@
 package com.utn.diplomaturautn.controller;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.utn.diplomaturautn.dataTransferObject.BillResponseDTO;
 import com.utn.diplomaturautn.model.Bill;
 import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.service.BillService;
@@ -32,37 +33,37 @@ public class BillController {
     @GetMapping("/")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List<Bill> getAll() {
+    public List<BillResponseDTO> getAll() {
 
-        return this.billService.getAll();
+        return Bill.fromBillListToResponseDTO(this.billService.getAll());
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Bill getById(@PathVariable("id") int id) {
+    public BillResponseDTO getById(@PathVariable("id") int id) {
 
-        return this.billService.getById(id);
+        return this.billService.getById(id).fromBillToResponseDTO();
     }
 
     @GetMapping("/date&client")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List<Bill> getByDateRangeAndClient(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
-                                              @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to,
-                                              @RequestParam("client") int clientId,
-                                              Authentication auth) {
+    public List<BillResponseDTO> getByDateRangeAndClient(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
+                                                         @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to,
+                                                         @RequestParam("client") int clientId,
+                                                         Authentication auth) {
 
-        return this.billService.getByDateRangeAndClient(from, to, this.clientService.getById(clientId), auth);
+        return Bill.fromBillListToResponseDTO(this.billService.getByDateRangeAndClient(from, to, this.clientService.getById(clientId), auth));
     }
 
     @GetMapping("/date")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List<Bill> getByDateRange(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
-                                     @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to,
-                                     Authentication auth) {
+    public List<BillResponseDTO> getByDateRange(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
+                                                @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to,
+                                                Authentication auth) {
 
-        return this.billService.getByDateRange(from, to, auth);
+        return Bill.fromBillListToResponseDTO(this.billService.getByDateRange(from, to, auth));
     }
 }

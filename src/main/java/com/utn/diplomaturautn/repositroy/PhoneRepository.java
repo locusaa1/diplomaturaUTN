@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface PhoneRepository extends JpaRepository<Phone, Integer> {
 
     public Optional<Phone> findPhoneByNumber(String number);
+
+    void deletePhoneByNumber(String number);
 }

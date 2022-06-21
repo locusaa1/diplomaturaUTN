@@ -1,6 +1,7 @@
 package com.utn.diplomaturautn.service;
 
 import com.utn.diplomaturautn.model.Client;
+import com.utn.diplomaturautn.model.Phone;
 
 import java.util.List;
 
@@ -16,10 +17,12 @@ public interface ClientService {
     /**
      * Searches for the specific client id into the repository.
      *
-     * @param id the id of the specific client.
+     * @param employeeId the id of the specific client.
      * @return the specific Client object.
      */
     Client getById(int employeeId);
+
+    Client getByPhone(Phone clientPhone);
 
     /**
      * Adds a new client into the repository.

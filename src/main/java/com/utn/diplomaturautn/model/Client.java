@@ -1,6 +1,7 @@
 package com.utn.diplomaturautn.model;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.utn.diplomaturautn.dataTransferObject.ClientResponseDTO;
 import com.utn.diplomaturautn.enumerated.ClientCondition;
 import com.utn.diplomaturautn.enumerated.UserType;
 import lombok.*;
@@ -11,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -57,6 +59,30 @@ public class Client extends User implements UserDetails {
             this.setPhone(newData.getPhone());
         }
         return this;
+    }
+
+    public ClientResponseDTO fromClientToResponseDTO() {
+
+        return new ClientResponseDTO(
+                this.getName(),
+                this.getLastName(),
+                this.getDni(),
+                this.getCity().getName(),
+                this.getPhone().getNumber(),
+                this.getUsername(),
+                this.getCondition(),
+                this.getUserType());
+    }
+
+    public static List<ClientResponseDTO> fromClientListToResponseDTO(List<Client> clients) {
+
+        List<ClientResponseDTO> clientsResponse = new ArrayList<>();
+
+        for (Client c : clients) {
+
+            clientsResponse.add(c.fromClientToResponseDTO());
+        }
+        return clientsResponse;
     }
 
     @Override
@@ -108,9 +134,9 @@ public class Client extends User implements UserDetails {
         }
     }
 
-
     @Override
     public int hashCode() {
+
         return getClass().hashCode();
     }
 }

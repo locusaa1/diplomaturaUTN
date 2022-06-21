@@ -1,5 +1,6 @@
 package com.utn.diplomaturautn.model;
 
+import com.utn.diplomaturautn.dataTransferObject.BillResponseDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Builder
@@ -37,4 +40,25 @@ public class Bill {
 
     @Column(name = "expiration_date")
     private Date expirationDate;
+
+    public BillResponseDTO fromBillToResponseDTO() {
+
+        return new BillResponseDTO(
+                this.client.getName(),
+                this.callsSum,
+                this.total,
+                this.generatedDate,
+                this.expirationDate);
+    }
+
+    public static List<BillResponseDTO> fromBillListToResponseDTO(List<Bill> bills) {
+
+        List<BillResponseDTO> billsResponse = new ArrayList<>();
+
+        for (Bill b : bills) {
+
+            billsResponse.add(b.fromBillToResponseDTO());
+        }
+        return billsResponse;
+    }
 }

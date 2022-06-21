@@ -1,6 +1,7 @@
 package com.utn.diplomaturautn.controller;
 
 import com.utn.diplomaturautn.dataTransferObject.FeeDTO;
+import com.utn.diplomaturautn.dataTransferObject.FeeResponseDTO;
 import com.utn.diplomaturautn.model.Fee;
 import com.utn.diplomaturautn.service.CityService;
 import com.utn.diplomaturautn.service.FeeService;
@@ -23,16 +24,16 @@ public class FeeController {
     @GetMapping("/")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List<Fee> getAll() {
+    public List<FeeResponseDTO> getAll() {
 
-        return this.feeService.getAll();
+        return Fee.fromFeeListToResponseDTO(this.feeService.getAll());
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Fee getById(@PathVariable("id") int id) {
+    public FeeResponseDTO getById(@PathVariable("id") int id) {
 
-        return this.feeService.getById(id);
+        return this.feeService.getById(id).fromFeeToResponseDTO();
     }
 }
