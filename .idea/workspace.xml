@@ -5,72 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba7185cc-6f18-49d2-876f-35439a40052f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/01aa921e-df42-4e30-a566-81a460c64a03.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/01aa921e-df42-4e30-a566-81a460c64a03.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/BillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/BillController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/CallController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/CallController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/FeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/FeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/PersonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Bill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Call.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Call.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Fee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/model/Fee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/repositroy/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/repositroy/ClientRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/repositroy/PhoneRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/repositroy/PhoneRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/CallService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/CallService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/ClientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/PhoneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/PhoneService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/BillServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/BillServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/CallServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/CallServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/ClientServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/PhoneServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/PhoneServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/CallController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/CallController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/FeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/FeeController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/PersonController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/PersonController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Call$CallBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Call$CallBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Call.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Call.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Bill$BillBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Bill$BillBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Bill.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Bill.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Client$ClientBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Client$ClientBuilder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Employee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/repositroy/ClientRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/repositroy/ClientRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/repositroy/PhoneRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/repositroy/PhoneRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/CallService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/CallService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/ClientService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/ClientService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/PhoneService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/PhoneService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Fee$FeeBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Fee$FeeBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Fee.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/model/Fee.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/CallServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/CallServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/ClientServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/ClientServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/PhoneServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/PhoneServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/target/jacoco.exec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.DiplomaturaUtnApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.DiplomaturaUtnApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.cityServiceImplTest.GetAllTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.cityServiceImplTest.GetAllTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.cityServiceImplTest.GetByIdTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.cityServiceImplTest.GetByIdTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.AddClientTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.AddClientTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.DeleteClientTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.DeleteClientTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.DiscontinueClientTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.DiscontinueClientTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.GetAllTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.GetAllTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.GetByIdTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.GetByIdTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.ModifyClientTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.ModifyClientTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.ReactivateClientTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.clientServiceImplTest.ReactivateClientTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.AddEmployeeTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.AddEmployeeTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.DeleteEmployeeTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.DeleteEmployeeTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.GetAllTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.GetAllTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.ModifyEmployeeTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.ModifyEmployeeTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.ReactivateEmployeeTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.ReactivateEmployeeTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.feeServiceImplTest.GetAllTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.feeServiceImplTest.GetAllTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.feeServiceImplTest.GetByIdTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.feeServiceImplTest.GetByIdTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.provinceServiceImplTest.ProvinceServiceImplTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.provinceServiceImplTest.ProvinceServiceImplTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.userServiceImplTest.GetByUsernameTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.userServiceImplTest.GetByUsernameTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.userServiceImplTest.LoadByUsernameTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.utn.diplomaturautn.serviceTest.userServiceImplTest.LoadByUsernameTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.DiplomaturaUtnApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.DiplomaturaUtnApplicationTests.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.cityServiceImplTest.GetAllTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.cityServiceImplTest.GetAllTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.cityServiceImplTest.GetByIdTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.cityServiceImplTest.GetByIdTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.clientServiceImplTest.AddClientTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.clientServiceImplTest.AddClientTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.clientServiceImplTest.DeleteClientTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.clientServiceImplTest.DeleteClientTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.AddEmployeeTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.employeeServiceImplTest.AddEmployeeTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.feeServiceImplTest.GetAllTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.feeServiceImplTest.GetAllTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.provinceServiceImplTest.ProvinceServiceImplTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.provinceServiceImplTest.ProvinceServiceImplTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.userServiceImplTest.GetByUsernameTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.utn.diplomaturautn.serviceTest.userServiceImplTest.GetByUsernameTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/utn/diplomaturautn/serviceTest/billServiceImplTest/GetByDateRangeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/utn/diplomaturautn/serviceTest/billServiceImplTest/GetByDateRangeTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,7 +260,7 @@
       <workItem from="1655659481740" duration="25282000" />
       <workItem from="1655755233935" duration="16243000" />
       <workItem from="1655787483304" duration="3926000" />
-      <workItem from="1655841116928" duration="3289000" />
+      <workItem from="1655841116928" duration="5253000" />
     </task>
     <servers />
   </component>
@@ -351,20 +299,6 @@
     </ignored-roots>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/utils/Utils.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/utils/Utils.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="java.util.Optional" memberName="value" />

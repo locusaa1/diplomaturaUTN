@@ -6,6 +6,7 @@ import com.utn.diplomaturautn.exception.InvalidCallException;
 import com.utn.diplomaturautn.exception.NoContentException;
 import com.utn.diplomaturautn.model.Call;
 import com.utn.diplomaturautn.model.Client;
+import com.utn.diplomaturautn.model.Employee;
 import com.utn.diplomaturautn.model.Phone;
 import com.utn.diplomaturautn.repositroy.CallRepository;
 import com.utn.diplomaturautn.service.CallService;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
@@ -109,7 +111,9 @@ public class CallServiceImpl implements CallService {
 
         Optional<List<Call>> callsList = this.callRepository.findByStartDateGreaterThanEqualAndStartDateIsLessThanEqual(timestampFrom, timestampTo);
 
-        User userRequesting = (User) auth.getPrincipal();
+        UserDetails user = (UserDetails) auth.getPrincipal();
+
+        User userRequesting = new User(user.getUsername(), user.getPassword(), user.getAuthorities());
 
         if (callsList.isPresent()) {
 

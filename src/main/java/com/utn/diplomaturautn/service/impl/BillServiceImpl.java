@@ -12,6 +12,7 @@ import com.utn.diplomaturautn.utils.Utils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
@@ -97,7 +98,9 @@ public class BillServiceImpl implements BillService {
 
         Utils.compareDatesThrowingExceptions(timestampFrom, timestampTo);
 
-        User userRequesting = (User) auth.getPrincipal();
+        UserDetails user = (UserDetails) auth.getPrincipal();
+
+        User userRequesting = new User(user.getUsername(), user.getPassword(), user.getAuthorities());
 
         Optional<List<Bill>> billsList = this.billRepository.findByGeneratedDateGreaterThanEqualAndGeneratedDateIsLessThanEqual(timestampFrom, timestampTo);
 
