@@ -29,12 +29,12 @@ public class CallController {
     private final ClientService clientService;
 
     @Autowired
-<span class="nc" id="L32">    public CallController(CallService callService, PhoneService phoneService, ClientService clientService) {</span>
+<span class="fc" id="L32">    public CallController(CallService callService, PhoneService phoneService, ClientService clientService) {</span>
 
-<span class="nc" id="L34">        this.callService = callService;</span>
-<span class="nc" id="L35">        this.phoneService = phoneService;</span>
-<span class="nc" id="L36">        this.clientService = clientService;</span>
-<span class="nc" id="L37">    }</span>
+<span class="fc" id="L34">        this.callService = callService;</span>
+<span class="fc" id="L35">        this.phoneService = phoneService;</span>
+<span class="fc" id="L36">        this.clientService = clientService;</span>
+<span class="fc" id="L37">    }</span>
 
     @GetMapping(&quot;/&quot;)
     @ResponseStatus(HttpStatus.OK)

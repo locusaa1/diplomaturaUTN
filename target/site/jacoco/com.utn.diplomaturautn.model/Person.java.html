@@ -9,11 +9,11 @@ import javax.persistence.*;
 
 //@Data Avoids boilerplate code (getters, setters, toString). (Lombok)
 @Getter
-<span class="nc" id="L12">@Setter</span>
+<span class="fc" id="L12">@Setter</span>
 <span class="nc" id="L13">@ToString</span>
 @Component
 <span class="nc" id="L15">@AllArgsConstructor //AutoGenerates the constructor with all the parameters for the class. (Lombok)</span>
-<span class="nc" id="L16">@NoArgsConstructor //AutoGenerates the constructor with no parameters for the class. (Lombok)</span>
+<span class="fc" id="L16">@NoArgsConstructor //AutoGenerates the constructor with no parameters for the class. (Lombok)</span>
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = &quot;@type&quot;)
 @JsonSubTypes({
         @JsonSubTypes.Type(value = Client.class, name = &quot;client&quot;),
@@ -31,15 +31,15 @@ public abstract class Person {
 
     @OneToOne
     @JoinColumn(name = &quot;id_city&quot;)
-<span class="nc" id="L34">    private City city;</span>
+<span class="fc" id="L34">    private City city;</span>
 
     @Column(name = &quot;name&quot;, nullable = false) //Specifies the column name and his attributes
-<span class="nc" id="L37">    private String name;</span>
+<span class="fc" id="L37">    private String name;</span>
 
     @Column(name = &quot;last_name&quot;, nullable = false)
-<span class="nc" id="L40">    private String lastName;</span>
+<span class="fc" id="L40">    private String lastName;</span>
 
     @Column(name = &quot;dni&quot;, nullable = false, unique = true)
-<span class="nc" id="L43">    private String dni;</span>
+<span class="fc" id="L43">    private String dni;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

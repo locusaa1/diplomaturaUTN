@@ -174,14 +174,6 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco.version}</version>
-                <configuration>
-                    <excludes>
-                        <exclude>com.utn.diplomaturautn/config/**</exclude>
-                        <exclude>com.utn.diplomaturautn/controller/**</exclude>
-                        <exclude>com.utn.diplomaturautn/dataTransferObject</exclude>
-                        <exclude>com.utn.diplomaturautn/model/**</exclude>
-                    </excludes>
-                </configuration>
                 <executions>
                     <execution>
                         <id>jacoco-initialize</id>

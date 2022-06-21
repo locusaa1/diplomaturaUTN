@@ -9,33 +9,33 @@ import org.springframework.stereotype.Component;
 import javax.persistence.*;
 import java.sql.Date;
 
-<span class="nc bnc" id="L12" title="All 36 branches missed.">@Data</span>
+<span class="pc bpc" id="L12" title="33 of 36 branches missed.">@Data</span>
 <span class="nc" id="L13">@Builder</span>
 @Component
 <span class="nc" id="L15">@AllArgsConstructor</span>
-<span class="nc" id="L16">@NoArgsConstructor</span>
+<span class="fc" id="L16">@NoArgsConstructor</span>
 @Entity
 @Table(name = &quot;bills&quot;)
 public class Bill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-<span class="nc" id="L23">    private int id;</span>
+<span class="fc" id="L23">    private int id;</span>
 
     @OneToOne
     @JoinColumn(name = &quot;id_client&quot;)
-<span class="nc" id="L27">    private Client client;</span>
+<span class="fc" id="L27">    private Client client;</span>
 
     @Column(name = &quot;calls_sum&quot;)
-<span class="nc" id="L30">    private int callsSum;</span>
+<span class="fc" id="L30">    private int callsSum;</span>
 
     @Column(name = &quot;total&quot;)
-<span class="nc" id="L33">    private double total;</span>
+<span class="fc" id="L33">    private double total;</span>
 
     @Column(name = &quot;generated_date&quot;)
-<span class="nc" id="L36">    private Date generatedDate;</span>
+<span class="fc" id="L36">    private Date generatedDate;</span>
 
     @Column(name = &quot;expiration_date&quot;)
-<span class="nc" id="L39">    private Date expirationDate;</span>
+<span class="fc" id="L39">    private Date expirationDate;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

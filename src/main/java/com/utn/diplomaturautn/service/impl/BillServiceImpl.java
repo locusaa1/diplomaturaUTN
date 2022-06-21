@@ -1,8 +1,9 @@
 package com.utn.diplomaturautn.service.impl;
 
 import com.utn.diplomaturautn.enumerated.UserType;
-import com.utn.diplomaturautn.exception.InvalidBillRequest;
+import com.utn.diplomaturautn.exception.InvalidBeanFieldsException;
 import com.utn.diplomaturautn.exception.NoContentException;
+import com.utn.diplomaturautn.exception.ResourceNotFoundException;
 import com.utn.diplomaturautn.model.Bill;
 import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.repositroy.BillRepository;
@@ -16,7 +17,6 @@ import org.springframework.stereotype.Service;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -45,13 +45,34 @@ public class BillServiceImpl implements BillService {
     @Override
     public List<Bill> getAll() {
 
-        return this.billRepository.findAll();
+        List<Bill> billList = this.billRepository.findAll();
+
+        if (!billList.isEmpty()) {
+
+            return billList;
+        } else {
+
+            throw new NoContentException("There is no content in the database from this entity.");
+        }
     }
 
     @Override
     public Bill getById(int id) {
 
-        return this.billRepository.findById(id).get();
+        if (id > 0) {
+
+            Optional<Bill> billFound = this.billRepository.findById(id);
+            if (billFound.isPresent()) {
+
+                return billFound.get();
+            } else {
+
+                throw new ResourceNotFoundException("There is not a register with the specific id");
+            }
+        } else {
+
+            throw new InvalidBeanFieldsException("The id must be higher than 0");
+        }
     }
 
     @Override

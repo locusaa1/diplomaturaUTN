@@ -16,11 +16,11 @@ import java.util.List;
 import java.util.Objects;
 
 @Getter
-<span class="nc" id="L19">@Setter</span>
+<span class="pc" id="L19">@Setter</span>
 <span class="nc" id="L20">@ToString</span>
 @Component
 <span class="nc" id="L22">@AllArgsConstructor</span>
-<span class="nc" id="L23">@NoArgsConstructor</span>
+<span class="fc" id="L23">@NoArgsConstructor</span>
 @JsonTypeName(&quot;client&quot;)
 @Entity
 @Table(name = &quot;clients&quot;)
@@ -28,35 +28,35 @@ public class Client extends User implements UserDetails {
 
     @OneToOne
     @JoinColumn(name = &quot;id_phone&quot;)
-<span class="nc" id="L31">    private Phone phone;</span>
+<span class="fc" id="L31">    private Phone phone;</span>
 
     @Column(name = &quot;client_condition&quot;)
     @Enumerated(value = EnumType.STRING)
-<span class="nc" id="L35">    private ClientCondition condition;</span>
+<span class="fc" id="L35">    private ClientCondition condition;</span>
 
-<span class="nc" id="L37">    @Builder</span>
-<span class="nc" id="L38">    public Client(int id, City city, String name, String lastName, String dni, String username, String password, UserType userType, Phone phone, ClientCondition condition) {</span>
+<span class="pc" id="L37">    @Builder</span>
+<span class="fc" id="L38">    public Client(int id, City city, String name, String lastName, String dni, String username, String password, UserType userType, Phone phone, ClientCondition condition) {</span>
 
-<span class="nc" id="L40">        this.setId(id);</span>
-<span class="nc" id="L41">        this.setCity(city);</span>
-<span class="nc" id="L42">        this.setName(name);</span>
-<span class="nc" id="L43">        this.setLastName(lastName);</span>
-<span class="nc" id="L44">        this.setDni(dni);</span>
-<span class="nc" id="L45">        this.setUsername(username);</span>
-<span class="nc" id="L46">        this.setPassword(password);</span>
-<span class="nc" id="L47">        this.setUserType(userType);</span>
-<span class="nc" id="L48">        this.phone = phone;</span>
-<span class="nc" id="L49">        this.condition = condition;</span>
-<span class="nc" id="L50">    }</span>
+<span class="fc" id="L40">        this.setId(id);</span>
+<span class="fc" id="L41">        this.setCity(city);</span>
+<span class="fc" id="L42">        this.setName(name);</span>
+<span class="fc" id="L43">        this.setLastName(lastName);</span>
+<span class="fc" id="L44">        this.setDni(dni);</span>
+<span class="fc" id="L45">        this.setUsername(username);</span>
+<span class="fc" id="L46">        this.setPassword(password);</span>
+<span class="fc" id="L47">        this.setUserType(userType);</span>
+<span class="fc" id="L48">        this.phone = phone;</span>
+<span class="fc" id="L49">        this.condition = condition;</span>
+<span class="fc" id="L50">    }</span>
 
     public Client modifyUsingClient(Client newData) {
 
-<span class="nc" id="L54">        this.modifyUsingUser(newData);</span>
-<span class="nc bnc" id="L55" title="All 4 branches missed.">        if (!Objects.isNull(newData.getPhone()) &amp;&amp; !this.getPhone().equals(newData.getPhone())) {</span>
+<span class="fc" id="L54">        this.modifyUsingUser(newData);</span>
+<span class="pc bpc" id="L55" title="2 of 4 branches missed.">        if (!Objects.isNull(newData.getPhone()) &amp;&amp; !this.getPhone().equals(newData.getPhone())) {</span>
 
 <span class="nc" id="L57">            this.setPhone(newData.getPhone());</span>
         }
-<span class="nc" id="L59">        return this;</span>
+<span class="fc" id="L59">        return this;</span>
     }
 
     @Override
@@ -91,18 +91,18 @@ public class Client extends User implements UserDetails {
     @Override
     public boolean equals(Object c) {
 
-<span class="nc bnc" id="L94" title="All 2 branches missed.">        if (c instanceof Client) {</span>
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">        if (c instanceof Client) {</span>
 
-<span class="nc" id="L96">            Client cli = (Client) c;</span>
+<span class="fc" id="L96">            Client cli = (Client) c;</span>
 
-<span class="nc bnc" id="L98" title="All 2 branches missed.">            return this.getName().equals(cli.getName())</span>
-<span class="nc bnc" id="L99" title="All 2 branches missed.">                    &amp;&amp; this.getLastName().equals(cli.getLastName())</span>
-<span class="nc bnc" id="L100" title="All 2 branches missed.">                    &amp;&amp; this.getDni().equals(cli.getDni())</span>
-<span class="nc bnc" id="L101" title="All 2 branches missed.">                    &amp;&amp; this.getCity().equals(cli.getCity())</span>
-<span class="nc bnc" id="L102" title="All 2 branches missed.">                    &amp;&amp; this.getUsername().equals(cli.getUsername())</span>
-<span class="nc bnc" id="L103" title="All 2 branches missed.">                    &amp;&amp; this.getUserType().equals(cli.getUserType())</span>
-<span class="nc bnc" id="L104" title="All 2 branches missed.">                    &amp;&amp; this.getPhone().equals(cli.phone)</span>
-<span class="nc bnc" id="L105" title="All 2 branches missed.">                    &amp;&amp; this.getCondition().equals(cli.getCondition());</span>
+<span class="fc bfc" id="L98" title="All 2 branches covered.">            return this.getName().equals(cli.getName())</span>
+<span class="pc bpc" id="L99" title="1 of 2 branches missed.">                    &amp;&amp; this.getLastName().equals(cli.getLastName())</span>
+<span class="pc bpc" id="L100" title="1 of 2 branches missed.">                    &amp;&amp; this.getDni().equals(cli.getDni())</span>
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">                    &amp;&amp; this.getCity().equals(cli.getCity())</span>
+<span class="pc bpc" id="L102" title="1 of 2 branches missed.">                    &amp;&amp; this.getUsername().equals(cli.getUsername())</span>
+<span class="pc bpc" id="L103" title="1 of 2 branches missed.">                    &amp;&amp; this.getUserType().equals(cli.getUserType())</span>
+<span class="pc bpc" id="L104" title="1 of 2 branches missed.">                    &amp;&amp; this.getPhone().equals(cli.phone)</span>
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">                    &amp;&amp; this.getCondition().equals(cli.getCondition());</span>
         } else {
 <span class="nc" id="L107">            return false;</span>
         }
@@ -111,7 +111,7 @@ public class Client extends User implements UserDetails {
 
     @Override
     public int hashCode() {
-<span class="nc" id="L114">        return getClass().hashCode();</span>
+<span class="fc" id="L114">        return getClass().hashCode();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

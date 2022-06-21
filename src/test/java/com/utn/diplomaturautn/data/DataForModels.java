@@ -4,10 +4,17 @@ import com.utn.diplomaturautn.enumerated.ClientCondition;
 import com.utn.diplomaturautn.enumerated.EmployeeCondition;
 import com.utn.diplomaturautn.enumerated.UserType;
 import com.utn.diplomaturautn.model.*;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.test.context.support.WithMockUser;
 
 import javax.xml.crypto.Data;
+import java.sql.Date;
 import java.sql.Time;
+import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -44,6 +51,26 @@ public final class DataForModels {
         cityList.add(newCity());
         cityList.add(newCity());
         return cityList;
+    }
+
+    public static Bill newBill() {
+
+        return Bill.builder()
+                .id(1)
+                .client(DataForModels.newActiveClient2())
+                .callsSum(2)
+                .total(30.00)
+                .generatedDate(Date.valueOf(LocalDate.of(2020, 1, 20)))
+                .expirationDate(Date.valueOf(LocalDate.of(2020, 1, 30))).build();
+    }
+
+    public static List<Bill> billList() {
+
+        List<Bill> billList = new ArrayList<>();
+        billList.add(DataForModels.newBill());
+        billList.add(DataForModels.newBill());
+        billList.add(DataForModels.newBill());
+        return billList;
     }
 
     public static Fee newFee() {
@@ -87,6 +114,60 @@ public final class DataForModels {
                 .city(DataForModels.newCity())
                 .phone(DataForModels.newPhone())
                 .build();
+    }
+
+    public static User clientAuthentication() {
+
+        return new User("Leonardo",
+                "123",
+                List.of(new SimpleGrantedAuthority(UserType.CLIENT.toString())));
+    }
+
+    public static User employeeAuthentication() {
+
+        return new User("Leonardo",
+                "123",
+                List.of(new SimpleGrantedAuthority(UserType.EMPLOYEE.toString())));
+    }
+
+    public static String dateOne() {
+
+        return "2022-01-10";
+    }
+
+    public static Timestamp timestampOne() {
+
+        return Timestamp.valueOf(DataForModels.dateOne() + " 00:00:00");
+    }
+
+    public static String dateTwo() {
+
+        return "2022-05-30";
+    }
+
+    public static Timestamp timestampTwo() {
+
+        return Timestamp.valueOf(DataForModels.dateTwo() + " 23:59:59");
+    }
+
+    public static String dateThree() {
+
+        return "2022-12-01";
+    }
+
+    public static Timestamp timestampThree() {
+
+        return Timestamp.valueOf(DataForModels.dateThree());
+    }
+
+    public static String dateFour() {
+
+        return "2022-01-01";
+    }
+
+    public static Timestamp timestampFour() {
+
+        return Timestamp.valueOf(DataForModels.dateFour());
     }
 
     public static Client newActiveClient2() {

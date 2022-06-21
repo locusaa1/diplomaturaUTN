@@ -17,10 +17,10 @@ import java.util.List;
 import java.util.Objects;
 
 @Getter
-<span class="nc" id="L20">@Setter</span>
+<span class="fc" id="L20">@Setter</span>
 <span class="nc" id="L21">@ToString</span>
 @Component
-<span class="nc" id="L23">@NoArgsConstructor</span>
+<span class="fc" id="L23">@NoArgsConstructor</span>
 <span class="nc" id="L24">@AllArgsConstructor</span>
 @JsonTypeName(&quot;employee&quot;)
 @Entity
@@ -29,26 +29,26 @@ public class Employee extends User implements UserDetails {
 
     @Column(name = &quot;employee_condition&quot;)
     @Enumerated(value = EnumType.STRING)
-<span class="nc" id="L32">    private EmployeeCondition condition;</span>
+<span class="fc" id="L32">    private EmployeeCondition condition;</span>
 
-<span class="nc" id="L34">    @Builder</span>
-<span class="nc" id="L35">    public Employee(int id, City city, String name, String lastName, String dni, String username, String password, UserType userType, EmployeeCondition condition) {</span>
+<span class="pc" id="L34">    @Builder</span>
+<span class="fc" id="L35">    public Employee(int id, City city, String name, String lastName, String dni, String username, String password, UserType userType, EmployeeCondition condition) {</span>
 
-<span class="nc" id="L37">        this.setId(id);</span>
-<span class="nc" id="L38">        this.setCity(city);</span>
-<span class="nc" id="L39">        this.setName(name);</span>
-<span class="nc" id="L40">        this.setLastName(lastName);</span>
-<span class="nc" id="L41">        this.setDni(dni);</span>
-<span class="nc" id="L42">        this.setUsername(username);</span>
-<span class="nc" id="L43">        this.setPassword(password);</span>
-<span class="nc" id="L44">        this.setUserType(userType);</span>
-<span class="nc" id="L45">        this.condition = condition;</span>
-<span class="nc" id="L46">    }</span>
+<span class="fc" id="L37">        this.setId(id);</span>
+<span class="fc" id="L38">        this.setCity(city);</span>
+<span class="fc" id="L39">        this.setName(name);</span>
+<span class="fc" id="L40">        this.setLastName(lastName);</span>
+<span class="fc" id="L41">        this.setDni(dni);</span>
+<span class="fc" id="L42">        this.setUsername(username);</span>
+<span class="fc" id="L43">        this.setPassword(password);</span>
+<span class="fc" id="L44">        this.setUserType(userType);</span>
+<span class="fc" id="L45">        this.condition = condition;</span>
+<span class="fc" id="L46">    }</span>
 
     public Employee modifyUsingEmployee(Employee newData) {
 
-<span class="nc" id="L50">        this.modifyUsingUser(newData);</span>
-<span class="nc" id="L51">        return this;</span>
+<span class="fc" id="L50">        this.modifyUsingUser(newData);</span>
+<span class="fc" id="L51">        return this;</span>
     }
 
     @Override
@@ -83,17 +83,17 @@ public class Employee extends User implements UserDetails {
     @Override
     public boolean equals(Object e) {
 
-<span class="nc bnc" id="L86" title="All 2 branches missed.">        if (e instanceof Employee) {</span>
+<span class="pc bpc" id="L86" title="1 of 2 branches missed.">        if (e instanceof Employee) {</span>
 
-<span class="nc" id="L88">            Employee emp = (Employee) e;</span>
+<span class="fc" id="L88">            Employee emp = (Employee) e;</span>
 
-<span class="nc bnc" id="L90" title="All 2 branches missed.">            return this.getName().equals(emp.getName())</span>
-<span class="nc bnc" id="L91" title="All 2 branches missed.">                    &amp;&amp; this.getLastName().equals(emp.getLastName())</span>
-<span class="nc bnc" id="L92" title="All 2 branches missed.">                    &amp;&amp; this.getDni().equals(emp.getDni())</span>
-<span class="nc bnc" id="L93" title="All 2 branches missed.">                    &amp;&amp; this.getCity().equals(emp.getCity())</span>
-<span class="nc bnc" id="L94" title="All 2 branches missed.">                    &amp;&amp; this.getUsername().equals(emp.getUsername())</span>
-<span class="nc bnc" id="L95" title="All 2 branches missed.">                    &amp;&amp; this.getUserType().equals(emp.getUserType())</span>
-<span class="nc bnc" id="L96" title="All 2 branches missed.">                    &amp;&amp; this.getCondition().equals(emp.getCondition());</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">            return this.getName().equals(emp.getName())</span>
+<span class="pc bpc" id="L91" title="1 of 2 branches missed.">                    &amp;&amp; this.getLastName().equals(emp.getLastName())</span>
+<span class="pc bpc" id="L92" title="1 of 2 branches missed.">                    &amp;&amp; this.getDni().equals(emp.getDni())</span>
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">                    &amp;&amp; this.getCity().equals(emp.getCity())</span>
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">                    &amp;&amp; this.getUsername().equals(emp.getUsername())</span>
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">                    &amp;&amp; this.getUserType().equals(emp.getUserType())</span>
+<span class="pc bpc" id="L96" title="1 of 2 branches missed.">                    &amp;&amp; this.getCondition().equals(emp.getCondition());</span>
         } else {
 <span class="nc" id="L98">            return false;</span>
         }
@@ -102,7 +102,7 @@ public class Employee extends User implements UserDetails {
 
     @Override
     public int hashCode() {
-<span class="nc" id="L105">        return getClass().hashCode();</span>
+<span class="fc" id="L105">        return getClass().hashCode();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

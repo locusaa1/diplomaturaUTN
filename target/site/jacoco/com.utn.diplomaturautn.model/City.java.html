@@ -6,11 +6,11 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
-<span class="nc bnc" id="L9" title="All 40 branches missed.">@Data</span>
-<span class="nc" id="L10">@Builder</span>
+<span class="pc bpc" id="L9" title="23 of 40 branches missed.">@Data</span>
+<span class="pc" id="L10">@Builder</span>
 @Component
-<span class="nc" id="L12">@AllArgsConstructor</span>
-<span class="nc" id="L13">@NoArgsConstructor</span>
+<span class="fc" id="L12">@AllArgsConstructor</span>
+<span class="fc" id="L13">@NoArgsConstructor</span>
 @Entity
 @Table(name = &quot;cities&quot;)
 public class City {
@@ -18,20 +18,20 @@ public class City {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
-<span class="nc" id="L21">    private int id;</span>
+<span class="fc" id="L21">    private int id;</span>
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     @JoinColumn(name = &quot;id_province&quot;, nullable = false)
-<span class="nc" id="L26">    private Province province;</span>
+<span class="fc" id="L26">    private Province province;</span>
 
     @Column(name = &quot;name&quot;, nullable = false, length = 50)
-<span class="nc" id="L29">    private String name;</span>
+<span class="fc" id="L29">    private String name;</span>
 
     @Column(name = &quot;area_code&quot;, nullable = false, length = 30)
-<span class="nc" id="L32">    private String areaCode;</span>
+<span class="fc" id="L32">    private String areaCode;</span>
 
     @Column(name = &quot;postal_code&quot;, nullable = false, length = 30)
-<span class="nc" id="L35">    private String postalCode;</span>
+<span class="fc" id="L35">    private String postalCode;</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

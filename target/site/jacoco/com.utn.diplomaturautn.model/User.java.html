@@ -9,51 +9,51 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Getter
-<span class="nc" id="L12">@Setter</span>
+<span class="fc" id="L12">@Setter</span>
 <span class="nc" id="L13">@ToString</span>
 <span class="nc" id="L14">@AllArgsConstructor</span>
-<span class="nc" id="L15">@NoArgsConstructor</span>
+<span class="fc" id="L15">@NoArgsConstructor</span>
 @Component
 @Entity
 @Table(name = &quot;users&quot;)
 public abstract class User extends Person {
 
     @Column(name = &quot;username&quot;)
-<span class="nc" id="L22">    private String username;</span>
+<span class="fc" id="L22">    private String username;</span>
 
     @Column(name = &quot;password&quot;)
-<span class="nc" id="L25">    private String password;</span>
+<span class="fc" id="L25">    private String password;</span>
 
     @Column(name = &quot;user_type&quot;)
     @Enumerated(value = EnumType.STRING)
-<span class="nc" id="L29">    private UserType userType;</span>
+<span class="fc" id="L29">    private UserType userType;</span>
 
     protected void modifyUsingUser(User newData) {
 
-<span class="nc bnc" id="L33" title="All 4 branches missed.">        if (!StringUtils.isBlank(newData.getName()) &amp;&amp; !this.getName().equals(newData.getName())) {</span>
+<span class="pc bpc" id="L33" title="1 of 4 branches missed.">        if (!StringUtils.isBlank(newData.getName()) &amp;&amp; !this.getName().equals(newData.getName())) {</span>
 
-<span class="nc" id="L35">            this.setName(newData.getName());</span>
+<span class="fc" id="L35">            this.setName(newData.getName());</span>
         }
-<span class="nc bnc" id="L37" title="All 4 branches missed.">        if (!StringUtils.isBlank(newData.getLastName()) &amp;&amp; !this.getLastName().equals(newData.getLastName())) {</span>
+<span class="pc bpc" id="L37" title="1 of 4 branches missed.">        if (!StringUtils.isBlank(newData.getLastName()) &amp;&amp; !this.getLastName().equals(newData.getLastName())) {</span>
 
-<span class="nc" id="L39">            this.setLastName(newData.getLastName());</span>
+<span class="fc" id="L39">            this.setLastName(newData.getLastName());</span>
         }
-<span class="nc bnc" id="L41" title="All 4 branches missed.">        if (!StringUtils.isBlank(newData.getDni()) &amp;&amp; !this.getDni().equals(newData.getDni())) {</span>
+<span class="pc bpc" id="L41" title="1 of 4 branches missed.">        if (!StringUtils.isBlank(newData.getDni()) &amp;&amp; !this.getDni().equals(newData.getDni())) {</span>
 
-<span class="nc" id="L43">            this.setDni(newData.getDni());</span>
+<span class="fc" id="L43">            this.setDni(newData.getDni());</span>
         }
-<span class="nc bnc" id="L45" title="All 4 branches missed.">        if (!StringUtils.isBlank(newData.getUsername()) &amp;&amp; !this.getUsername().equals(newData.getUsername())) {</span>
+<span class="pc bpc" id="L45" title="1 of 4 branches missed.">        if (!StringUtils.isBlank(newData.getUsername()) &amp;&amp; !this.getUsername().equals(newData.getUsername())) {</span>
 
-<span class="nc" id="L47">            this.setUsername(newData.getUsername());</span>
+<span class="fc" id="L47">            this.setUsername(newData.getUsername());</span>
         }
-<span class="nc bnc" id="L49" title="All 4 branches missed.">        if (!StringUtils.isBlank(newData.getPassword()) &amp;&amp; !this.getPassword().equals(newData.getPassword())) {</span>
+<span class="pc bpc" id="L49" title="2 of 4 branches missed.">        if (!StringUtils.isBlank(newData.getPassword()) &amp;&amp; !this.getPassword().equals(newData.getPassword())) {</span>
 
 <span class="nc" id="L51">            this.setPassword(newData.getPassword());</span>
         }
-<span class="nc bnc" id="L53" title="All 4 branches missed.">        if (!Objects.isNull(newData.getCity()) &amp;&amp; !this.getCity().equals(newData.getCity())) {</span>
+<span class="pc bpc" id="L53" title="2 of 4 branches missed.">        if (!Objects.isNull(newData.getCity()) &amp;&amp; !this.getCity().equals(newData.getCity())) {</span>
 
 <span class="nc" id="L55">            this.setCity(newData.getCity());</span>
         }
-<span class="nc" id="L57">    }</span>
+<span class="fc" id="L57">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

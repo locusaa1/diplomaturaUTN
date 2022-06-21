@@ -38,17 +38,17 @@ public class PersonController {
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-<span class="nc" id="L41">    public PersonController(UserService userService, ClientService clientService, EmployeeService employeeService, CityService cityService, PhoneService phoneService, JwtService jwtService, AuthenticationManager authenticationManager, PasswordEncoder passwordEncoder) {</span>
+<span class="fc" id="L41">    public PersonController(UserService userService, ClientService clientService, EmployeeService employeeService, CityService cityService, PhoneService phoneService, JwtService jwtService, AuthenticationManager authenticationManager, PasswordEncoder passwordEncoder) {</span>
 
-<span class="nc" id="L43">        this.userService = userService;</span>
-<span class="nc" id="L44">        this.cityService = cityService;</span>
-<span class="nc" id="L45">        this.clientService = clientService;</span>
-<span class="nc" id="L46">        this.employeeService = employeeService;</span>
-<span class="nc" id="L47">        this.phoneService = phoneService;</span>
-<span class="nc" id="L48">        this.jwtService = jwtService;</span>
-<span class="nc" id="L49">        this.authenticationManager = authenticationManager;</span>
-<span class="nc" id="L50">        this.passwordEncoder = passwordEncoder;</span>
-<span class="nc" id="L51">    }</span>
+<span class="fc" id="L43">        this.userService = userService;</span>
+<span class="fc" id="L44">        this.cityService = cityService;</span>
+<span class="fc" id="L45">        this.clientService = clientService;</span>
+<span class="fc" id="L46">        this.employeeService = employeeService;</span>
+<span class="fc" id="L47">        this.phoneService = phoneService;</span>
+<span class="fc" id="L48">        this.jwtService = jwtService;</span>
+<span class="fc" id="L49">        this.authenticationManager = authenticationManager;</span>
+<span class="fc" id="L50">        this.passwordEncoder = passwordEncoder;</span>
+<span class="fc" id="L51">    }</span>
 
     private Client fromClientDTOtoClient(ClientDTO clientDTO) {
 
