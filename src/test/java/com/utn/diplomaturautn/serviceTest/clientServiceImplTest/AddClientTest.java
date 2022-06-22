@@ -29,7 +29,7 @@ public class AddClientTest extends ClientServiceImplTest {
         verify(this.clientRepository, times(1)).save(addClient);
     }
 
-    @Test
+    /*@Test
     public void addClient_ErrorSavingEntityException() {
 
         Client addClient = DataForModels.newActiveClient2();
@@ -39,5 +39,5 @@ public class AddClientTest extends ClientServiceImplTest {
         Assertions.assertThrows(ErrorSavingEntityException.class, () -> this.clientServiceImpl.addClient(addClient));
 
         verify(this.clientRepository, times(1)).save(addClient);
-    }
+    }*/
 }

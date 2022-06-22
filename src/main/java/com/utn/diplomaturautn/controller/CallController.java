@@ -68,18 +68,21 @@ public class CallController {
                 .fromCallToResponseDTO();
     }
 
-    @GetMapping("/date&client")
+    @GetMapping("client/{clientId}/date/")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<CallResponseDTO> getByDateRangeAndUser(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
                                                        @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to,
-                                                       @RequestParam("clientId") int clientId,
+                                                       @PathVariable("clientId") int clientId,
                                                        Authentication auth) {
 
-        return Call.fromCallListToResponseDTO(this.callService.getByDateRangeAndUser(from, to, this.clientService.getById(clientId).getPhone(), auth));
+        return Call.
+                fromCallListToResponseDTO(
+                        this.callService.getByDateRangeAndUser(
+                                from, to, this.clientService.getById(clientId).getPhone(), auth));
     }
 
-    @GetMapping("/date")
+    @GetMapping("/date/")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<CallResponseDTO> getByDateRange(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,

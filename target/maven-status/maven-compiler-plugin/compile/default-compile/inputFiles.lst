@@ -5,10 +5,12 @@ E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\service\PhoneServi
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\service\BillService.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\service\impl\ClientServiceImpl.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\exception\ResourceNotFoundException.java
+E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\dataTransferObject\ClientResponseDTO.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\exception\InvalidBeanFieldsException.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\service\ProvinceService.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\controller\BillController.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\exception\InvalidPhoneException.java
+E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\dataTransferObject\EmployeeResponseDTO.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\model\Call.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\dataTransferObject\UserDTO.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\model\Employee.java
@@ -19,8 +21,10 @@ E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\dataTransferObject
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\exception\NothingToModifyException.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\service\impl\ProvinceServiceImpl.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\config\SecurityBean.java
+E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\dataTransferObject\BillResponseDTO.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\exception\InvalidBillRequest.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\exception\ApiExceptionHandler.java
+E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\dataTransferObject\FeeResponseDTO.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\exception\NoContentException.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\dataTransferObject\ProvinceDTO.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\model\User.java
@@ -53,6 +57,7 @@ E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\model\Bill.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\model\Province.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\repositroy\EmployeeRepository.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\utils\Utils.java
+E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\dataTransferObject\CallResponseDTO.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\service\CallService.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\dataTransferObject\EmployeeDTO.java
 E:\Spring\diplomaturaUTN\src\main\java\com\utn\diplomaturautn\filter\JwtAuthorizationFilter.java

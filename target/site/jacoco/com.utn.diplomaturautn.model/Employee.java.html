@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Employee.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">diplomaturaUTN</a> &gt; <a href="index.source.html" class="el_package">com.utn.diplomaturautn.model</a> &gt; <span class="el_source">Employee.java</span></div><h1>Employee.java</h1><pre class="source lang-java linenums">package com.utn.diplomaturautn.model;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.utn.diplomaturautn.enumerated.ClientCondition;
+import com.utn.diplomaturautn.dataTransferObject.EmployeeResponseDTO;
 import com.utn.diplomaturautn.enumerated.EmployeeCondition;
 import com.utn.diplomaturautn.enumerated.UserType;
 import lombok.*;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
 
 @Getter
-<span class="fc" id="L20">@Setter</span>
-<span class="nc" id="L21">@ToString</span>
+<span class="fc" id="L19">@Setter</span>
+<span class="nc" id="L20">@ToString</span>
 @Component
-<span class="fc" id="L23">@NoArgsConstructor</span>
-<span class="nc" id="L24">@AllArgsConstructor</span>
+<span class="fc" id="L22">@NoArgsConstructor</span>
+<span class="nc" id="L23">@AllArgsConstructor</span>
 @JsonTypeName(&quot;employee&quot;)
 @Entity
 @Table(name = &quot;employees&quot;)
@@ -29,80 +28,103 @@ public class Employee extends User implements UserDetails {
 
     @Column(name = &quot;employee_condition&quot;)
     @Enumerated(value = EnumType.STRING)
-<span class="fc" id="L32">    private EmployeeCondition condition;</span>
+<span class="fc" id="L31">    private EmployeeCondition condition;</span>
 
-<span class="pc" id="L34">    @Builder</span>
-<span class="fc" id="L35">    public Employee(int id, City city, String name, String lastName, String dni, String username, String password, UserType userType, EmployeeCondition condition) {</span>
+<span class="pc" id="L33">    @Builder</span>
+<span class="fc" id="L34">    public Employee(int id, City city, String name, String lastName, String dni, String username, String password, UserType userType, EmployeeCondition condition) {</span>
 
-<span class="fc" id="L37">        this.setId(id);</span>
-<span class="fc" id="L38">        this.setCity(city);</span>
-<span class="fc" id="L39">        this.setName(name);</span>
-<span class="fc" id="L40">        this.setLastName(lastName);</span>
-<span class="fc" id="L41">        this.setDni(dni);</span>
-<span class="fc" id="L42">        this.setUsername(username);</span>
-<span class="fc" id="L43">        this.setPassword(password);</span>
-<span class="fc" id="L44">        this.setUserType(userType);</span>
-<span class="fc" id="L45">        this.condition = condition;</span>
-<span class="fc" id="L46">    }</span>
+<span class="fc" id="L36">        this.setId(id);</span>
+<span class="fc" id="L37">        this.setCity(city);</span>
+<span class="fc" id="L38">        this.setName(name);</span>
+<span class="fc" id="L39">        this.setLastName(lastName);</span>
+<span class="fc" id="L40">        this.setDni(dni);</span>
+<span class="fc" id="L41">        this.setUsername(username);</span>
+<span class="fc" id="L42">        this.setPassword(password);</span>
+<span class="fc" id="L43">        this.setUserType(userType);</span>
+<span class="fc" id="L44">        this.condition = condition;</span>
+<span class="fc" id="L45">    }</span>
 
     public Employee modifyUsingEmployee(Employee newData) {
 
-<span class="fc" id="L50">        this.modifyUsingUser(newData);</span>
-<span class="fc" id="L51">        return this;</span>
+<span class="fc" id="L49">        this.modifyUsingUser(newData);</span>
+<span class="fc" id="L50">        return this;</span>
+    }
+
+    public EmployeeResponseDTO fromEmployeeToResponseDTO() {
+
+<span class="nc" id="L55">        return new EmployeeResponseDTO(</span>
+<span class="nc" id="L56">                this.getName(),</span>
+<span class="nc" id="L57">                this.getLastName(),</span>
+<span class="nc" id="L58">                this.getDni(),</span>
+<span class="nc" id="L59">                this.getCity().getName(),</span>
+<span class="nc" id="L60">                this.getUsername(),</span>
+<span class="nc" id="L61">                this.getCondition(),</span>
+<span class="nc" id="L62">                this.getUserType());</span>
+    }
+
+    public static List&lt;EmployeeResponseDTO&gt; fromEmployeeListToResponse(List&lt;Employee&gt; employees) {
+
+<span class="nc" id="L67">        List&lt;EmployeeResponseDTO&gt; employeesResponse = new ArrayList&lt;&gt;();</span>
+
+<span class="nc bnc" id="L69" title="All 2 branches missed.">        for (Employee e : employees) {</span>
+
+<span class="nc" id="L71">            employeesResponse.add(e.fromEmployeeToResponseDTO());</span>
+<span class="nc" id="L72">        }</span>
+<span class="nc" id="L73">        return employeesResponse;</span>
     }
 
     @Override
     public Collection&lt;? extends GrantedAuthority&gt; getAuthorities() {
-<span class="nc" id="L56">        return List.of(new SimpleGrantedAuthority(this.getUserType().toString()));</span>
+<span class="nc" id="L78">        return List.of(new SimpleGrantedAuthority(this.getUserType().toString()));</span>
     }
 
     @Override
     public boolean isAccountNonExpired() {
 
-<span class="nc" id="L62">        return true;</span>
+<span class="nc" id="L84">        return true;</span>
     }
 
     @Override
     public boolean isAccountNonLocked() {
 
-<span class="nc" id="L68">        return true;</span>
+<span class="nc" id="L90">        return true;</span>
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
 
-<span class="nc" id="L74">        return true;</span>
+<span class="nc" id="L96">        return true;</span>
     }
 
     @Override
     public boolean isEnabled() {
 
-<span class="nc bnc" id="L80" title="All 2 branches missed.">        return (this.getCondition() == EmployeeCondition.ACTIVE);</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">        return (this.getCondition() == EmployeeCondition.ACTIVE);</span>
     }
 
     @Override
     public boolean equals(Object e) {
 
-<span class="pc bpc" id="L86" title="1 of 2 branches missed.">        if (e instanceof Employee) {</span>
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">        if (e instanceof Employee) {</span>
 
-<span class="fc" id="L88">            Employee emp = (Employee) e;</span>
+<span class="fc" id="L110">            Employee emp = (Employee) e;</span>
 
-<span class="fc bfc" id="L90" title="All 2 branches covered.">            return this.getName().equals(emp.getName())</span>
-<span class="pc bpc" id="L91" title="1 of 2 branches missed.">                    &amp;&amp; this.getLastName().equals(emp.getLastName())</span>
-<span class="pc bpc" id="L92" title="1 of 2 branches missed.">                    &amp;&amp; this.getDni().equals(emp.getDni())</span>
-<span class="pc bpc" id="L93" title="1 of 2 branches missed.">                    &amp;&amp; this.getCity().equals(emp.getCity())</span>
-<span class="pc bpc" id="L94" title="1 of 2 branches missed.">                    &amp;&amp; this.getUsername().equals(emp.getUsername())</span>
-<span class="pc bpc" id="L95" title="1 of 2 branches missed.">                    &amp;&amp; this.getUserType().equals(emp.getUserType())</span>
-<span class="pc bpc" id="L96" title="1 of 2 branches missed.">                    &amp;&amp; this.getCondition().equals(emp.getCondition());</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">            return this.getName().equals(emp.getName())</span>
+<span class="pc bpc" id="L113" title="1 of 2 branches missed.">                    &amp;&amp; this.getLastName().equals(emp.getLastName())</span>
+<span class="pc bpc" id="L114" title="1 of 2 branches missed.">                    &amp;&amp; this.getDni().equals(emp.getDni())</span>
+<span class="pc bpc" id="L115" title="1 of 2 branches missed.">                    &amp;&amp; this.getCity().equals(emp.getCity())</span>
+<span class="pc bpc" id="L116" title="1 of 2 branches missed.">                    &amp;&amp; this.getUsername().equals(emp.getUsername())</span>
+<span class="pc bpc" id="L117" title="1 of 2 branches missed.">                    &amp;&amp; this.getUserType().equals(emp.getUserType())</span>
+<span class="pc bpc" id="L118" title="1 of 2 branches missed.">                    &amp;&amp; this.getCondition().equals(emp.getCondition());</span>
         } else {
-<span class="nc" id="L98">            return false;</span>
+<span class="nc" id="L120">            return false;</span>
         }
     }
 
 
     @Override
     public int hashCode() {
-<span class="fc" id="L105">        return getClass().hashCode();</span>
+<span class="fc" id="L127">        return getClass().hashCode();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

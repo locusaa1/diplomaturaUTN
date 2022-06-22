@@ -2,6 +2,7 @@
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.utn.diplomaturautn.dataTransferObject.CallDTO;
+import com.utn.diplomaturautn.dataTransferObject.CallResponseDTO;
 import com.utn.diplomaturautn.model.Call;
 import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.service.CallService;
@@ -29,61 +30,63 @@ public class CallController {
     private final ClientService clientService;
 
     @Autowired
-<span class="fc" id="L32">    public CallController(CallService callService, PhoneService phoneService, ClientService clientService) {</span>
+<span class="fc" id="L33">    public CallController(CallService callService, PhoneService phoneService, ClientService clientService) {</span>
 
-<span class="fc" id="L34">        this.callService = callService;</span>
-<span class="fc" id="L35">        this.phoneService = phoneService;</span>
-<span class="fc" id="L36">        this.clientService = clientService;</span>
-<span class="fc" id="L37">    }</span>
+<span class="fc" id="L35">        this.callService = callService;</span>
+<span class="fc" id="L36">        this.phoneService = phoneService;</span>
+<span class="fc" id="L37">        this.clientService = clientService;</span>
+<span class="fc" id="L38">    }</span>
 
     @GetMapping(&quot;/&quot;)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List&lt;Call&gt; getAll() {
+    public List&lt;CallResponseDTO&gt; getAll() {
 
-<span class="nc" id="L44">        return this.callService.getAll();</span>
+<span class="nc" id="L45">        return Call.fromCallListToResponseDTO(this.callService.getAll());</span>
     }
 
     @GetMapping(&quot;/{id}&quot;)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Call getById(@PathVariable(&quot;id&quot;) int id) {
+    public CallResponseDTO getById(@PathVariable(&quot;id&quot;) int id) {
 
-<span class="nc" id="L52">        return this.callService.getById(id);</span>
+<span class="nc" id="L53">        return this.callService.getById(id).fromCallToResponseDTO();</span>
     }
 
     @PostMapping(&quot;/&quot;)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Call addCall(@RequestBody @Valid CallDTO newCallDTO) {
+    public CallResponseDTO addCall(@RequestBody @Valid CallDTO newCallDTO) {
 
-<span class="nc" id="L60">        return this.callService.addCall(</span>
-<span class="nc" id="L61">                Call.builder().</span>
-<span class="nc" id="L62">                        originPhone(this.phoneService.getByNumber(newCallDTO.getOriginPhone())).</span>
-<span class="nc" id="L63">                        destinationPhone(this.phoneService.getByNumber(newCallDTO.getDestinationPhone())).</span>
-<span class="nc" id="L64">                        startDate(Timestamp.valueOf(newCallDTO.getDateTime())).</span>
-<span class="nc" id="L65">                        duration(newCallDTO.getDuration()).build());</span>
+<span class="nc" id="L61">        return this.callService.addCall(</span>
+<span class="nc" id="L62">                        Call.builder().</span>
+<span class="nc" id="L63">                                originPhone(this.phoneService.getByNumber(newCallDTO.getOriginPhone())).</span>
+<span class="nc" id="L64">                                destinationPhone(this.phoneService.getByNumber(newCallDTO.getDestinationPhone())).</span>
+<span class="nc" id="L65">                                startDate(Timestamp.valueOf(newCallDTO.getDateTime())).</span>
+<span class="nc" id="L66">                                duration(newCallDTO.getDuration()).build(),</span>
+<span class="nc" id="L67">                        this.clientService.getByPhone(this.phoneService.getByNumber(newCallDTO.getOriginPhone())))</span>
+<span class="nc" id="L68">                .fromCallToResponseDTO();</span>
     }
 
     @GetMapping(&quot;/date&amp;client&quot;)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List&lt;Call&gt; getByDateRangeAndUser(@RequestParam(&quot;from&quot;) @JsonFormat(pattern = &quot;yyyy-MM-dd&quot;) @Valid String from,
-                                            @RequestParam(&quot;to&quot;) @JsonFormat(pattern = &quot;yyyy-MM-dd&quot;) @Valid String to,
-                                            @RequestParam(&quot;clientId&quot;) int clientId,
-                                            Authentication auth) {
+    public List&lt;CallResponseDTO&gt; getByDateRangeAndUser(@RequestParam(&quot;from&quot;) @JsonFormat(pattern = &quot;yyyy-MM-dd&quot;) @Valid String from,
+                                                       @RequestParam(&quot;to&quot;) @JsonFormat(pattern = &quot;yyyy-MM-dd&quot;) @Valid String to,
+                                                       @RequestParam(&quot;clientId&quot;) int clientId,
+                                                       Authentication auth) {
 
-<span class="nc" id="L76">        return this.callService.getByDateRangeAndUser(from, to, this.clientService.getById(clientId).getPhone(), auth);</span>
+<span class="nc" id="L79">        return Call.fromCallListToResponseDTO(this.callService.getByDateRangeAndUser(from, to, this.clientService.getById(clientId).getPhone(), auth));</span>
     }
 
     @GetMapping(&quot;/date&quot;)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List&lt;Call&gt; getByDateRange(@RequestParam(&quot;from&quot;) @JsonFormat(pattern = &quot;yyyy-MM-dd&quot;) @Valid String from,
-                                     @RequestParam(&quot;to&quot;) @JsonFormat(pattern = &quot;yyyy-MM-dd&quot;) @Valid String to,
-                                     Authentication auth) {
+    public List&lt;CallResponseDTO&gt; getByDateRange(@RequestParam(&quot;from&quot;) @JsonFormat(pattern = &quot;yyyy-MM-dd&quot;) @Valid String from,
+                                                @RequestParam(&quot;to&quot;) @JsonFormat(pattern = &quot;yyyy-MM-dd&quot;) @Valid String to,
+                                                Authentication auth) {
 
-<span class="nc" id="L86">        return this.callService.getByDateRange(from, to, auth);</span>
+<span class="nc" id="L89">        return Call.fromCallListToResponseDTO(this.callService.getByDateRange(from, to, auth));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

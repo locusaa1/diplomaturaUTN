@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FeeController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">diplomaturaUTN</a> &gt; <a href="index.source.html" class="el_package">com.utn.diplomaturautn.controller</a> &gt; <span class="el_source">FeeController.java</span></div><h1>FeeController.java</h1><pre class="source lang-java linenums">package com.utn.diplomaturautn.controller;
 
 import com.utn.diplomaturautn.dataTransferObject.FeeDTO;
+import com.utn.diplomaturautn.dataTransferObject.FeeResponseDTO;
 import com.utn.diplomaturautn.model.Fee;
 import com.utn.diplomaturautn.service.CityService;
 import com.utn.diplomaturautn.service.FeeService;
@@ -15,25 +16,25 @@ public class FeeController {
 
     private final FeeService feeService;
 
-<span class="fc" id="L18">    public FeeController(FeeService feeService) {</span>
+<span class="fc" id="L19">    public FeeController(FeeService feeService) {</span>
 
-<span class="fc" id="L20">        this.feeService = feeService;</span>
-<span class="fc" id="L21">    }</span>
+<span class="fc" id="L21">        this.feeService = feeService;</span>
+<span class="fc" id="L22">    }</span>
 
     @GetMapping(&quot;/&quot;)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List&lt;Fee&gt; getAll() {
+    public List&lt;FeeResponseDTO&gt; getAll() {
 
-<span class="nc" id="L28">        return this.feeService.getAll();</span>
+<span class="nc" id="L29">        return Fee.fromFeeListToResponseDTO(this.feeService.getAll());</span>
     }
 
     @GetMapping(&quot;/{id}&quot;)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Fee getById(@PathVariable(&quot;id&quot;) int id) {
+    public FeeResponseDTO getById(@PathVariable(&quot;id&quot;) int id) {
 
-<span class="nc" id="L36">        return this.feeService.getById(id);</span>
+<span class="nc" id="L37">        return this.feeService.getById(id).fromFeeToResponseDTO();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

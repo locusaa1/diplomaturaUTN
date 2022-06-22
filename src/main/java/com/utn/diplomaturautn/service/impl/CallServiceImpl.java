@@ -114,7 +114,7 @@ public class CallServiceImpl implements CallService {
         UserDetails user = (UserDetails) auth.getPrincipal();
 
         User userRequesting = new User(user.getUsername(), user.getPassword(), user.getAuthorities());
-
+        //El auth no va en en este servicio sino en uno dedicado
         if (callsList.isPresent()) {
 
             List<Call> presentList = callsList.get();

@@ -9,6 +9,7 @@ import com.utn.diplomaturautn.service.PhoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,54 +20,67 @@ public class PhoneServiceImpl implements PhoneService {
     private final PhoneRepository phoneRepository;
 
     @Autowired
-<span class="fc" id="L22">    public PhoneServiceImpl(PhoneRepository phoneRepository) {</span>
+<span class="fc" id="L23">    public PhoneServiceImpl(PhoneRepository phoneRepository) {</span>
 
-<span class="fc" id="L24">        this.phoneRepository = phoneRepository;</span>
-<span class="fc" id="L25">    }</span>
+<span class="fc" id="L25">        this.phoneRepository = phoneRepository;</span>
+<span class="fc" id="L26">    }</span>
 
 
     public List&lt;Phone&gt; getAll() {
 
-<span class="nc" id="L30">        return this.phoneRepository.findAll();</span>
+<span class="nc" id="L31">        return this.phoneRepository.findAll();</span>
     }
 
     public Phone getById(int id) {
 
-<span class="nc" id="L35">        return this.phoneRepository.findById(id).get();</span>
+<span class="nc" id="L36">        return this.phoneRepository.findById(id).get();</span>
     }
 
     public Phone addPhone(String areaCode, String phoneNumber) {
 
-<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (phoneNumber.startsWith(areaCode)) {</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">        if (phoneNumber.startsWith(areaCode)) {</span>
 
-<span class="nc" id="L42">            Phone newPhone = new Phone(0, phoneNumber);</span>
+<span class="nc" id="L43">            Phone newPhone = new Phone(0, phoneNumber);</span>
 
             try {
 
-<span class="nc" id="L46">                return this.phoneRepository.save(newPhone);</span>
-<span class="nc" id="L47">            } catch (Exception exception) {</span>
+<span class="nc" id="L47">                return this.phoneRepository.save(newPhone);</span>
+<span class="nc" id="L48">            } catch (Exception exception) {</span>
 
-<span class="nc" id="L49">                throw new ErrorSavingEntityException(&quot;Saving the entity failed. Nested exception message: &quot; + exception.getMessage());</span>
+<span class="nc" id="L50">                throw new ErrorSavingEntityException(&quot;Saving the entity failed. Nested exception message: &quot; + exception.getMessage());</span>
             }
 
 
         } else {
 
-<span class="nc" id="L55">            throw new InvalidPhoneException(&quot;The user phone number does not match his city area code.&quot;);</span>
+<span class="nc" id="L56">            throw new InvalidPhoneException(&quot;The user phone number does not match his city area code.&quot;);</span>
         }
     }
 
     public Phone getByNumber(String number) {
 
-<span class="nc" id="L61">        Optional&lt;Phone&gt; phone = this.phoneRepository.findPhoneByNumber(number);</span>
+<span class="nc" id="L62">        Optional&lt;Phone&gt; phone = this.phoneRepository.findPhoneByNumber(number);</span>
 
-<span class="nc bnc" id="L63" title="All 2 branches missed.">        if (phone.isEmpty()) {</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">        if (phone.isEmpty()) {</span>
 
-<span class="nc" id="L65">            throw new ResourceNotFoundException(&quot;There is not a register with the specific number.&quot;);</span>
+<span class="nc" id="L66">            throw new ResourceNotFoundException(&quot;There is not a register with the specific number.&quot;);</span>
         } else {
 
-<span class="nc" id="L68">            return phone.get();</span>
+<span class="nc" id="L69">            return phone.get();</span>
         }
     }
+
+    @Transactional
+    public void deletePhoneByNumber(String number) {
+
+        try {
+
+<span class="nc" id="L78">            this.phoneRepository.deletePhoneByNumber(number);</span>
+<span class="nc" id="L79">        } catch (Exception exception) {</span>
+
+<span class="nc" id="L81">            throw new InvalidPhoneException(&quot;Something went wrong trying to delete the specific phone number: &quot; + exception.getCause().toString());</span>
+<span class="nc" id="L82">        }</span>
+
+<span class="nc" id="L84">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
