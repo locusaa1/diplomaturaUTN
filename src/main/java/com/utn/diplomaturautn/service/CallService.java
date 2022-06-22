@@ -43,7 +43,7 @@ public interface CallService {
      * @param originPhone the Phone of the user.
      * @return a list of calls filtered.
      */
-    List<Call> getByDateRangeAndUser(String from, String to, Phone originPhone, Authentication auth);
+    List<Call> getByDateRangeAndUser(String from, String to, Phone originPhone, UserDetails loggedUser);
 
     /**
      * List all calls from the repository that were made between the specifics dates.

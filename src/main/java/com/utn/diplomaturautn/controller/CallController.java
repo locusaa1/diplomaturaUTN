@@ -21,7 +21,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/call")
+@RequestMapping("api/call/")
 public class CallController {
 
     private final CallService callService;
@@ -38,7 +38,7 @@ public class CallController {
         this.clientService = clientService;
     }
 
-    @GetMapping("/")
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<CallResponseDTO> getAll() {
@@ -46,7 +46,7 @@ public class CallController {
         return Call.fromCallListToResponseDTO(this.callService.getAll());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public CallResponseDTO getById(@PathVariable("id") int id) {
@@ -54,7 +54,7 @@ public class CallController {
         return this.callService.getById(id).fromCallToResponseDTO();
     }
 
-    @PostMapping("/")
+    @PostMapping
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public CallResponseDTO addCall(@RequestBody @Valid CallDTO newCallDTO) {
@@ -80,10 +80,10 @@ public class CallController {
         return Call.
                 fromCallListToResponseDTO(
                         this.callService.getByDateRangeAndUser(
-                                from, to, this.clientService.getById(clientId).getPhone(), auth));
+                                from, to, this.clientService.getById(clientId).getPhone(), (UserDetails) auth.getPrincipal()));
     }
 
-    @GetMapping("/date/")
+    @GetMapping("date/")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<CallResponseDTO> getByDateRange(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,

@@ -96,14 +96,20 @@ public class CallServiceImpl implements CallService {
         }
     }
 
-    public List<Call> getByDateRangeAndUser(String from, String to, Phone clientPhone, Authentication auth) {
+    public List<Call> getByDateRangeAndUser(String from, String to, Phone clientPhone, UserDetails loggedUser) {
 
-        List<Call> callsList = this.getByDateRange(from, to, (UserDetails) auth);
+        List<Call> callsList = this.getByDateRange(from, to, loggedUser);
+        List<Call> finalList;
 
-        return this.checkEmptyListThrowsException(
-                callsList.stream()
-                        .filter(c -> c.getOriginPhone().equals(clientPhone))
-                        .collect(Collectors.toList()));
+        if (loggedUser.getAuthorities().contains(new SimpleGrantedAuthority(UserType.EMPLOYEE.toString()))) {
+
+            finalList = this.filterCallListByPhone(callsList, clientPhone);
+        } else {
+
+            finalList = callsList;
+        }
+
+        return this.checkEmptyListThrowsException(finalList);
     }
 
     public List<Call> getByDateRange(String from, String to, UserDetails loggedUser) {
