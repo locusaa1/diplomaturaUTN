@@ -4,6 +4,7 @@ import com.utn.diplomaturautn.model.Call;
 import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.model.Phone;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -49,7 +50,8 @@ public interface CallService {
      *
      * @param from the main date of the filter.
      * @param to   the end date of the filter.
+     * @param loggedUser the logged user.
      * @return a list of calls filtered.
      */
-    List<Call> getByDateRange(String from, String to, Authentication auth);
+    List<Call> getByDateRange(String from, String to, UserDetails loggedUser);
 }

@@ -48,6 +48,13 @@ public class CallServiceImpl implements CallService {
         }
     }
 
+    private List<Call> filterCallListByPhone(List<Call> calls, Phone clientPhone) {
+
+        return calls.stream()
+                .filter(c -> c.getOriginPhone().equals(clientPhone))
+                .collect(Collectors.toList());
+    }
+
     public List<Call> getAll() {
 
         return this.callRepository.findAll();
@@ -91,7 +98,7 @@ public class CallServiceImpl implements CallService {
 
     public List<Call> getByDateRangeAndUser(String from, String to, Phone clientPhone, Authentication auth) {
 
-        List<Call> callsList = this.getByDateRange(from, to, auth);
+        List<Call> callsList = this.getByDateRange(from, to, (UserDetails) auth);
 
         return this.checkEmptyListThrowsException(
                 callsList.stream()
@@ -99,7 +106,7 @@ public class CallServiceImpl implements CallService {
                         .collect(Collectors.toList()));
     }
 
-    public List<Call> getByDateRange(String from, String to, Authentication auth) {
+    public List<Call> getByDateRange(String from, String to, UserDetails loggedUser) {
 
         Timestamp timestampFrom = Timestamp.valueOf(from + " 00:00:00");
 
@@ -111,21 +118,15 @@ public class CallServiceImpl implements CallService {
 
         Optional<List<Call>> callsList = this.callRepository.findByStartDateGreaterThanEqualAndStartDateIsLessThanEqual(timestampFrom, timestampTo);
 
-        UserDetails user = (UserDetails) auth.getPrincipal();
-
-        User userRequesting = new User(user.getUsername(), user.getPassword(), user.getAuthorities());
-        //El auth no va en en este servicio sino en uno dedicado
         if (callsList.isPresent()) {
 
             List<Call> presentList = callsList.get();
             List<Call> finalList;
-            if (userRequesting.getAuthorities().contains(new SimpleGrantedAuthority(UserType.CLIENT.toString()))) {
+            if (loggedUser.getAuthorities().contains(new SimpleGrantedAuthority(UserType.CLIENT.toString()))) {
 
-                Client clientRequesting = (Client) auth.getPrincipal();
+                Client clientRequesting = (Client) loggedUser;
 
-                finalList = presentList.stream()
-                        .filter(c -> c.getOriginPhone().equals(clientRequesting.getPhone()))
-                        .collect(Collectors.toList());
+                finalList = this.filterCallListByPhone(presentList, clientRequesting.getPhone());
             } else {
 
                 finalList = presentList;

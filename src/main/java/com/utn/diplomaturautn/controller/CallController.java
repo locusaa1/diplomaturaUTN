@@ -11,6 +11,7 @@ import com.utn.diplomaturautn.service.PhoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -89,6 +90,8 @@ public class CallController {
                                                 @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to,
                                                 Authentication auth) {
 
-        return Call.fromCallListToResponseDTO(this.callService.getByDateRange(from, to, auth));
+        return Call.
+                fromCallListToResponseDTO(
+                        this.callService.getByDateRange(from, to, (UserDetails) auth.getPrincipal()));
     }
 }
