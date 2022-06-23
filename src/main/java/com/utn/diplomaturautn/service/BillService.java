@@ -4,6 +4,7 @@ import com.utn.diplomaturautn.model.Bill;
 import com.utn.diplomaturautn.model.Client;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -28,21 +29,21 @@ public interface BillService {
     /**
      * Lists all bills from the repository that were made between the specific dates and matches the user phone
      *
-     * @param from   the main date of the filter.
-     * @param to     the end date of the filter.
-     * @param client the id of the client into the database.
-     * @param auth   the authentication instance of the request.
+     * @param from       the main date of the filter.
+     * @param to         the end date of the filter.
+     * @param client     the id of the client into the database.
+     * @param loggedUser the logged user.
      * @return a list of bills filtered.
      */
-    List<Bill> getByDateRangeAndClient(String from, String to, Client client, Authentication auth);
+    List<Bill> getByDateRangeAndClient(String from, String to, Client client, UserDetails loggedUser);
 
     /**
      * Lists all bills from the repository that were made between the specifics dates.
      *
-     * @param form the main date of the filter.
-     * @param to   the end date of the filter.
-     * @param auth the authentication instance of the request.
+     * @param form       the main date of the filter.
+     * @param to         the end date of the filter.
+     * @param loggedUser the logged user.
      * @return a list of bills filtered.
      */
-    List<Bill> getByDateRange(String form, String to, Authentication auth);
+    List<Bill> getByDateRange(String form, String to, UserDetails loggedUser);
 }

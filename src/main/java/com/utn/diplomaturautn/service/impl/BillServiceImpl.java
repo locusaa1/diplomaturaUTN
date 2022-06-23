@@ -43,6 +43,13 @@ public class BillServiceImpl implements BillService {
         }
     }
 
+    private List<Bill> filterBillListByClient(List<Bill> bills, Client client) {
+
+        return bills.stream()
+                .filter(b -> b.getClient().getDni().equals(client.getDni()))
+                .collect(Collectors.toList());
+    }
+
     @Override
     public List<Bill> getAll() {
 
@@ -77,18 +84,23 @@ public class BillServiceImpl implements BillService {
     }
 
     @Override
-    public List<Bill> getByDateRangeAndClient(String from, String to, Client client, Authentication auth) {
+    public List<Bill> getByDateRangeAndClient(String from, String to, Client client, UserDetails loggedUser) {
 
-        List<Bill> billList = this.getByDateRange(from, to, auth);
+        List<Bill> billList = this.getByDateRange(from, to, loggedUser);
+        List<Bill> finalList;
 
-        return this.checkEmptyListThrowsException(
-                billList.stream()
-                        .filter(b -> b.getClient().getUsername().equals(client.getUsername()))
-                        .collect(Collectors.toList()));
+        if (loggedUser.getAuthorities().contains(new SimpleGrantedAuthority(UserType.EMPLOYEE.toString()))) {
+
+            finalList = this.filterBillListByClient(billList, client);
+        } else {
+
+            finalList = billList;
+        }
+        return this.checkEmptyListThrowsException(finalList);
     }
 
     @Override
-    public List<Bill> getByDateRange(String from, String to, Authentication auth) {
+    public List<Bill> getByDateRange(String from, String to, UserDetails loggedUser) {
 
         Timestamp timestampFrom = Timestamp.valueOf(from + " 00:00:00");
 
@@ -98,21 +110,17 @@ public class BillServiceImpl implements BillService {
 
         Utils.compareDatesThrowingExceptions(timestampFrom, timestampTo);
 
-        UserDetails user = (UserDetails) auth.getPrincipal();
-
-        User userRequesting = new User(user.getUsername(), user.getPassword(), user.getAuthorities());
-
         Optional<List<Bill>> billsList = this.billRepository.findByGeneratedDateGreaterThanEqualAndGeneratedDateIsLessThanEqual(timestampFrom, timestampTo);
 
         if (billsList.isPresent()) {
 
             List<Bill> presentList = billsList.get();
             List<Bill> finalList;
-            if (userRequesting.getAuthorities().contains(new SimpleGrantedAuthority(UserType.CLIENT.toString()))) {
+            if (loggedUser.getAuthorities().contains(new SimpleGrantedAuthority(UserType.CLIENT.toString()))) {
 
-                finalList = presentList.stream()
-                        .filter(b -> b.getClient().getUsername().equals(userRequesting.getUsername()))
-                        .collect(Collectors.toList());
+                Client clientRequesting = (Client) loggedUser;
+
+                finalList = this.filterBillListByClient(presentList, clientRequesting);
             } else {
 
                 finalList = presentList;

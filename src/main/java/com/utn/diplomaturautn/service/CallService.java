@@ -41,6 +41,7 @@ public interface CallService {
      * @param from        the main date of the filter.
      * @param to          the end date of the filter.
      * @param originPhone the Phone of the user.
+     * @param loggedUser  the logged user.
      * @return a list of calls filtered.
      */
     List<Call> getByDateRangeAndUser(String from, String to, Phone originPhone, UserDetails loggedUser);
@@ -48,8 +49,8 @@ public interface CallService {
     /**
      * List all calls from the repository that were made between the specifics dates.
      *
-     * @param from the main date of the filter.
-     * @param to   the end date of the filter.
+     * @param from       the main date of the filter.
+     * @param to         the end date of the filter.
      * @param loggedUser the logged user.
      * @return a list of calls filtered.
      */

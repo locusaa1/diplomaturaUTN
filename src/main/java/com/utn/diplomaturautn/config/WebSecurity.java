@@ -80,7 +80,7 @@ public class WebSecurity {
                 .and()
                 //Authorization GET map for the FeeController with Employee usertype
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET,"/api/fee/",
+                .antMatchers(HttpMethod.GET, "/api/fee/",
                         "/api/fee/{id}").hasAuthority(UserType.EMPLOYEE.toString())
                 .and()
                 //Authorization POST map for the CallController with ANTENNA usertype
@@ -89,23 +89,23 @@ public class WebSecurity {
                 .and()
                 //Authorization GET map for the CallController with CLIENT usertype
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET,"/api/call/date/").hasAuthority(UserType.CLIENT.toString())
+                .antMatchers(HttpMethod.GET, "/api/call/date/").hasAuthority(UserType.CLIENT.toString())
                 .and()
                 //Authorization GET map for the CallController with EMPLOYEE usertype
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET,"/api/call/date/",
+                .antMatchers(HttpMethod.GET, "/api/call/date/",
                         "/api/call/client/{id}/date/",
                         "/api/call/{id}",
                         "/api/call/").hasAuthority(UserType.EMPLOYEE.toString())
                 .and()
                 //Authorization GET map for the BillController with CLIENT usertype
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/api/bill/date").hasAuthority(UserType.CLIENT.toString())
+                .antMatchers(HttpMethod.GET, "/api/bill/date/").hasAuthority(UserType.CLIENT.toString())
                 .and()
                 //Authorization GET map for the BillController with EMPLOYEE usertype
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET,"/api/bill/date",
-                        "/api/bill/date&client",
+                .antMatchers(HttpMethod.GET, "/api/bill/date/",
+                        "/api/bill/client/{id}/date/",
                         "/api/bill/{id}",
                         "/api/bill/").hasAuthority(UserType.EMPLOYEE.toString())
                 .anyRequest().authenticated();

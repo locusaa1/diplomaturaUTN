@@ -108,7 +108,6 @@ public class CallServiceImpl implements CallService {
 
             finalList = callsList;
         }
-
         return this.checkEmptyListThrowsException(finalList);
     }
 

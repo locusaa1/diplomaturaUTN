@@ -8,6 +8,7 @@ import com.utn.diplomaturautn.service.BillService;
 import com.utn.diplomaturautn.service.ClientService;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -46,24 +47,28 @@ public class BillController {
         return this.billService.getById(id).fromBillToResponseDTO();
     }
 
-    @GetMapping("/date&client")
+    @GetMapping("/client/{clientId}/date/")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<BillResponseDTO> getByDateRangeAndClient(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
                                                          @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to,
-                                                         @RequestParam("client") int clientId,
+                                                         @PathVariable("clientId") int clientId,
                                                          Authentication auth) {
 
-        return Bill.fromBillListToResponseDTO(this.billService.getByDateRangeAndClient(from, to, this.clientService.getById(clientId), auth));
+        return Bill.
+                fromBillListToResponseDTO(
+                        this.billService.getByDateRangeAndClient(from, to, this.clientService.getById(clientId), (UserDetails) auth));
     }
 
-    @GetMapping("/date")
+    @GetMapping("/date/")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<BillResponseDTO> getByDateRange(@RequestParam("from") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String from,
                                                 @RequestParam("to") @JsonFormat(pattern = "yyyy-MM-dd") @Valid String to,
                                                 Authentication auth) {
 
-        return Bill.fromBillListToResponseDTO(this.billService.getByDateRange(from, to, auth));
+        return Bill.
+                fromBillListToResponseDTO(
+                        this.billService.getByDateRange(from, to, (UserDetails) auth.getPrincipal()));
     }
 }
