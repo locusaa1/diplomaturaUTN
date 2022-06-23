@@ -2,8 +2,10 @@ package com.utn.diplomaturautn.service.impl;
 
 import com.utn.diplomaturautn.enumerated.ClientCondition;
 import com.utn.diplomaturautn.enumerated.UserType;
+import com.utn.diplomaturautn.exception.InvalidBeanFieldsException;
 import com.utn.diplomaturautn.exception.InvalidCallException;
 import com.utn.diplomaturautn.exception.NoContentException;
+import com.utn.diplomaturautn.exception.ResourceNotFoundException;
 import com.utn.diplomaturautn.model.Call;
 import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.model.Employee;
@@ -59,7 +61,7 @@ public class CallServiceImpl implements CallService {
 
         List<Call> calls = this.callRepository.findAll();
 
-        if (!calls.isEmpty()){
+        if (!calls.isEmpty()) {
 
             return calls;
         } else {
@@ -68,9 +70,22 @@ public class CallServiceImpl implements CallService {
         }
     }
 
-    public Call getById(int id) {
+    public Call getById(int callId) {
 
-        return this.callRepository.getById(id);
+        if (callId > 0) {
+
+            Optional<Call> callFound = this.callRepository.findById(callId);
+            if (callFound.isPresent()) {
+
+                return callFound.get();
+            } else {
+
+                throw new ResourceNotFoundException("There is not a register with the specific id");
+            }
+        } else {
+
+            throw new InvalidBeanFieldsException("The id must be higher than 0");
+        }
     }
 
     public Call addCall(Call newCall, Client originClient) {
