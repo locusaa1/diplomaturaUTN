@@ -57,7 +57,15 @@ public class CallServiceImpl implements CallService {
 
     public List<Call> getAll() {
 
-        return this.callRepository.findAll();
+        List<Call> calls = this.callRepository.findAll();
+
+        if (!calls.isEmpty()){
+
+            return calls;
+        } else {
+
+            throw new NoContentException("There is no content in the database from this entity");
+        }
     }
 
     public Call getById(int id) {

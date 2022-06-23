@@ -9,9 +9,7 @@ import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.repositroy.BillRepository;
 import com.utn.diplomaturautn.service.BillService;
 import com.utn.diplomaturautn.utils.Utils;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
