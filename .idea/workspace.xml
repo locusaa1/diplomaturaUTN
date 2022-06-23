@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba7185cc-6f18-49d2-876f-35439a40052f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/BillServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/BillServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/CallServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/service/impl/CallServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/CallController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utn/diplomaturautn/controller/CallController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/utn/diplomaturautn/data/DataForModels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/utn/diplomaturautn/data/DataForModels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/config/WebSecurity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/config/WebSecurity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/BillController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/BillController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/CallController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/controller/CallController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/filter/JwtAuthorizationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/filter/JwtAuthorizationFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/BillService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/BillService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/BillServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/BillServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/CallServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/utn/diplomaturautn/service/impl/CallServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/utn/diplomaturautn/data/DataForModels.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/utn/diplomaturautn/data/DataForModels.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,18 +100,50 @@
       <recent name="com.utn.diplomaturautn.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.DiplomaturaUtnApplication">
-    <configuration name="AddClientTest.addClient_ErrorSavingEntityException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.GetAllTest">
+    <configuration name="CallControllerTest.addCall" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="diplomaturaUTN" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.clientServiceImplTest.*" />
+          <option name="PATTERN" value="com.utn.diplomaturautn.controllerTest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.clientServiceImplTest" />
-      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.clientServiceImplTest.AddClientTest" />
-      <option name="METHOD_NAME" value="addClient_ErrorSavingEntityException" />
+      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.controllerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.controllerTest.CallControllerTest" />
+      <option name="METHOD_NAME" value="addCall" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CallControllerTest.getAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="diplomaturaUTN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.utn.diplomaturautn.controllerTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.controllerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.controllerTest.CallControllerTest" />
+      <option name="METHOD_NAME" value="getAll" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CallControllerTest.getById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="diplomaturaUTN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.utn.diplomaturautn.controllerTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.controllerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.controllerTest.CallControllerTest" />
+      <option name="METHOD_NAME" value="getById" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -122,50 +164,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GetByDateRangeTest.getByDateRange_Successful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GetAllTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="diplomaturaUTN" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.billServiceImplTest.*" />
+          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.callServiceImplTest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.billServiceImplTest" />
-      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.billServiceImplTest.GetByDateRangeTest" />
-      <option name="METHOD_NAME" value="getByDateRange_Successful" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GetByIdTest.getById_InvalidBeanFieldsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="diplomaturaUTN" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.billServiceImplTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.billServiceImplTest" />
-      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.billServiceImplTest.GetByIdTest" />
-      <option name="METHOD_NAME" value="getById_InvalidBeanFieldsException" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GetByIdTest.getById_ResourceNotFoundException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="diplomaturaUTN" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.billServiceImplTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.billServiceImplTest" />
-      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.billServiceImplTest.GetByIdTest" />
-      <option name="METHOD_NAME" value="getById_ResourceNotFoundException" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.callServiceImplTest" />
+      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.callServiceImplTest.GetAllTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -179,11 +188,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GetAllTest" />
+        <item itemvalue="JUnit.CallControllerTest.addCall" />
+        <item itemvalue="JUnit.CallControllerTest.getById" />
+        <item itemvalue="JUnit.CallControllerTest.getAll" />
         <item itemvalue="JUnit.DiplomaturaUtnApplicationTests" />
-        <item itemvalue="JUnit.AddClientTest.addClient_ErrorSavingEntityException" />
-        <item itemvalue="JUnit.GetByDateRangeTest.getByDateRange_Successful" />
-        <item itemvalue="JUnit.GetByIdTest.getById_ResourceNotFoundException" />
-        <item itemvalue="JUnit.GetByIdTest.getById_InvalidBeanFieldsException" />
       </list>
     </recent_temporary>
   </component>
@@ -250,7 +259,7 @@
       <workItem from="1655787483304" duration="3926000" />
       <workItem from="1655841116928" duration="8663000" />
       <workItem from="1655932995591" duration="1254000" />
-      <workItem from="1656015576542" duration="1114000" />
+      <workItem from="1656015576542" duration="8279000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,6 @@
 package com.utn.diplomaturautn.data;
 
+import com.utn.diplomaturautn.dataTransferObject.CallDTO;
 import com.utn.diplomaturautn.enumerated.ClientCondition;
 import com.utn.diplomaturautn.enumerated.EmployeeCondition;
 import com.utn.diplomaturautn.enumerated.UserType;
@@ -97,8 +98,75 @@ public final class DataForModels {
 
         return Phone.builder()
                 .id(1)
+                .number("2915012247")
+                .build();
+    }
+
+    public static Phone newPhone2() {
+
+        return Phone.builder()
+                .id(2)
                 .number("2235012248")
                 .build();
+    }
+
+    public static CallDTO newCallDTO() {
+
+        return CallDTO.builder()
+                .originPhone("2915012247")
+                .destinationPhone("2235012248")
+                .duration(50)
+                .dateTime("2022-05-20 12:00:00").build();
+    }
+
+    public static Call newCall() {
+
+        return Call.builder()
+                .id(0)
+                .originCity(DataForModels.newCity())
+                .destinationCity(DataForModels.newCity2())
+                .originPhone(DataForModels.newPhone())
+                .destinationPhone(DataForModels.newPhone2())
+                .startDate(Timestamp.valueOf("2022-05-20 23:05:00"))
+                .fee(DataForModels.newFee())
+                .total(DataForModels.newFee().getCost() * 50)
+                .duration(50).build();
+    }
+
+    public static Call newCallUpdatedId() {
+
+        return Call.builder()
+                .id(1)
+                .originCity(DataForModels.newCity())
+                .destinationCity(DataForModels.newCity2())
+                .originPhone(DataForModels.newPhone())
+                .destinationPhone(DataForModels.newPhone2())
+                .startDate(Timestamp.valueOf("2022-05-20 23:05:00"))
+                .fee(DataForModels.newFee())
+                .total(DataForModels.newFee().getCost() * 50)
+                .duration(50).build();
+    }
+
+    public static Call newCall2() {
+
+        return Call.builder()
+                .id(2)
+                .originCity(DataForModels.newCity())
+                .destinationCity(DataForModels.newCity2())
+                .originPhone(DataForModels.newPhone())
+                .destinationPhone(DataForModels.newPhone2())
+                .startDate(Timestamp.valueOf("2022-05-10 23:05:00"))
+                .fee(DataForModels.newFee())
+                .total(DataForModels.newFee().getCost() * 50)
+                .duration(50).build();
+    }
+
+    public static List<Call> callList() {
+
+        List<Call> calls = new ArrayList<>();
+        calls.add(DataForModels.newCallUpdatedId());
+        calls.add(DataForModels.newCall2());
+        return calls;
     }
 
     public static Client newActiveClient() {

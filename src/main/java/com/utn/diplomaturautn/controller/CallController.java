@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.utn.diplomaturautn.dataTransferObject.CallDTO;
 import com.utn.diplomaturautn.dataTransferObject.CallResponseDTO;
 import com.utn.diplomaturautn.model.Call;
-import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.service.CallService;
 import com.utn.diplomaturautn.service.ClientService;
 import com.utn.diplomaturautn.service.PhoneService;
@@ -16,8 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 @RestController
@@ -55,7 +52,7 @@ public class CallController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public CallResponseDTO addCall(@RequestBody @Valid CallDTO newCallDTO) {
 
