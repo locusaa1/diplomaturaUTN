@@ -80,7 +80,7 @@ public class WebSecurity {
 <span class="fc" id="L80">                .and()</span>
                 //Authorization GET map for the FeeController with Employee usertype
 <span class="fc" id="L82">                .authorizeRequests()</span>
-<span class="fc" id="L83">                .antMatchers(HttpMethod.GET,&quot;/api/fee/&quot;,</span>
+<span class="fc" id="L83">                .antMatchers(HttpMethod.GET, &quot;/api/fee/&quot;,</span>
 <span class="fc" id="L84">                        &quot;/api/fee/{id}&quot;).hasAuthority(UserType.EMPLOYEE.toString())</span>
 <span class="fc" id="L85">                .and()</span>
                 //Authorization POST map for the CallController with ANTENNA usertype
@@ -89,23 +89,23 @@ public class WebSecurity {
 <span class="fc" id="L89">                .and()</span>
                 //Authorization GET map for the CallController with CLIENT usertype
 <span class="fc" id="L91">                .authorizeRequests()</span>
-<span class="fc" id="L92">                .antMatchers(HttpMethod.GET,&quot;/api/call/date&quot;).hasAuthority(UserType.CLIENT.toString())</span>
+<span class="fc" id="L92">                .antMatchers(HttpMethod.GET, &quot;/api/call/date/&quot;).hasAuthority(UserType.CLIENT.toString())</span>
 <span class="fc" id="L93">                .and()</span>
                 //Authorization GET map for the CallController with EMPLOYEE usertype
 <span class="fc" id="L95">                .authorizeRequests()</span>
-<span class="fc" id="L96">                .antMatchers(HttpMethod.GET,&quot;/api/call/date&quot;,</span>
-                        &quot;/api/call/date&amp;client&quot;,
+<span class="fc" id="L96">                .antMatchers(HttpMethod.GET, &quot;/api/call/date/&quot;,</span>
+                        &quot;/api/call/client/{id}/date/&quot;,
                         &quot;/api/call/{id}&quot;,
 <span class="fc" id="L99">                        &quot;/api/call/&quot;).hasAuthority(UserType.EMPLOYEE.toString())</span>
 <span class="fc" id="L100">                .and()</span>
                 //Authorization GET map for the BillController with CLIENT usertype
 <span class="fc" id="L102">                .authorizeRequests()</span>
-<span class="fc" id="L103">                .antMatchers(HttpMethod.GET, &quot;/api/bill/date&quot;).hasAuthority(UserType.CLIENT.toString())</span>
+<span class="fc" id="L103">                .antMatchers(HttpMethod.GET, &quot;/api/bill/date/&quot;).hasAuthority(UserType.CLIENT.toString())</span>
 <span class="fc" id="L104">                .and()</span>
                 //Authorization GET map for the BillController with EMPLOYEE usertype
 <span class="fc" id="L106">                .authorizeRequests()</span>
-<span class="fc" id="L107">                .antMatchers(HttpMethod.GET,&quot;/api/bill/date&quot;,</span>
-                        &quot;/api/bill/date&amp;client&quot;,
+<span class="fc" id="L107">                .antMatchers(HttpMethod.GET, &quot;/api/bill/date/&quot;,</span>
+                        &quot;/api/bill/client/{id}/date/&quot;,
                         &quot;/api/bill/{id}&quot;,
 <span class="fc" id="L110">                        &quot;/api/bill/&quot;).hasAuthority(UserType.EMPLOYEE.toString())</span>
 <span class="fc" id="L111">                .anyRequest().authenticated();</span>

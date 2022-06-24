@@ -9,6 +9,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.test.context.support.WithMockUser;
 
 import javax.xml.crypto.Data;
@@ -180,14 +181,14 @@ public final class DataForModels {
                 .build();
     }
 
-    public static User clientAuthentication() {
+    public static UserDetails clientAuthentication() {
 
         return new User("Leonardo",
                 "123",
                 List.of(new SimpleGrantedAuthority(UserType.CLIENT.toString())));
     }
 
-    public static User employeeAuthentication() {
+    public static UserDetails employeeAuthentication() {
 
         return new User("Leonardo",
                 "123",
@@ -246,7 +247,7 @@ public final class DataForModels {
                 .userType(UserType.CLIENT)
                 .condition(ClientCondition.ACTIVE)
                 .city(DataForModels.newCity())
-                .phone(DataForModels.newPhone())
+                .phone(DataForModels.newPhone2())
                 .build();
     }
 
@@ -262,7 +263,7 @@ public final class DataForModels {
                 .userType(UserType.CLIENT)
                 .condition(ClientCondition.ACTIVE)
                 .city(DataForModels.newCity())
-                .phone(DataForModels.newPhone())
+                .phone(DataForModels.newPhone2())
                 .build();
     }
 
@@ -294,7 +295,7 @@ public final class DataForModels {
                 .dni("40635728")
                 .username("Locusa")
                 .password("123")
-                .userType(UserType.CLIENT)
+                .userType(UserType.EMPLOYEE)
                 .condition(EmployeeCondition.ACTIVE)
                 .city(DataForModels.newCity())
                 .build();
@@ -309,7 +310,7 @@ public final class DataForModels {
                 .dni("40635727")
                 .username("Star")
                 .password("123")
-                .userType(UserType.CLIENT)
+                .userType(UserType.EMPLOYEE)
                 .condition(EmployeeCondition.ACTIVE)
                 .city(DataForModels.newCity())
                 .build();
@@ -324,7 +325,7 @@ public final class DataForModels {
                 .dni("40635727")
                 .username("Star")
                 .password("123")
-                .userType(UserType.CLIENT)
+                .userType(UserType.EMPLOYEE)
                 .condition(EmployeeCondition.ACTIVE)
                 .city(DataForModels.newCity())
                 .build();

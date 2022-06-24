@@ -2,8 +2,10 @@
 
 import com.utn.diplomaturautn.enumerated.ClientCondition;
 import com.utn.diplomaturautn.enumerated.UserType;
+import com.utn.diplomaturautn.exception.InvalidBeanFieldsException;
 import com.utn.diplomaturautn.exception.InvalidCallException;
 import com.utn.diplomaturautn.exception.NoContentException;
+import com.utn.diplomaturautn.exception.ResourceNotFoundException;
 import com.utn.diplomaturautn.model.Call;
 import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.model.Employee;
@@ -32,108 +34,135 @@ public class CallServiceImpl implements CallService {
     private final CallRepository callRepository;
 
     @Autowired
-<span class="fc" id="L35">    public CallServiceImpl(CallRepository callRepository) {</span>
+<span class="fc" id="L37">    public CallServiceImpl(CallRepository callRepository) {</span>
 
-<span class="fc" id="L37">        this.callRepository = callRepository;</span>
-<span class="fc" id="L38">    }</span>
+<span class="fc" id="L39">        this.callRepository = callRepository;</span>
+<span class="fc" id="L40">    }</span>
 
     private List&lt;Call&gt; checkEmptyListThrowsException(List&lt;Call&gt; callsList) {
 
-<span class="nc bnc" id="L42" title="All 2 branches missed.">        if (callsList.isEmpty()) {</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        if (callsList.isEmpty()) {</span>
 
-<span class="nc" id="L44">            throw new NoContentException(&quot;There is not a register between the specifics dates&quot;);</span>
+<span class="fc" id="L46">            throw new NoContentException(&quot;There is not a register between the specifics dates&quot;);</span>
         } else {
 
-<span class="nc" id="L47">            return callsList;</span>
+<span class="fc" id="L49">            return callsList;</span>
         }
+    }
+
+    private List&lt;Call&gt; filterCallListByPhone(List&lt;Call&gt; calls, Phone clientPhone) {
+
+<span class="fc" id="L55">        return calls.stream()</span>
+<span class="fc" id="L56">                .filter(c -&gt; c.getOriginPhone().equals(clientPhone))</span>
+<span class="fc" id="L57">                .collect(Collectors.toList());</span>
     }
 
     public List&lt;Call&gt; getAll() {
 
-<span class="nc" id="L53">        return this.callRepository.findAll();</span>
+<span class="fc" id="L62">        List&lt;Call&gt; calls = this.callRepository.findAll();</span>
+
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        if (!calls.isEmpty()) {</span>
+
+<span class="fc" id="L66">            return calls;</span>
+        } else {
+
+<span class="fc" id="L69">            throw new NoContentException(&quot;There is no content in the database from this entity&quot;);</span>
+        }
     }
 
-    public Call getById(int id) {
+    public Call getById(int callId) {
 
-<span class="nc" id="L58">        return this.callRepository.getById(id);</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        if (callId &gt; 0) {</span>
+
+<span class="fc" id="L77">            Optional&lt;Call&gt; callFound = this.callRepository.findById(callId);</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">            if (callFound.isPresent()) {</span>
+
+<span class="fc" id="L80">                return callFound.get();</span>
+            } else {
+
+<span class="fc" id="L83">                throw new ResourceNotFoundException(&quot;There is not a register with the specific id&quot;);</span>
+            }
+        } else {
+
+<span class="fc" id="L87">            throw new InvalidBeanFieldsException(&quot;The id must be higher than 0&quot;);</span>
+        }
     }
 
     public Call addCall(Call newCall, Client originClient) {
 
-<span class="nc bnc" id="L63" title="All 2 branches missed.">        if (!newCall.getOriginPhone().equals(newCall.getDestinationPhone())) {</span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">        if (!newCall.getOriginPhone().equals(newCall.getDestinationPhone())) {</span>
 
-<span class="nc bnc" id="L65" title="All 2 branches missed.">            if (!newCall.getStartDate().after(Timestamp.valueOf(LocalDateTime.now()))) {</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">            if (!newCall.getStartDate().after(Timestamp.valueOf(LocalDateTime.now()))) {</span>
 
-<span class="nc bnc" id="L67" title="All 2 branches missed.">                if (originClient.getCondition().equals(ClientCondition.ACTIVE)) {</span>
+<span class="fc bfc" id="L97" title="All 2 branches covered.">                if (originClient.getCondition().equals(ClientCondition.ACTIVE)) {</span>
 
                     try {
 
-<span class="nc" id="L71">                        Call resultId = this.callRepository.save(newCall);</span>
-<span class="nc" id="L72">                        this.callRepository.refresh(resultId);</span>
-<span class="nc" id="L73">                        return resultId;</span>
-<span class="nc" id="L74">                    } catch (Exception exception) {</span>
+<span class="fc" id="L101">                        Call resultId = this.callRepository.save(newCall);</span>
+<span class="fc" id="L102">                        this.callRepository.refresh(resultId);</span>
+<span class="fc" id="L103">                        return resultId;</span>
+<span class="fc" id="L104">                    } catch (Exception exception) {</span>
 
-<span class="nc" id="L76">                        throw new InvalidCallException(exception.getCause().getCause().toString());</span>
+<span class="fc" id="L106">                        throw new InvalidCallException(exception.getCause().getCause().toString());</span>
                     }
                 } else {
 
-<span class="nc" id="L80">                    throw new InvalidCallException(&quot;The client that makes the call must be active.&quot;);</span>
+<span class="fc" id="L110">                    throw new InvalidCallException(&quot;The client that makes the call must be active.&quot;);</span>
                 }
             } else {
 
-<span class="nc" id="L84">                throw new InvalidCallException(&quot;The date of the call must be before the current date and time&quot;);</span>
+<span class="fc" id="L114">                throw new InvalidCallException(&quot;The date of the call must be before the current date and time&quot;);</span>
             }
         } else {
 
-<span class="nc" id="L88">            throw new InvalidCallException(&quot;You can not call your own phone.&quot;);</span>
+<span class="fc" id="L118">            throw new InvalidCallException(&quot;You can not call your own phone.&quot;);</span>
         }
     }
 
-    public List&lt;Call&gt; getByDateRangeAndUser(String from, String to, Phone clientPhone, Authentication auth) {
+    public List&lt;Call&gt; getByDateRangeAndUser(String from, String to, Phone clientPhone, UserDetails loggedUser) {
 
-<span class="nc" id="L94">        List&lt;Call&gt; callsList = this.getByDateRange(from, to, auth);</span>
+<span class="fc" id="L124">        List&lt;Call&gt; callsList = this.getByDateRange(from, to, loggedUser);</span>
+        List&lt;Call&gt; finalList;
 
-<span class="nc" id="L96">        return this.checkEmptyListThrowsException(</span>
-<span class="nc" id="L97">                callsList.stream()</span>
-<span class="nc" id="L98">                        .filter(c -&gt; c.getOriginPhone().equals(clientPhone))</span>
-<span class="nc" id="L99">                        .collect(Collectors.toList()));</span>
-    }
+<span class="fc bfc" id="L127" title="All 2 branches covered.">        if (loggedUser.getAuthorities().contains(new SimpleGrantedAuthority(UserType.EMPLOYEE.toString()))) {</span>
 
-    public List&lt;Call&gt; getByDateRange(String from, String to, Authentication auth) {
-
-<span class="nc" id="L104">        Timestamp timestampFrom = Timestamp.valueOf(from + &quot; 00:00:00&quot;);</span>
-
-<span class="nc bnc" id="L106" title="All 2 branches missed.">        Timestamp timestampTo = (to.equals(LocalDate.now().toString())) ?</span>
-<span class="nc" id="L107">                Timestamp.valueOf(to.concat(&quot; &quot; + LocalTime.now().toString())) :</span>
-<span class="nc" id="L108">                Timestamp.valueOf(to + &quot; 23:59:59&quot;);</span>
-
-<span class="nc" id="L110">        Utils.compareDatesThrowingExceptions(timestampFrom, timestampTo);</span>
-
-<span class="nc" id="L112">        Optional&lt;List&lt;Call&gt;&gt; callsList = this.callRepository.findByStartDateGreaterThanEqualAndStartDateIsLessThanEqual(timestampFrom, timestampTo);</span>
-
-<span class="nc" id="L114">        UserDetails user = (UserDetails) auth.getPrincipal();</span>
-
-<span class="nc" id="L116">        User userRequesting = new User(user.getUsername(), user.getPassword(), user.getAuthorities());</span>
-        //El auth no va en en este servicio sino en uno dedicado
-<span class="nc bnc" id="L118" title="All 2 branches missed.">        if (callsList.isPresent()) {</span>
-
-<span class="nc" id="L120">            List&lt;Call&gt; presentList = callsList.get();</span>
-            List&lt;Call&gt; finalList;
-<span class="nc bnc" id="L122" title="All 2 branches missed.">            if (userRequesting.getAuthorities().contains(new SimpleGrantedAuthority(UserType.CLIENT.toString()))) {</span>
-
-<span class="nc" id="L124">                Client clientRequesting = (Client) auth.getPrincipal();</span>
-
-<span class="nc" id="L126">                finalList = presentList.stream()</span>
-<span class="nc" id="L127">                        .filter(c -&gt; c.getOriginPhone().equals(clientRequesting.getPhone()))</span>
-<span class="nc" id="L128">                        .collect(Collectors.toList());</span>
-<span class="nc" id="L129">            } else {</span>
-
-<span class="nc" id="L131">                finalList = presentList;</span>
-            }
-<span class="nc" id="L133">            return this.checkEmptyListThrowsException(finalList);</span>
+<span class="fc" id="L129">            finalList = this.filterCallListByPhone(callsList, clientPhone);</span>
         } else {
 
-<span class="nc" id="L136">            throw new NoContentException(&quot;There are not calls with the specifics filters.&quot;);</span>
+<span class="fc" id="L132">            finalList = callsList;</span>
+        }
+<span class="fc" id="L134">        return this.checkEmptyListThrowsException(finalList);</span>
+    }
+
+    public List&lt;Call&gt; getByDateRange(String from, String to, UserDetails loggedUser) {
+
+<span class="fc" id="L139">        Timestamp timestampFrom = Timestamp.valueOf(from + &quot; 00:00:00&quot;);</span>
+
+<span class="fc bfc" id="L141" title="All 2 branches covered.">        Timestamp timestampTo = (to.equals(LocalDate.now().toString())) ?</span>
+<span class="fc" id="L142">                Timestamp.valueOf(to.concat(&quot; &quot; + LocalTime.now().toString())) :</span>
+<span class="fc" id="L143">                Timestamp.valueOf(to + &quot; 23:59:59&quot;);</span>
+
+<span class="fc" id="L145">        Utils.compareDatesThrowingExceptions(timestampFrom, timestampTo);</span>
+
+<span class="fc" id="L147">        Optional&lt;List&lt;Call&gt;&gt; callsList = this.callRepository.findByStartDateGreaterThanEqualAndStartDateIsLessThanEqual(timestampFrom, timestampTo);</span>
+
+<span class="fc bfc" id="L149" title="All 2 branches covered.">        if (callsList.isPresent()) {</span>
+
+<span class="fc" id="L151">            List&lt;Call&gt; presentList = callsList.get();</span>
+            List&lt;Call&gt; finalList;
+<span class="fc bfc" id="L153" title="All 2 branches covered.">            if (loggedUser.getAuthorities().contains(new SimpleGrantedAuthority(UserType.CLIENT.toString()))) {</span>
+
+<span class="fc" id="L155">                Client clientRequesting = (Client) loggedUser;</span>
+
+<span class="fc" id="L157">                finalList = this.filterCallListByPhone(presentList, clientRequesting.getPhone());</span>
+<span class="fc" id="L158">            } else {</span>
+
+<span class="fc" id="L160">                finalList = presentList;</span>
+            }
+<span class="fc" id="L162">            return this.checkEmptyListThrowsException(finalList);</span>
+        } else {
+
+<span class="fc" id="L165">            throw new NoContentException(&quot;There are not calls with the specifics filters.&quot;);</span>
         }
     }
 }

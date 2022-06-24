@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Getter
-<span class="pc" id="L21">@Setter</span>
+<span class="fc" id="L21">@Setter</span>
 <span class="nc" id="L22">@ToString</span>
 @Component
 <span class="nc" id="L24">@AllArgsConstructor</span>
@@ -54,9 +54,9 @@ public class Client extends User implements UserDetails {
     public Client modifyUsingClient(Client newData) {
 
 <span class="fc" id="L56">        this.modifyUsingUser(newData);</span>
-<span class="pc bpc" id="L57" title="2 of 4 branches missed.">        if (!Objects.isNull(newData.getPhone()) &amp;&amp; !this.getPhone().equals(newData.getPhone())) {</span>
+<span class="pc bpc" id="L57" title="1 of 4 branches missed.">        if (!Objects.isNull(newData.getPhone()) &amp;&amp; !this.getPhone().equals(newData.getPhone())) {</span>
 
-<span class="nc" id="L59">            this.setPhone(newData.getPhone());</span>
+<span class="fc" id="L59">            this.setPhone(newData.getPhone());</span>
         }
 <span class="fc" id="L61">        return this;</span>
     }
@@ -87,7 +87,7 @@ public class Client extends User implements UserDetails {
 
     @Override
     public Collection&lt;? extends GrantedAuthority&gt; getAuthorities() {
-<span class="nc" id="L90">        return List.of(new SimpleGrantedAuthority(this.getUserType().toString()));</span>
+<span class="fc" id="L90">        return List.of(new SimpleGrantedAuthority(this.getUserType().toString()));</span>
     }
 
     @Override

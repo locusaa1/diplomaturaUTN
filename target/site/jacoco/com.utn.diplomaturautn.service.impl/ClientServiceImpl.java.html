@@ -87,7 +87,7 @@ public class ClientServiceImpl implements ClientService {
         try {
 
 <span class="fc" id="L89">            return this.clientRepository.save(newClient);</span>
-<span class="fc" id="L90">        } catch (Exception exception) {</span>
+<span class="nc" id="L90">        } catch (Exception exception) {</span>
 
 <span class="nc" id="L92">            throw new ErrorSavingEntityException(&quot;Saving the entity failed. Nested exception message: &quot; + exception.getCause().toString());</span>
         }

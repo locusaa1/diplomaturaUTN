@@ -37,7 +37,8 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
             SQLIntegrityConstraintViolationException.class,
             NothingToModifyException.class,
             InvalidCallException.class,
-            ErrorSavingEntityException.class
+            ErrorSavingEntityException.class,
+            InvalidDateException.class
     })
     @ResponseStatus(HttpStatus.CONFLICT)
     @ResponseBody

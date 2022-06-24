@@ -8,6 +8,7 @@ import com.utn.diplomaturautn.service.BillService;
 import com.utn.diplomaturautn.service.ClientService;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -24,18 +25,18 @@ public class BillController {
 
     private final ClientService clientService;
 
-<span class="fc" id="L27">    public BillController(BillService billService, ClientService clientService) {</span>
+<span class="fc" id="L28">    public BillController(BillService billService, ClientService clientService) {</span>
 
-<span class="fc" id="L29">        this.billService = billService;</span>
-<span class="fc" id="L30">        this.clientService = clientService;</span>
-<span class="fc" id="L31">    }</span>
+<span class="fc" id="L30">        this.billService = billService;</span>
+<span class="fc" id="L31">        this.clientService = clientService;</span>
+<span class="fc" id="L32">    }</span>
 
     @GetMapping(&quot;/&quot;)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List&lt;BillResponseDTO&gt; getAll() {
 
-<span class="nc" id="L38">        return Bill.fromBillListToResponseDTO(this.billService.getAll());</span>
+<span class="nc" id="L39">        return Bill.fromBillListToResponseDTO(this.billService.getAll());</span>
     }
 
     @GetMapping(&quot;/{id}&quot;)
@@ -43,28 +44,32 @@ public class BillController {
     @ResponseBody
     public BillResponseDTO getById(@PathVariable(&quot;id&quot;) int id) {
 
-<span class="nc" id="L46">        return this.billService.getById(id).fromBillToResponseDTO();</span>
+<span class="nc" id="L47">        return this.billService.getById(id).fromBillToResponseDTO();</span>
     }
 
-    @GetMapping(&quot;/date&amp;client&quot;)
+    @GetMapping(&quot;/client/{clientId}/date/&quot;)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List&lt;BillResponseDTO&gt; getByDateRangeAndClient(@RequestParam(&quot;from&quot;) @JsonFormat(pattern = &quot;yyyy-MM-dd&quot;) @Valid String from,
                                                          @RequestParam(&quot;to&quot;) @JsonFormat(pattern = &quot;yyyy-MM-dd&quot;) @Valid String to,
-                                                         @RequestParam(&quot;client&quot;) int clientId,
+                                                         @PathVariable(&quot;clientId&quot;) int clientId,
                                                          Authentication auth) {
 
-<span class="nc" id="L57">        return Bill.fromBillListToResponseDTO(this.billService.getByDateRangeAndClient(from, to, this.clientService.getById(clientId), auth));</span>
+<span class="nc" id="L58">        return Bill.</span>
+<span class="nc" id="L59">                fromBillListToResponseDTO(</span>
+<span class="nc" id="L60">                        this.billService.getByDateRangeAndClient(from, to, this.clientService.getById(clientId), (UserDetails) auth));</span>
     }
 
-    @GetMapping(&quot;/date&quot;)
+    @GetMapping(&quot;/date/&quot;)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List&lt;BillResponseDTO&gt; getByDateRange(@RequestParam(&quot;from&quot;) @JsonFormat(pattern = &quot;yyyy-MM-dd&quot;) @Valid String from,
                                                 @RequestParam(&quot;to&quot;) @JsonFormat(pattern = &quot;yyyy-MM-dd&quot;) @Valid String to,
                                                 Authentication auth) {
 
-<span class="nc" id="L67">        return Bill.fromBillListToResponseDTO(this.billService.getByDateRange(from, to, auth));</span>
+<span class="nc" id="L70">        return Bill.</span>
+<span class="nc" id="L71">                fromBillListToResponseDTO(</span>
+<span class="nc" id="L72">                        this.billService.getByDateRange(from, to, (UserDetails) auth.getPrincipal()));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

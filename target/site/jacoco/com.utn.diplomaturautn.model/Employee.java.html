@@ -75,7 +75,7 @@ public class Employee extends User implements UserDetails {
 
     @Override
     public Collection&lt;? extends GrantedAuthority&gt; getAuthorities() {
-<span class="nc" id="L78">        return List.of(new SimpleGrantedAuthority(this.getUserType().toString()));</span>
+<span class="fc" id="L78">        return List.of(new SimpleGrantedAuthority(this.getUserType().toString()));</span>
     }
 
     @Override
