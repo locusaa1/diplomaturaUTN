@@ -98,7 +98,7 @@ public final class DataForModels {
 
         return Phone.builder()
                 .id(1)
-                .number("2915012247")
+                .number("2235012248")
                 .build();
     }
 
@@ -114,7 +114,7 @@ public final class DataForModels {
 
         return CallDTO.builder()
                 .originPhone("2915012247")
-                .destinationPhone("2235012248")
+                .destinationPhone("2915012247")
                 .duration(50)
                 .dateTime("2022-05-20 12:00:00").build();
     }
@@ -123,13 +123,9 @@ public final class DataForModels {
 
         return Call.builder()
                 .id(0)
-                .originCity(DataForModels.newCity())
-                .destinationCity(DataForModels.newCity2())
                 .originPhone(DataForModels.newPhone())
                 .destinationPhone(DataForModels.newPhone2())
                 .startDate(Timestamp.valueOf("2022-05-20 23:05:00"))
-                .fee(DataForModels.newFee())
-                .total(DataForModels.newFee().getCost() * 50)
                 .duration(50).build();
     }
 
