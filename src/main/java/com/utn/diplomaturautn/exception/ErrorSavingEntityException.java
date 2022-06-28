@@ -6,4 +6,9 @@ public class ErrorSavingEntityException extends RuntimeException {
 
         super(message);
     }
+
+    public ErrorSavingEntityException(String message, Throwable throwable) {
+
+        super(message, throwable);
+    }
 }

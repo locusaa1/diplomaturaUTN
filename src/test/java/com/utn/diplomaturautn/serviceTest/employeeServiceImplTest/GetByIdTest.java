@@ -14,7 +14,7 @@ import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-public class GetById extends EmployeeServiceImplTest {
+public class GetByIdTest extends EmployeeServiceImplTest {
 
     @Test
     public void getById_Successful() {
