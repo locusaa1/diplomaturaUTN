@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ba7185cc-6f18-49d2-876f-35439a40052f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/utn/diplomaturautn/serviceTest/employeeServiceImplTest/GetById.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/utn/diplomaturautn/serviceTest/employeeServiceImplTest/GetByIdTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +89,7 @@
       <recent name="com.utn.diplomaturautn.config" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AddClientTest.addClient_ErrorSavingEntityException">
+  <component name="RunManager" selected="JUnit.GetByPhoneTest.getByPhone_ResourceNotFoundException">
     <configuration name="AddClientTest.addClient_ErrorSavingEntityException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="diplomaturaUTN" />
       <extension name="coverage">
@@ -102,54 +101,6 @@
       <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.clientServiceImplTest" />
       <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.clientServiceImplTest.AddClientTest" />
       <option name="METHOD_NAME" value="addClient_ErrorSavingEntityException" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DeleteClientTest.deleteClient_Successful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="diplomaturaUTN" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.clientServiceImplTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.clientServiceImplTest" />
-      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.clientServiceImplTest.DeleteClientTest" />
-      <option name="METHOD_NAME" value="deleteClient_Successful" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GetByDateRangeAndClientTest.getByDateRangeAndClientTest_Client_Successful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="diplomaturaUTN" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.callServiceImplTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.callServiceImplTest" />
-      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.callServiceImplTest.GetByDateRangeAndClientTest" />
-      <option name="METHOD_NAME" value="getByDateRangeAndClientTest_Client_Successful" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GetByDateRangeTest.getByDateRangeTest_filterDates_InvalidDateException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="diplomaturaUTN" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.callServiceImplTest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.callServiceImplTest" />
-      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.callServiceImplTest.GetByDateRangeTest" />
-      <option name="METHOD_NAME" value="getByDateRangeTest_filterDates_InvalidDateException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -171,6 +122,54 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GetByPhoneTest.getByPhone_InvalidBeanFieldsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="diplomaturaUTN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.clientServiceImplTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.clientServiceImplTest" />
+      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.clientServiceImplTest.GetByPhoneTest" />
+      <option name="METHOD_NAME" value="getByPhone_InvalidBeanFieldsException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GetByPhoneTest.getByPhone_ResourceNotFoundException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="diplomaturaUTN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.clientServiceImplTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.clientServiceImplTest" />
+      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.clientServiceImplTest.GetByPhoneTest" />
+      <option name="METHOD_NAME" value="getByPhone_ResourceNotFoundException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GetByPhoneTest.getByPhone_Successful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="diplomaturaUTN" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.utn.diplomaturautn.serviceTest.clientServiceImplTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.utn.diplomaturautn.serviceTest.clientServiceImplTest" />
+      <option name="MAIN_CLASS_NAME" value="com.utn.diplomaturautn.serviceTest.clientServiceImplTest.GetByPhoneTest" />
+      <option name="METHOD_NAME" value="getByPhone_Successful" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DiplomaturaUtnApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="diplomaturaUTN" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.utn.diplomaturautn.DiplomaturaUtnApplication" />
@@ -180,11 +179,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GetByPhoneTest.getByPhone_ResourceNotFoundException" />
+        <item itemvalue="JUnit.GetByPhoneTest.getByPhone_InvalidBeanFieldsException" />
+        <item itemvalue="JUnit.GetByPhoneTest.getByPhone_Successful" />
         <item itemvalue="JUnit.AddClientTest.addClient_ErrorSavingEntityException" />
         <item itemvalue="JUnit.GetByIdTest.getById_InvalidBeanFieldException" />
-        <item itemvalue="JUnit.GetByDateRangeAndClientTest.getByDateRangeAndClientTest_Client_Successful" />
-        <item itemvalue="JUnit.GetByDateRangeTest.getByDateRangeTest_filterDates_InvalidDateException" />
-        <item itemvalue="JUnit.DeleteClientTest.deleteClient_Successful" />
       </list>
     </recent_temporary>
   </component>
@@ -252,7 +251,7 @@
       <workItem from="1655841116928" duration="8663000" />
       <workItem from="1655932995591" duration="1254000" />
       <workItem from="1656015576542" duration="21830000" />
-      <workItem from="1656448609631" duration="1028000" />
+      <workItem from="1656448609631" duration="1927000" />
     </task>
     <servers />
   </component>
