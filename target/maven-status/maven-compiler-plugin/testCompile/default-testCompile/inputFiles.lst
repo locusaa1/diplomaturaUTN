@@ -5,9 +5,12 @@ E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\data\DataForModels
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\userServiceImplTest\GetByUsernameTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\callServiceImplTest\GetByIdTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\clientServiceImplTest\AddClientTest.java
+E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\billServiceImplTest\GetByDateRangeAndClientTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\clientServiceImplTest\DeleteClientTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\clientServiceImplTest\DiscontinueClientTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\billServiceImplTest\BillServiceImplTest.java
+E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\phoneServiceImplTest\PhoneServiceImplTest.java
+E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\phoneServiceImplTest\DeletePhoneByNumberTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\billServiceImplTest\GetByDateRangeTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\cityServiceImplTest\CityServiceImplTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\billServiceImplTest\GetByIdTest.java
@@ -16,8 +19,11 @@ E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\client
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\callServiceImplTest\CallServiceImplTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\controllerTest\CallControllerTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\employeeServiceImplTest\AddEmployeeTest.java
+E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\phoneServiceImplTest\GetByNumberTest.java
+E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\phoneServiceImplTest\AddPhoneTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\provinceServiceImplTest\ProvinceServiceImplTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\clientServiceImplTest\GetByPhoneTest.java
+E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\phoneServiceImplTest\GetByIdTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\employeeServiceImplTest\DeleteEmployeeTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\DiplomaturaUtnApplicationTests.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\clientServiceImplTest\GetAllTest.java
@@ -27,6 +33,7 @@ E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\citySe
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\employeeServiceImplTest\GetByIdTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\callServiceImplTest\GetAllTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\employeeServiceImplTest\GetAllTest.java
+E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\phoneServiceImplTest\GetAllTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\cityServiceImplTest\GetByIdTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\clientServiceImplTest\ModifyClientTest.java
 E:\Spring\diplomaturaUTN\src\test\java\com\utn\diplomaturautn\serviceTest\employeeServiceImplTest\ReactivateEmployeeTest.java

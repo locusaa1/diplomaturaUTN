@@ -1,8 +1,6 @@
 package com.utn.diplomaturautn.service.impl;
 
-import com.utn.diplomaturautn.exception.ErrorSavingEntityException;
-import com.utn.diplomaturautn.exception.InvalidPhoneException;
-import com.utn.diplomaturautn.exception.ResourceNotFoundException;
+import com.utn.diplomaturautn.exception.*;
 import com.utn.diplomaturautn.model.Phone;
 import com.utn.diplomaturautn.repositroy.PhoneRepository;
 import com.utn.diplomaturautn.service.PhoneService;
@@ -28,12 +26,33 @@ public class PhoneServiceImpl implements PhoneService {
 
     public List<Phone> getAll() {
 
-        return this.phoneRepository.findAll();
+        List<Phone> phoneList = this.phoneRepository.findAll();
+
+        if (!phoneList.isEmpty()) {
+
+            return phoneList;
+        } else {
+
+            throw new NoContentException("There is no content in the database from this entity");
+        }
     }
 
     public Phone getById(int id) {
 
-        return this.phoneRepository.findById(id).get();
+        if (id > 0) {
+
+            Optional<Phone> phoneFound = this.phoneRepository.findById(id);
+            if (phoneFound.isPresent()) {
+
+                return phoneFound.get();
+            } else {
+
+                throw new ResourceNotFoundException("There is not a register with the specific id");
+            }
+        } else {
+
+            throw new InvalidBeanFieldsException("The id must be higher than 0");
+        }
     }
 
     public Phone addPhone(String areaCode, String phoneNumber) {

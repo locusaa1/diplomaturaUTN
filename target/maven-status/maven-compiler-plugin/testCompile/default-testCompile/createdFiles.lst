@@ -1,7 +1,9 @@
 com\utn\diplomaturautn\serviceTest\employeeServiceImplTest\AddEmployeeTest.class
 com\utn\diplomaturautn\serviceTest\employeeServiceImplTest\ModifyEmployeeTest.class
 com\utn\diplomaturautn\data\DataForModels.class
+com\utn\diplomaturautn\serviceTest\phoneServiceImplTest\AddPhoneTest.class
 com\utn\diplomaturautn\serviceTest\userServiceImplTest\UserServiceImplTest.class
+com\utn\diplomaturautn\serviceTest\billServiceImplTest\GetByDateRangeAndClientTest.class
 com\utn\diplomaturautn\serviceTest\clientServiceImplTest\ModifyClientTest.class
 com\utn\diplomaturautn\serviceTest\clientServiceImplTest\DeleteClientTest.class
 com\utn\diplomaturautn\serviceTest\callServiceImplTest\AddCallTest.class
@@ -12,6 +14,7 @@ com\utn\diplomaturautn\serviceTest\clientServiceImplTest\ClientServiceImplTest.c
 com\utn\diplomaturautn\serviceTest\cityServiceImplTest\CityServiceImplTest.class
 com\utn\diplomaturautn\serviceTest\clientServiceImplTest\DiscontinueClientTest.class
 com\utn\diplomaturautn\serviceTest\employeeServiceImplTest\EmployeeServiceImplTest.class
+com\utn\diplomaturautn\serviceTest\phoneServiceImplTest\GetByIdTest.class
 com\utn\diplomaturautn\serviceTest\billServiceImplTest\GetAllTest.class
 com\utn\diplomaturautn\serviceTest\callServiceImplTest\GetByIdTest.class
 com\utn\diplomaturautn\serviceTest\employeeServiceImplTest\GetByIdTest.class
@@ -26,10 +29,14 @@ com\utn\diplomaturautn\serviceTest\userServiceImplTest\GetByUsernameTest.class
 com\utn\diplomaturautn\serviceTest\callServiceImplTest\CallServiceImplTest.class
 com\utn\diplomaturautn\serviceTest\clientServiceImplTest\GetAllTest.class
 com\utn\diplomaturautn\serviceTest\feeServiceImplTest\GetByIdTest.class
+com\utn\diplomaturautn\serviceTest\phoneServiceImplTest\PhoneServiceImplTest.class
+com\utn\diplomaturautn\serviceTest\phoneServiceImplTest\GetByNumberTest.class
 com\utn\diplomaturautn\serviceTest\employeeServiceImplTest\DeleteEmployeeTest.class
 com\utn\diplomaturautn\serviceTest\clientServiceImplTest\GetByPhoneTest.class
 com\utn\diplomaturautn\serviceTest\employeeServiceImplTest\GetAllTest.class
 com\utn\diplomaturautn\DiplomaturaUtnApplicationTests.class
+com\utn\diplomaturautn\serviceTest\phoneServiceImplTest\DeletePhoneByNumberTest.class
+com\utn\diplomaturautn\serviceTest\phoneServiceImplTest\GetAllTest.class
 com\utn\diplomaturautn\serviceTest\callServiceImplTest\GetAllTest.class
 com\utn\diplomaturautn\serviceTest\cityServiceImplTest\GetByIdTest.class
 com\utn\diplomaturautn\serviceTest\feeServiceImplTest\GetAllTest.class

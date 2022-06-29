@@ -6,4 +6,9 @@ public class InvalidPhoneException extends RuntimeException {
 
         super(message);
     }
+
+    public InvalidPhoneException(String message, Throwable throwable) {
+
+        super(message, throwable);
+    }
 }

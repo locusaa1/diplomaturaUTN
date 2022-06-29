@@ -84,17 +84,17 @@ public class BillServiceImpl implements BillService {
     @Override
     public List&lt;Bill&gt; getByDateRangeAndClient(String from, String to, Client client, UserDetails loggedUser) {
 
-<span class="nc" id="L87">        List&lt;Bill&gt; billList = this.getByDateRange(from, to, loggedUser);</span>
+<span class="fc" id="L87">        List&lt;Bill&gt; billList = this.getByDateRange(from, to, loggedUser);</span>
         List&lt;Bill&gt; finalList;
 
-<span class="nc bnc" id="L90" title="All 2 branches missed.">        if (loggedUser.getAuthorities().contains(new SimpleGrantedAuthority(UserType.EMPLOYEE.toString()))) {</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">        if (loggedUser.getAuthorities().contains(new SimpleGrantedAuthority(UserType.EMPLOYEE.toString()))) {</span>
 
-<span class="nc" id="L92">            finalList = this.filterBillListByClient(billList, client);</span>
+<span class="fc" id="L92">            finalList = this.filterBillListByClient(billList, client);</span>
         } else {
 
-<span class="nc" id="L95">            finalList = billList;</span>
+<span class="fc" id="L95">            finalList = billList;</span>
         }
-<span class="nc" id="L97">        return this.checkEmptyListThrowsException(finalList);</span>
+<span class="fc" id="L97">        return this.checkEmptyListThrowsException(finalList);</span>
     }
 
     @Override

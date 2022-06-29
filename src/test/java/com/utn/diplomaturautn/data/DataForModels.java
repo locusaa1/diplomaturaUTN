@@ -66,6 +66,15 @@ public final class DataForModels {
                 .expirationDate(Date.valueOf(LocalDate.of(2020, 1, 30))).build();
     }
 
+    public static List<Phone> phoneList() {
+
+        List<Phone> phoneList = new ArrayList<>();
+        phoneList.add(DataForModels.newPhone());
+        phoneList.add(DataForModels.newPhone());
+        phoneList.add(DataForModels.newPhone());
+        return phoneList;
+    }
+
     public static List<Bill> billList() {
 
         List<Bill> billList = new ArrayList<>();
@@ -93,6 +102,14 @@ public final class DataForModels {
         feeList.add(DataForModels.newFee());
         feeList.add(DataForModels.newFee());
         return feeList;
+    }
+
+    public static Phone savePhone() {
+
+        return Phone.builder()
+                .id(0)
+                .number("2235012248")
+                .build();
     }
 
     public static Phone newPhone() {

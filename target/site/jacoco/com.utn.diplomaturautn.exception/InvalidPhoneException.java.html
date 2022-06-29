@@ -4,7 +4,12 @@ public class InvalidPhoneException extends RuntimeException {
 
     public InvalidPhoneException(String message) {
 
-<span class="nc" id="L7">        super(message);</span>
-<span class="nc" id="L8">    }</span>
+<span class="fc" id="L7">        super(message);</span>
+<span class="fc" id="L8">    }</span>
+
+    public InvalidPhoneException(String message, Throwable throwable) {
+
+<span class="fc" id="L12">        super(message, throwable);</span>
+<span class="fc" id="L13">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
