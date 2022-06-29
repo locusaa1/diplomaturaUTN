@@ -61,7 +61,7 @@ public class GetByDateRangeTest extends CallServiceImplTest {
     }
 
     @Test
-    public void getByDateRangeTest_filterDates_InvalidDateException() {
+    public void getByDateRangeTest_FilterDates_InvalidDateException() {
 
         String from = "2022-07-20";
         Timestamp startTimestamp = Timestamp.valueOf(from.concat(" 23:00:00"));

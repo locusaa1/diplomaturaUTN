@@ -40,16 +40,16 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee getById(int employeeId) {
 
-<span class="pc bpc" id="L43" title="1 of 2 branches missed.">        if (employeeId &lt;= 0) {</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        if (employeeId &lt;= 0) {</span>
 
-<span class="nc" id="L45">            throw new InvalidBeanFieldsException(&quot;The id must be higher than 0.&quot;);</span>
+<span class="fc" id="L45">            throw new InvalidBeanFieldsException(&quot;The id must be higher than 0.&quot;);</span>
         } else {
 
 <span class="fc" id="L48">            Optional&lt;Employee&gt; employee = this.employeeRepository.findById(employeeId);</span>
 
-<span class="pc bpc" id="L50" title="1 of 2 branches missed.">            if (employee.isEmpty()) {</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">            if (employee.isEmpty()) {</span>
 
-<span class="nc" id="L52">                throw new ResourceNotFoundException(&quot;There is not a register with the specific id.&quot;);</span>
+<span class="fc" id="L52">                throw new ResourceNotFoundException(&quot;There is not a register with the specific id.&quot;);</span>
             } else {
 
 <span class="fc" id="L55">                return employee.get();</span>

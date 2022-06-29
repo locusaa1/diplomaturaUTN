@@ -32,20 +32,20 @@ public class BillServiceImpl implements BillService {
 
     private List&lt;Bill&gt; checkEmptyListThrowsException(List&lt;Bill&gt; billList) {
 
-<span class="nc bnc" id="L35" title="All 2 branches missed.">        if (billList.isEmpty()) {</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        if (billList.isEmpty()) {</span>
 
-<span class="nc" id="L37">            throw new NoContentException(&quot;There is not a register between the specifics dates&quot;);</span>
+<span class="fc" id="L37">            throw new NoContentException(&quot;There is not a register between the specifics dates&quot;);</span>
         } else {
 
-<span class="nc" id="L40">            return billList;</span>
+<span class="fc" id="L40">            return billList;</span>
         }
     }
 
     private List&lt;Bill&gt; filterBillListByClient(List&lt;Bill&gt; bills, Client client) {
 
-<span class="nc" id="L46">        return bills.stream()</span>
-<span class="nc" id="L47">                .filter(b -&gt; b.getClient().getDni().equals(client.getDni()))</span>
-<span class="nc" id="L48">                .collect(Collectors.toList());</span>
+<span class="fc" id="L46">        return bills.stream()</span>
+<span class="fc" id="L47">                .filter(b -&gt; b.getClient().getDni().equals(client.getDni()))</span>
+<span class="fc" id="L48">                .collect(Collectors.toList());</span>
     }
 
     @Override
@@ -100,33 +100,33 @@ public class BillServiceImpl implements BillService {
     @Override
     public List&lt;Bill&gt; getByDateRange(String from, String to, UserDetails loggedUser) {
 
-<span class="nc" id="L103">        Timestamp timestampFrom = Timestamp.valueOf(from + &quot; 00:00:00&quot;);</span>
+<span class="fc" id="L103">        Timestamp timestampFrom = Timestamp.valueOf(from + &quot; 00:00:00&quot;);</span>
 
-<span class="nc bnc" id="L105" title="All 2 branches missed.">        Timestamp timestampTo = (to.equals(LocalDate.now().toString())) ?</span>
-<span class="nc" id="L106">                Timestamp.valueOf(to.concat(&quot; &quot; + LocalTime.now().toString())) :</span>
-<span class="nc" id="L107">                Timestamp.valueOf(to + &quot; 23:59:59&quot;);</span>
+<span class="fc bfc" id="L105" title="All 2 branches covered.">        Timestamp timestampTo = (to.equals(LocalDate.now().toString())) ?</span>
+<span class="fc" id="L106">                Timestamp.valueOf(to.concat(&quot; &quot; + LocalTime.now().toString())) :</span>
+<span class="fc" id="L107">                Timestamp.valueOf(to + &quot; 23:59:59&quot;);</span>
 
-<span class="nc" id="L109">        Utils.compareDatesThrowingExceptions(timestampFrom, timestampTo);</span>
+<span class="fc" id="L109">        Utils.compareDatesThrowingExceptions(timestampFrom, timestampTo);</span>
 
-<span class="nc" id="L111">        Optional&lt;List&lt;Bill&gt;&gt; billsList = this.billRepository.findByGeneratedDateGreaterThanEqualAndGeneratedDateIsLessThanEqual(timestampFrom, timestampTo);</span>
+<span class="fc" id="L111">        Optional&lt;List&lt;Bill&gt;&gt; billsList = this.billRepository.findByGeneratedDateGreaterThanEqualAndGeneratedDateIsLessThanEqual(timestampFrom, timestampTo);</span>
 
-<span class="nc bnc" id="L113" title="All 2 branches missed.">        if (billsList.isPresent()) {</span>
+<span class="fc bfc" id="L113" title="All 2 branches covered.">        if (billsList.isPresent()) {</span>
 
-<span class="nc" id="L115">            List&lt;Bill&gt; presentList = billsList.get();</span>
+<span class="fc" id="L115">            List&lt;Bill&gt; presentList = billsList.get();</span>
             List&lt;Bill&gt; finalList;
-<span class="nc bnc" id="L117" title="All 2 branches missed.">            if (loggedUser.getAuthorities().contains(new SimpleGrantedAuthority(UserType.CLIENT.toString()))) {</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">            if (loggedUser.getAuthorities().contains(new SimpleGrantedAuthority(UserType.CLIENT.toString()))) {</span>
 
-<span class="nc" id="L119">                Client clientRequesting = (Client) loggedUser;</span>
+<span class="fc" id="L119">                Client clientRequesting = (Client) loggedUser;</span>
 
-<span class="nc" id="L121">                finalList = this.filterBillListByClient(presentList, clientRequesting);</span>
-<span class="nc" id="L122">            } else {</span>
+<span class="fc" id="L121">                finalList = this.filterBillListByClient(presentList, clientRequesting);</span>
+<span class="fc" id="L122">            } else {</span>
 
-<span class="nc" id="L124">                finalList = presentList;</span>
+<span class="fc" id="L124">                finalList = presentList;</span>
             }
-<span class="nc" id="L126">            return this.checkEmptyListThrowsException(finalList);</span>
+<span class="fc" id="L126">            return this.checkEmptyListThrowsException(finalList);</span>
         } else {
 
-<span class="nc" id="L129">            throw new NoContentException(&quot;There are not bills with the specifics filters.&quot;);</span>
+<span class="fc" id="L129">            throw new NoContentException(&quot;There are not bills with the specifics filters.&quot;);</span>
         }
     }
 }

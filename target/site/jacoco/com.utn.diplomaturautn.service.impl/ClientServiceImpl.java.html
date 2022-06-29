@@ -63,20 +63,20 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public Client getByPhone(Phone clientPhone) {
 
-<span class="nc bnc" id="L66" title="All 2 branches missed.">        if (!clientPhone.getNumber().isEmpty()) {</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        if (!clientPhone.getNumber().isEmpty()) {</span>
 
-<span class="nc" id="L68">            Optional&lt;Client&gt; client = this.clientRepository.findByPhoneEquals(clientPhone);</span>
+<span class="fc" id="L68">            Optional&lt;Client&gt; client = this.clientRepository.findByPhoneEquals(clientPhone);</span>
 
-<span class="nc bnc" id="L70" title="All 2 branches missed.">            if (client.isPresent()) {</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">            if (client.isPresent()) {</span>
 
-<span class="nc" id="L72">                return client.get();</span>
+<span class="fc" id="L72">                return client.get();</span>
             } else {
 
-<span class="nc" id="L75">                throw new ResourceNotFoundException(&quot;There is not a register with the specific phone&quot;);</span>
+<span class="fc" id="L75">                throw new ResourceNotFoundException(&quot;There is not a register with the specific phone&quot;);</span>
             }
         } else {
 
-<span class="nc" id="L79">            throw new InvalidBeanFieldsException(&quot;You have to specify the phone number&quot;);</span>
+<span class="fc" id="L79">            throw new InvalidBeanFieldsException(&quot;You have to specify the phone number&quot;);</span>
         }
     }
 
@@ -87,9 +87,9 @@ public class ClientServiceImpl implements ClientService {
         try {
 
 <span class="fc" id="L89">            return this.clientRepository.save(newClient);</span>
-<span class="nc" id="L90">        } catch (Exception exception) {</span>
+<span class="fc" id="L90">        } catch (Exception exception) {</span>
 
-<span class="nc" id="L92">            throw new ErrorSavingEntityException(&quot;Saving the entity failed. Nested exception message: &quot; + exception.getCause().toString());</span>
+<span class="fc" id="L92">            throw new ErrorSavingEntityException(&quot;Saving the entity failed. Nested exception message: &quot; + exception.getCause().toString());</span>
         }
     }
 
