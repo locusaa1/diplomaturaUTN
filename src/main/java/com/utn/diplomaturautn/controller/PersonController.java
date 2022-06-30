@@ -85,12 +85,12 @@ public class PersonController {
     @PostMapping("/login")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public String login(@RequestBody @Valid LoginDTO loginDTO) {
+    public TokenResponseDTO login(@RequestBody @Valid LoginDTO loginDTO) {
 
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginDTO.getUsername(), loginDTO.getPassword());
         this.authenticationManager.authenticate(authenticationToken);
         UserDetails userDetails = userService.loadUserByUsername(loginDTO.getUsername());
-        return jwtService.createToken(userDetails);
+        return TokenResponseDTO.builder().token(this.jwtService.createToken(userDetails)).build();
     }
 
     @PostMapping("/client")

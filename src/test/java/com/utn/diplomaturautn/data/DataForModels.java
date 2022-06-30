@@ -128,6 +128,14 @@ public final class DataForModels {
                 .build();
     }
 
+    public static Phone newPhone3() {
+
+        return Phone.builder()
+                .id(3)
+                .number("2235023655")
+                .build();
+    }
+
     public static CallDTO newCallDTO() {
 
         return CallDTO.builder()

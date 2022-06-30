@@ -53,6 +53,7 @@ public class Employee extends User implements UserDetails {
     public EmployeeResponseDTO fromEmployeeToResponseDTO() {
 
         return new EmployeeResponseDTO(
+                this.getId(),
                 this.getName(),
                 this.getLastName(),
                 this.getDni(),

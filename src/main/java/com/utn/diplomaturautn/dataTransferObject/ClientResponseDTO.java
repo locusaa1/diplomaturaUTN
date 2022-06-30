@@ -9,6 +9,8 @@ import lombok.*;
 @NoArgsConstructor
 public class ClientResponseDTO {
 
+    private int id;
+
     private String name;
 
     private String lastName;

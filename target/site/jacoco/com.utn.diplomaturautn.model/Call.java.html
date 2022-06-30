@@ -65,26 +65,27 @@ public class Call {
     public CallResponseDTO fromCallToResponseDTO() {
 
 <span class="nc" id="L67">        return new CallResponseDTO(</span>
-<span class="nc" id="L68">                this.originPhone.getNumber(),</span>
-<span class="nc" id="L69">                this.destinationPhone.getNumber(),</span>
-<span class="nc" id="L70">                this.originCity.getName(),</span>
-<span class="nc" id="L71">                this.destinationCity.getName(),</span>
-<span class="nc" id="L72">                this.fee.getCost(),</span>
+<span class="nc" id="L68">                this.getId(),</span>
+<span class="nc" id="L69">                this.originPhone.getNumber(),</span>
+<span class="nc" id="L70">                this.destinationPhone.getNumber(),</span>
+<span class="nc" id="L71">                this.originCity.getName(),</span>
+<span class="nc" id="L72">                this.destinationCity.getName(),</span>
+<span class="nc" id="L73">                this.fee.getCost(),</span>
                 this.startDate,
                 this.duration,
                 this.total);
     }
 
-    public static List&lt;CallResponseDTO&gt; fromCallListToResponseDTO(List&lt;Call&gt; calls){
+    public static List&lt;CallResponseDTO&gt; fromCallListToResponseDTO(List&lt;Call&gt; calls) {
 
-<span class="nc" id="L80">        List&lt;CallResponseDTO&gt; callsResponse = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L81">        List&lt;CallResponseDTO&gt; callsResponse = new ArrayList&lt;&gt;();</span>
 
-<span class="nc bnc" id="L82" title="All 2 branches missed.">        for (Call c : calls){</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">        for (Call c : calls) {</span>
 
-<span class="nc" id="L84">            callsResponse.add(c.fromCallToResponseDTO());</span>
-<span class="nc" id="L85">        }</span>
+<span class="nc" id="L85">            callsResponse.add(c.fromCallToResponseDTO());</span>
+<span class="nc" id="L86">        }</span>
 
-<span class="nc" id="L87">        return callsResponse;</span>
+<span class="nc" id="L88">        return callsResponse;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

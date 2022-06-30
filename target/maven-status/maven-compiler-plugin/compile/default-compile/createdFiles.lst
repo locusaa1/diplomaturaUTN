@@ -1,5 +1,6 @@
 com\utn\diplomaturautn\repositroy\PersonRepository.class
 com\utn\diplomaturautn\service\impl\UserServiceImpl.class
+com\utn\diplomaturautn\dataTransferObject\TokenResponseDTO.class
 com\utn\diplomaturautn\model\Province.class
 com\utn\diplomaturautn\dataTransferObject\CallDTO.class
 com\utn\diplomaturautn\model\Call$CallBuilder.class
@@ -38,7 +39,6 @@ com\utn\diplomaturautn\repositroy\ProvinceRepository.class
 com\utn\diplomaturautn\enumerated\EmployeeCondition.class
 com\utn\diplomaturautn\exception\InvalidCallException.class
 com\utn\diplomaturautn\service\EmployeeService.class
-com\utn\diplomaturautn\controller\ProvinceController.class
 com\utn\diplomaturautn\exception\ErrorObject$ErrorObjectBuilder.class
 com\utn\diplomaturautn\service\impl\JwtServiceImpl.class
 com\utn\diplomaturautn\repositroy\ClientRepository.class
@@ -70,6 +70,7 @@ com\utn\diplomaturautn\model\Employee$EmployeeBuilder.class
 com\utn\diplomaturautn\model\City$CityBuilder.class
 com\utn\diplomaturautn\repositroy\FeeRepository.class
 com\utn\diplomaturautn\service\FeeService.class
+com\utn\diplomaturautn\dataTransferObject\TokenResponseDTO$TokenResponseDTOBuilder.class
 com\utn\diplomaturautn\service\impl\BillServiceImpl.class
 com\utn\diplomaturautn\repositroy\CallRepository.class
 com\utn\diplomaturautn\repositroy\CustomRepository.class
@@ -77,6 +78,7 @@ com\utn\diplomaturautn\model\City.class
 com\utn\diplomaturautn\controller\FeeController.class
 com\utn\diplomaturautn\service\UserService.class
 com\utn\diplomaturautn\service\impl\CallServiceImpl.class
+com\utn\diplomaturautn\exception\InvalidClientRequest.class
 com\utn\diplomaturautn\model\Province$ProvinceBuilder.class
 com\utn\diplomaturautn\dataTransferObject\BillResponseDTO.class
 com\utn\diplomaturautn\service\ProvinceService.class

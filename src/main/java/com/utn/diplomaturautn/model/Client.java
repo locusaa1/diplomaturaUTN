@@ -64,6 +64,7 @@ public class Client extends User implements UserDetails {
     public ClientResponseDTO fromClientToResponseDTO() {
 
         return new ClientResponseDTO(
+                this.getId(),
                 this.getName(),
                 this.getLastName(),
                 this.getDni(),

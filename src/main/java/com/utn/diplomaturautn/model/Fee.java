@@ -45,6 +45,7 @@ public class Fee {
     public FeeResponseDTO fromFeeToResponseDTO() {
 
         return new FeeResponseDTO(
+                this.getId(),
                 this.originCity.getName(),
                 this.destinationCity.getName(),
                 this.cost,

@@ -45,8 +45,9 @@ public class Fee {
     public FeeResponseDTO fromFeeToResponseDTO() {
 
 <span class="nc" id="L47">        return new FeeResponseDTO(</span>
-<span class="nc" id="L48">                this.originCity.getName(),</span>
-<span class="nc" id="L49">                this.destinationCity.getName(),</span>
+<span class="nc" id="L48">                this.getId(),</span>
+<span class="nc" id="L49">                this.originCity.getName(),</span>
+<span class="nc" id="L50">                this.destinationCity.getName(),</span>
                 this.cost,
                 this.startTime,
                 this.endTime);
@@ -54,13 +55,13 @@ public class Fee {
 
     public static List&lt;FeeResponseDTO&gt; fromFeeListToResponseDTO(List&lt;Fee&gt; fees) {
 
-<span class="nc" id="L57">        List&lt;FeeResponseDTO&gt; feesResponse = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L58">        List&lt;FeeResponseDTO&gt; feesResponse = new ArrayList&lt;&gt;();</span>
 
-<span class="nc bnc" id="L59" title="All 2 branches missed.">        for (Fee f : fees) {</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">        for (Fee f : fees) {</span>
 
-<span class="nc" id="L61">            feesResponse.add(f.fromFeeToResponseDTO());</span>
-<span class="nc" id="L62">        }</span>
-<span class="nc" id="L63">        return feesResponse;</span>
+<span class="nc" id="L62">            feesResponse.add(f.fromFeeToResponseDTO());</span>
+<span class="nc" id="L63">        }</span>
+<span class="nc" id="L64">        return feesResponse;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

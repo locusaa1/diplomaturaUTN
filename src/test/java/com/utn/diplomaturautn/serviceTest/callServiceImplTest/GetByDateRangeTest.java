@@ -112,22 +112,5 @@ public class GetByDateRangeTest extends CallServiceImplTest {
 
         verify(this.callRepository, times(1)).findByStartDateGreaterThanEqualAndStartDateIsLessThanEqual(startTimeStamp, endTimeStamp);
     }
-
-    @Test
-    public void getByDateRangeTest_FilterListDate_NoContentException() {
-
-        String from = "2022-04-05";
-        Timestamp startTimeStamp = Timestamp.valueOf(from.concat(" 00:00:00"));
-        String to = "2022-05-04";
-        Timestamp endTimeStamp = Timestamp.valueOf(to.concat(" 23:59:59"));
-        Client user = DataForModels.newActiveClient2();
-        List<Call> callsFound = DataForModels.callList();
-
-        given(this.callRepository.findByStartDateGreaterThanEqualAndStartDateIsLessThanEqual(startTimeStamp, endTimeStamp)).willReturn(Optional.of(callsFound));
-
-        Assertions.assertThrows(NoContentException.class, () -> this.callServiceImpl.getByDateRange(from, to, user));
-
-        verify(this.callRepository, times(1)).findByStartDateGreaterThanEqualAndStartDateIsLessThanEqual(startTimeStamp, endTimeStamp);
-    }
 }
 

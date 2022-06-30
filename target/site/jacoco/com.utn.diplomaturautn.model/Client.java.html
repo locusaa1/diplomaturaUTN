@@ -64,80 +64,81 @@ public class Client extends User implements UserDetails {
     public ClientResponseDTO fromClientToResponseDTO() {
 
 <span class="nc" id="L66">        return new ClientResponseDTO(</span>
-<span class="nc" id="L67">                this.getName(),</span>
-<span class="nc" id="L68">                this.getLastName(),</span>
-<span class="nc" id="L69">                this.getDni(),</span>
-<span class="nc" id="L70">                this.getCity().getName(),</span>
-<span class="nc" id="L71">                this.getPhone().getNumber(),</span>
-<span class="nc" id="L72">                this.getUsername(),</span>
-<span class="nc" id="L73">                this.getCondition(),</span>
-<span class="nc" id="L74">                this.getUserType());</span>
+<span class="nc" id="L67">                this.getId(),</span>
+<span class="nc" id="L68">                this.getName(),</span>
+<span class="nc" id="L69">                this.getLastName(),</span>
+<span class="nc" id="L70">                this.getDni(),</span>
+<span class="nc" id="L71">                this.getCity().getName(),</span>
+<span class="nc" id="L72">                this.getPhone().getNumber(),</span>
+<span class="nc" id="L73">                this.getUsername(),</span>
+<span class="nc" id="L74">                this.getCondition(),</span>
+<span class="nc" id="L75">                this.getUserType());</span>
     }
 
     public static List&lt;ClientResponseDTO&gt; fromClientListToResponseDTO(List&lt;Client&gt; clients) {
 
-<span class="nc" id="L79">        List&lt;ClientResponseDTO&gt; clientsResponse = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L80">        List&lt;ClientResponseDTO&gt; clientsResponse = new ArrayList&lt;&gt;();</span>
 
-<span class="nc bnc" id="L81" title="All 2 branches missed.">        for (Client c : clients) {</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">        for (Client c : clients) {</span>
 
-<span class="nc" id="L83">            clientsResponse.add(c.fromClientToResponseDTO());</span>
-<span class="nc" id="L84">        }</span>
-<span class="nc" id="L85">        return clientsResponse;</span>
+<span class="nc" id="L84">            clientsResponse.add(c.fromClientToResponseDTO());</span>
+<span class="nc" id="L85">        }</span>
+<span class="nc" id="L86">        return clientsResponse;</span>
     }
 
     @Override
     public Collection&lt;? extends GrantedAuthority&gt; getAuthorities() {
-<span class="fc" id="L90">        return List.of(new SimpleGrantedAuthority(this.getUserType().toString()));</span>
+<span class="fc" id="L91">        return List.of(new SimpleGrantedAuthority(this.getUserType().toString()));</span>
     }
 
     @Override
     public boolean isAccountNonExpired() {
 
-<span class="nc" id="L96">        return true;</span>
+<span class="nc" id="L97">        return true;</span>
     }
 
     @Override
     public boolean isAccountNonLocked() {
 
-<span class="nc" id="L102">        return true;</span>
+<span class="nc" id="L103">        return true;</span>
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
 
-<span class="nc" id="L108">        return true;</span>
+<span class="nc" id="L109">        return true;</span>
     }
 
     @Override
     public boolean isEnabled() {
 
-<span class="nc bnc" id="L114" title="All 2 branches missed.">        return (this.getCondition() == ClientCondition.ACTIVE);</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">        return (this.getCondition() == ClientCondition.ACTIVE);</span>
     }
 
     @Override
     public boolean equals(Object c) {
 
-<span class="pc bpc" id="L120" title="1 of 2 branches missed.">        if (c instanceof Client) {</span>
+<span class="pc bpc" id="L121" title="1 of 2 branches missed.">        if (c instanceof Client) {</span>
 
-<span class="fc" id="L122">            Client cli = (Client) c;</span>
+<span class="fc" id="L123">            Client cli = (Client) c;</span>
 
-<span class="fc bfc" id="L124" title="All 2 branches covered.">            return this.getName().equals(cli.getName())</span>
-<span class="pc bpc" id="L125" title="1 of 2 branches missed.">                    &amp;&amp; this.getLastName().equals(cli.getLastName())</span>
-<span class="pc bpc" id="L126" title="1 of 2 branches missed.">                    &amp;&amp; this.getDni().equals(cli.getDni())</span>
-<span class="pc bpc" id="L127" title="1 of 2 branches missed.">                    &amp;&amp; this.getCity().equals(cli.getCity())</span>
-<span class="pc bpc" id="L128" title="1 of 2 branches missed.">                    &amp;&amp; this.getUsername().equals(cli.getUsername())</span>
-<span class="pc bpc" id="L129" title="1 of 2 branches missed.">                    &amp;&amp; this.getUserType().equals(cli.getUserType())</span>
-<span class="pc bpc" id="L130" title="1 of 2 branches missed.">                    &amp;&amp; this.getPhone().equals(cli.phone)</span>
-<span class="pc bpc" id="L131" title="1 of 2 branches missed.">                    &amp;&amp; this.getCondition().equals(cli.getCondition());</span>
+<span class="fc bfc" id="L125" title="All 2 branches covered.">            return this.getName().equals(cli.getName())</span>
+<span class="pc bpc" id="L126" title="1 of 2 branches missed.">                    &amp;&amp; this.getLastName().equals(cli.getLastName())</span>
+<span class="pc bpc" id="L127" title="1 of 2 branches missed.">                    &amp;&amp; this.getDni().equals(cli.getDni())</span>
+<span class="pc bpc" id="L128" title="1 of 2 branches missed.">                    &amp;&amp; this.getCity().equals(cli.getCity())</span>
+<span class="pc bpc" id="L129" title="1 of 2 branches missed.">                    &amp;&amp; this.getUsername().equals(cli.getUsername())</span>
+<span class="pc bpc" id="L130" title="1 of 2 branches missed.">                    &amp;&amp; this.getUserType().equals(cli.getUserType())</span>
+<span class="pc bpc" id="L131" title="1 of 2 branches missed.">                    &amp;&amp; this.getPhone().equals(cli.phone)</span>
+<span class="pc bpc" id="L132" title="1 of 2 branches missed.">                    &amp;&amp; this.getCondition().equals(cli.getCondition());</span>
         } else {
-<span class="nc" id="L133">            return false;</span>
+<span class="nc" id="L134">            return false;</span>
         }
     }
 
     @Override
     public int hashCode() {
 
-<span class="fc" id="L140">        return getClass().hashCode();</span>
+<span class="fc" id="L141">        return getClass().hashCode();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

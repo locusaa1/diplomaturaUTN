@@ -2,6 +2,7 @@ package com.utn.diplomaturautn.service.impl;
 
 import com.utn.diplomaturautn.enumerated.UserType;
 import com.utn.diplomaturautn.exception.InvalidBeanFieldsException;
+import com.utn.diplomaturautn.exception.InvalidClientRequest;
 import com.utn.diplomaturautn.exception.NoContentException;
 import com.utn.diplomaturautn.exception.ResourceNotFoundException;
 import com.utn.diplomaturautn.model.Bill;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -85,14 +87,18 @@ public class BillServiceImpl implements BillService {
     public List<Bill> getByDateRangeAndClient(String from, String to, Client client, UserDetails loggedUser) {
 
         List<Bill> billList = this.getByDateRange(from, to, loggedUser);
-        List<Bill> finalList;
+        List<Bill> finalList = new ArrayList<>();
 
-        if (loggedUser.getAuthorities().contains(new SimpleGrantedAuthority(UserType.EMPLOYEE.toString()))) {
+        finalList = this.filterBillListByClient(billList, client);
 
-            finalList = this.filterBillListByClient(billList, client);
-        } else {
+        if (loggedUser.getAuthorities().contains(new SimpleGrantedAuthority(UserType.CLIENT.toString()))) {
 
-            finalList = billList;
+            Client clientRequesting = (Client) loggedUser;
+
+            if (!clientRequesting.getDni().equals(client.getDni())) {
+
+                throw new InvalidClientRequest("You dont have permissions to request this resource");
+            }
         }
         return this.checkEmptyListThrowsException(finalList);
     }
@@ -112,18 +118,7 @@ public class BillServiceImpl implements BillService {
 
         if (billsList.isPresent()) {
 
-            List<Bill> presentList = billsList.get();
-            List<Bill> finalList;
-            if (loggedUser.getAuthorities().contains(new SimpleGrantedAuthority(UserType.CLIENT.toString()))) {
-
-                Client clientRequesting = (Client) loggedUser;
-
-                finalList = this.filterBillListByClient(presentList, clientRequesting);
-            } else {
-
-                finalList = presentList;
-            }
-            return this.checkEmptyListThrowsException(finalList);
+            return billsList.get();
         } else {
 
             throw new NoContentException("There are not bills with the specifics filters.");

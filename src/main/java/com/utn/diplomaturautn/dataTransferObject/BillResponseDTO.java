@@ -11,6 +11,8 @@ import java.sql.Date;
 @NoArgsConstructor
 public class BillResponseDTO {
 
+    private int id;
+
     private String client;
 
     private int callsAmount;

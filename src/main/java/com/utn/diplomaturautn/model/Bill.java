@@ -44,6 +44,7 @@ public class Bill {
     public BillResponseDTO fromBillToResponseDTO() {
 
         return new BillResponseDTO(
+                this.getId(),
                 this.client.getName(),
                 this.callsSum,
                 this.total,

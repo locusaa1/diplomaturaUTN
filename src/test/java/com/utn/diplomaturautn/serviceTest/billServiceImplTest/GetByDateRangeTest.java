@@ -121,21 +121,4 @@ public class GetByDateRangeTest extends BillServiceImplTest {
 
         verify(this.billRepository, times(1)).findByGeneratedDateGreaterThanEqualAndGeneratedDateIsLessThanEqual(startTimeStamp, endTimeStamp);
     }
-
-    @Test
-    public void getByDateRangeTest_FilterListDate_NoContentException() {
-
-        String from = "2022-04-05";
-        Timestamp startTimeStamp = Timestamp.valueOf(from.concat(" 00:00:00"));
-        String to = "2022-05-04";
-        Timestamp endTimeStamp = Timestamp.valueOf(to.concat(" 23:59:59"));
-        Client user = DataForModels.newClientIdUpdated();
-        List<Bill> billsFound = DataForModels.billList();
-
-        given(this.billRepository.findByGeneratedDateGreaterThanEqualAndGeneratedDateIsLessThanEqual(startTimeStamp, endTimeStamp)).willReturn(Optional.of(billsFound));
-
-        Assertions.assertThrows(NoContentException.class, () -> this.billServiceImpl.getByDateRange(from, to, user));
-
-        verify(this.billRepository, times(1)).findByGeneratedDateGreaterThanEqualAndGeneratedDateIsLessThanEqual(startTimeStamp, endTimeStamp);
-    }
 }

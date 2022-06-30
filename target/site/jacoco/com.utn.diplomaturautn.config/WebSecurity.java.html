@@ -89,7 +89,7 @@ public class WebSecurity {
 <span class="fc" id="L89">                .and()</span>
                 //Authorization GET map for the CallController with CLIENT usertype
 <span class="fc" id="L91">                .authorizeRequests()</span>
-<span class="fc" id="L92">                .antMatchers(HttpMethod.GET, &quot;/api/call/date/&quot;).hasAuthority(UserType.CLIENT.toString())</span>
+<span class="fc" id="L92">                .antMatchers(HttpMethod.GET, &quot;/api/call/client/{id}/date/**&quot;).hasAuthority(UserType.CLIENT.toString())</span>
 <span class="fc" id="L93">                .and()</span>
                 //Authorization GET map for the CallController with EMPLOYEE usertype
 <span class="fc" id="L95">                .authorizeRequests()</span>

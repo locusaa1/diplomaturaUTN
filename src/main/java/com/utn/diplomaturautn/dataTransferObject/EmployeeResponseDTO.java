@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class EmployeeResponseDTO {
 
+    private int id;
+
     private String name;
 
     private String lastName;

@@ -11,6 +11,8 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class CallResponseDTO {
 
+    private int id;
+
     private String originPhone;
 
     private String destinationPhone;

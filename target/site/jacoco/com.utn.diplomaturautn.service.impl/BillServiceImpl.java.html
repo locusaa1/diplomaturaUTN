@@ -2,6 +2,7 @@
 
 import com.utn.diplomaturautn.enumerated.UserType;
 import com.utn.diplomaturautn.exception.InvalidBeanFieldsException;
+import com.utn.diplomaturautn.exception.InvalidClientRequest;
 import com.utn.diplomaturautn.exception.NoContentException;
 import com.utn.diplomaturautn.exception.ResourceNotFoundException;
 import com.utn.diplomaturautn.model.Bill;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -25,108 +27,101 @@ public class BillServiceImpl implements BillService {
 
     private final BillRepository billRepository;
 
-<span class="fc" id="L28">    public BillServiceImpl(BillRepository billRepository) {</span>
+<span class="fc" id="L30">    public BillServiceImpl(BillRepository billRepository) {</span>
 
-<span class="fc" id="L30">        this.billRepository = billRepository;</span>
-<span class="fc" id="L31">    }</span>
+<span class="fc" id="L32">        this.billRepository = billRepository;</span>
+<span class="fc" id="L33">    }</span>
 
     private List&lt;Bill&gt; checkEmptyListThrowsException(List&lt;Bill&gt; billList) {
 
-<span class="fc bfc" id="L35" title="All 2 branches covered.">        if (billList.isEmpty()) {</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        if (billList.isEmpty()) {</span>
 
-<span class="fc" id="L37">            throw new NoContentException(&quot;There is not a register between the specifics dates&quot;);</span>
+<span class="fc" id="L39">            throw new NoContentException(&quot;There is not a register between the specifics dates&quot;);</span>
         } else {
 
-<span class="fc" id="L40">            return billList;</span>
+<span class="fc" id="L42">            return billList;</span>
         }
     }
 
     private List&lt;Bill&gt; filterBillListByClient(List&lt;Bill&gt; bills, Client client) {
 
-<span class="fc" id="L46">        return bills.stream()</span>
-<span class="fc" id="L47">                .filter(b -&gt; b.getClient().getDni().equals(client.getDni()))</span>
-<span class="fc" id="L48">                .collect(Collectors.toList());</span>
+<span class="fc" id="L48">        return bills.stream()</span>
+<span class="fc" id="L49">                .filter(b -&gt; b.getClient().getDni().equals(client.getDni()))</span>
+<span class="fc" id="L50">                .collect(Collectors.toList());</span>
     }
 
     @Override
     public List&lt;Bill&gt; getAll() {
 
-<span class="fc" id="L54">        List&lt;Bill&gt; billList = this.billRepository.findAll();</span>
+<span class="fc" id="L56">        List&lt;Bill&gt; billList = this.billRepository.findAll();</span>
 
-<span class="fc bfc" id="L56" title="All 2 branches covered.">        if (!billList.isEmpty()) {</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if (!billList.isEmpty()) {</span>
 
-<span class="fc" id="L58">            return billList;</span>
+<span class="fc" id="L60">            return billList;</span>
         } else {
 
-<span class="fc" id="L61">            throw new NoContentException(&quot;There is no content in the database from this entity.&quot;);</span>
+<span class="fc" id="L63">            throw new NoContentException(&quot;There is no content in the database from this entity.&quot;);</span>
         }
     }
 
     @Override
     public Bill getById(int id) {
 
-<span class="fc bfc" id="L68" title="All 2 branches covered.">        if (id &gt; 0) {</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        if (id &gt; 0) {</span>
 
-<span class="fc" id="L70">            Optional&lt;Bill&gt; billFound = this.billRepository.findById(id);</span>
-<span class="fc bfc" id="L71" title="All 2 branches covered.">            if (billFound.isPresent()) {</span>
+<span class="fc" id="L72">            Optional&lt;Bill&gt; billFound = this.billRepository.findById(id);</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">            if (billFound.isPresent()) {</span>
 
-<span class="fc" id="L73">                return billFound.get();</span>
+<span class="fc" id="L75">                return billFound.get();</span>
             } else {
 
-<span class="fc" id="L76">                throw new ResourceNotFoundException(&quot;There is not a register with the specific id&quot;);</span>
+<span class="fc" id="L78">                throw new ResourceNotFoundException(&quot;There is not a register with the specific id&quot;);</span>
             }
         } else {
 
-<span class="fc" id="L80">            throw new InvalidBeanFieldsException(&quot;The id must be higher than 0&quot;);</span>
+<span class="fc" id="L82">            throw new InvalidBeanFieldsException(&quot;The id must be higher than 0&quot;);</span>
         }
     }
 
     @Override
     public List&lt;Bill&gt; getByDateRangeAndClient(String from, String to, Client client, UserDetails loggedUser) {
 
-<span class="fc" id="L87">        List&lt;Bill&gt; billList = this.getByDateRange(from, to, loggedUser);</span>
-        List&lt;Bill&gt; finalList;
+<span class="fc" id="L89">        List&lt;Bill&gt; billList = this.getByDateRange(from, to, loggedUser);</span>
+<span class="fc" id="L90">        List&lt;Bill&gt; finalList = new ArrayList&lt;&gt;();</span>
 
-<span class="fc bfc" id="L90" title="All 2 branches covered.">        if (loggedUser.getAuthorities().contains(new SimpleGrantedAuthority(UserType.EMPLOYEE.toString()))) {</span>
+<span class="fc" id="L92">        finalList = this.filterBillListByClient(billList, client);</span>
 
-<span class="fc" id="L92">            finalList = this.filterBillListByClient(billList, client);</span>
-        } else {
+<span class="fc bfc" id="L94" title="All 2 branches covered.">        if (loggedUser.getAuthorities().contains(new SimpleGrantedAuthority(UserType.CLIENT.toString()))) {</span>
 
-<span class="fc" id="L95">            finalList = billList;</span>
+<span class="fc" id="L96">            Client clientRequesting = (Client) loggedUser;</span>
+
+<span class="fc bfc" id="L98" title="All 2 branches covered.">            if (!clientRequesting.getDni().equals(client.getDni())) {</span>
+
+<span class="fc" id="L100">                throw new InvalidClientRequest(&quot;You dont have permissions to request this resource&quot;);</span>
+            }
         }
-<span class="fc" id="L97">        return this.checkEmptyListThrowsException(finalList);</span>
+<span class="fc" id="L103">        return this.checkEmptyListThrowsException(finalList);</span>
     }
 
     @Override
     public List&lt;Bill&gt; getByDateRange(String from, String to, UserDetails loggedUser) {
 
-<span class="fc" id="L103">        Timestamp timestampFrom = Timestamp.valueOf(from + &quot; 00:00:00&quot;);</span>
+<span class="fc" id="L109">        Timestamp timestampFrom = Timestamp.valueOf(from + &quot; 00:00:00&quot;);</span>
 
-<span class="fc bfc" id="L105" title="All 2 branches covered.">        Timestamp timestampTo = (to.equals(LocalDate.now().toString())) ?</span>
-<span class="fc" id="L106">                Timestamp.valueOf(to.concat(&quot; &quot; + LocalTime.now().toString())) :</span>
-<span class="fc" id="L107">                Timestamp.valueOf(to + &quot; 23:59:59&quot;);</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">        Timestamp timestampTo = (to.equals(LocalDate.now().toString())) ?</span>
+<span class="fc" id="L112">                Timestamp.valueOf(to.concat(&quot; &quot; + LocalTime.now().toString())) :</span>
+<span class="fc" id="L113">                Timestamp.valueOf(to + &quot; 23:59:59&quot;);</span>
 
-<span class="fc" id="L109">        Utils.compareDatesThrowingExceptions(timestampFrom, timestampTo);</span>
+<span class="fc" id="L115">        Utils.compareDatesThrowingExceptions(timestampFrom, timestampTo);</span>
 
-<span class="fc" id="L111">        Optional&lt;List&lt;Bill&gt;&gt; billsList = this.billRepository.findByGeneratedDateGreaterThanEqualAndGeneratedDateIsLessThanEqual(timestampFrom, timestampTo);</span>
+<span class="fc" id="L117">        Optional&lt;List&lt;Bill&gt;&gt; billsList = this.billRepository.findByGeneratedDateGreaterThanEqualAndGeneratedDateIsLessThanEqual(timestampFrom, timestampTo);</span>
 
-<span class="fc bfc" id="L113" title="All 2 branches covered.">        if (billsList.isPresent()) {</span>
+<span class="fc bfc" id="L119" title="All 2 branches covered.">        if (billsList.isPresent()) {</span>
 
-<span class="fc" id="L115">            List&lt;Bill&gt; presentList = billsList.get();</span>
-            List&lt;Bill&gt; finalList;
-<span class="fc bfc" id="L117" title="All 2 branches covered.">            if (loggedUser.getAuthorities().contains(new SimpleGrantedAuthority(UserType.CLIENT.toString()))) {</span>
-
-<span class="fc" id="L119">                Client clientRequesting = (Client) loggedUser;</span>
-
-<span class="fc" id="L121">                finalList = this.filterBillListByClient(presentList, clientRequesting);</span>
-<span class="fc" id="L122">            } else {</span>
-
-<span class="fc" id="L124">                finalList = presentList;</span>
-            }
-<span class="fc" id="L126">            return this.checkEmptyListThrowsException(finalList);</span>
+<span class="fc" id="L121">            return billsList.get();</span>
         } else {
 
-<span class="fc" id="L129">            throw new NoContentException(&quot;There are not bills with the specifics filters.&quot;);</span>
+<span class="fc" id="L124">            throw new NoContentException(&quot;There are not bills with the specifics filters.&quot;);</span>
         }
     }
 }

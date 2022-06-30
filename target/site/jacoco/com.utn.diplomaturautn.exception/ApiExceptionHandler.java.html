@@ -71,33 +71,36 @@ import java.util.Map;
 <span class="nc" id="L71">                timestamp(Time.valueOf(LocalTime.now())).build();</span>
     }
 
-    @ExceptionHandler(InvalidBillRequest.class)
+    @ExceptionHandler({
+            InvalidBillRequest.class,
+            InvalidClientRequest.class
+    })
     @ResponseStatus(HttpStatus.FORBIDDEN)
     @ResponseBody
     public ErrorObject handleInvalidBillRequestException(Exception exception) {
 
-<span class="nc" id="L79">        return ErrorObject.builder().</span>
-<span class="nc" id="L80">                statusCode(HttpStatus.FORBIDDEN.value()).</span>
-<span class="nc" id="L81">                message(exception.getMessage()).</span>
-<span class="nc" id="L82">                timestamp(Time.valueOf(LocalTime.now())).build();</span>
+<span class="nc" id="L82">        return ErrorObject.builder().</span>
+<span class="nc" id="L83">                statusCode(HttpStatus.FORBIDDEN.value()).</span>
+<span class="nc" id="L84">                message(exception.getMessage()).</span>
+<span class="nc" id="L85">                timestamp(Time.valueOf(LocalTime.now())).build();</span>
     }
 
     @Override
     public @NotNull ResponseEntity&lt;Object&gt; handleMethodArgumentNotValid(MethodArgumentNotValidException ex, @NotNull HttpHeaders headers, @NotNull HttpStatus status, @NotNull WebRequest request) {
 
-<span class="nc" id="L88">        Map&lt;String, String&gt; errors = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L91">        Map&lt;String, String&gt; errors = new HashMap&lt;&gt;();</span>
 
-<span class="nc" id="L90">        ex.getBindingResult().getAllErrors().</span>
-<span class="nc" id="L91">                forEach((error) -&gt; {</span>
-<span class="nc" id="L92">                    String fieldName = ((FieldError) error).getField();</span>
-<span class="nc" id="L93">                    String message = error.getDefaultMessage();</span>
-<span class="nc" id="L94">                    errors.put(fieldName, message);</span>
-<span class="nc" id="L95">                });</span>
+<span class="nc" id="L93">        ex.getBindingResult().getAllErrors().</span>
+<span class="nc" id="L94">                forEach((error) -&gt; {</span>
+<span class="nc" id="L95">                    String fieldName = ((FieldError) error).getField();</span>
+<span class="nc" id="L96">                    String message = error.getDefaultMessage();</span>
+<span class="nc" id="L97">                    errors.put(fieldName, message);</span>
+<span class="nc" id="L98">                });</span>
 
-<span class="nc" id="L97">        return new ResponseEntity&lt;&gt;(ErrorObject.builder().</span>
-<span class="nc" id="L98">                statusCode(HttpStatus.BAD_REQUEST.value()).</span>
-<span class="nc" id="L99">                message(errors.toString()).</span>
-<span class="nc" id="L100">                timestamp(Time.valueOf(LocalTime.now())).build(), HttpStatus.BAD_REQUEST);</span>
+<span class="nc" id="L100">        return new ResponseEntity&lt;&gt;(ErrorObject.builder().</span>
+<span class="nc" id="L101">                statusCode(HttpStatus.BAD_REQUEST.value()).</span>
+<span class="nc" id="L102">                message(errors.toString()).</span>
+<span class="nc" id="L103">                timestamp(Time.valueOf(LocalTime.now())).build(), HttpStatus.BAD_REQUEST);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

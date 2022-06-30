@@ -2,10 +2,7 @@ package com.utn.diplomaturautn.service.impl;
 
 import com.utn.diplomaturautn.enumerated.ClientCondition;
 import com.utn.diplomaturautn.enumerated.UserType;
-import com.utn.diplomaturautn.exception.InvalidBeanFieldsException;
-import com.utn.diplomaturautn.exception.InvalidCallException;
-import com.utn.diplomaturautn.exception.NoContentException;
-import com.utn.diplomaturautn.exception.ResourceNotFoundException;
+import com.utn.diplomaturautn.exception.*;
 import com.utn.diplomaturautn.model.Call;
 import com.utn.diplomaturautn.model.Client;
 import com.utn.diplomaturautn.model.Employee;
@@ -24,6 +21,7 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -122,14 +120,18 @@ public class CallServiceImpl implements CallService {
     public List<Call> getByDateRangeAndUser(String from, String to, Phone clientPhone, UserDetails loggedUser) {
 
         List<Call> callsList = this.getByDateRange(from, to, loggedUser);
-        List<Call> finalList;
+        List<Call> finalList = new ArrayList<>();
 
-        if (loggedUser.getAuthorities().contains(new SimpleGrantedAuthority(UserType.EMPLOYEE.toString()))) {
+        finalList = this.filterCallListByPhone(callsList, clientPhone);
 
-            finalList = this.filterCallListByPhone(callsList, clientPhone);
-        } else {
+        if (loggedUser.getAuthorities().contains(new SimpleGrantedAuthority(UserType.CLIENT.toString()))) {
 
-            finalList = callsList;
+            Client clientRequesting = (Client) loggedUser;
+
+            if (!clientPhone.equals(clientRequesting.getPhone())) {
+
+                throw new InvalidClientRequest("You dont have permissions to request this resource");
+            }
         }
         return this.checkEmptyListThrowsException(finalList);
     }
@@ -148,18 +150,7 @@ public class CallServiceImpl implements CallService {
 
         if (callsList.isPresent()) {
 
-            List<Call> presentList = callsList.get();
-            List<Call> finalList;
-            if (loggedUser.getAuthorities().contains(new SimpleGrantedAuthority(UserType.CLIENT.toString()))) {
-
-                Client clientRequesting = (Client) loggedUser;
-
-                finalList = this.filterCallListByPhone(presentList, clientRequesting.getPhone());
-            } else {
-
-                finalList = presentList;
-            }
-            return this.checkEmptyListThrowsException(finalList);
+            return callsList.get();
         } else {
 
             throw new NoContentException("There are not calls with the specifics filters.");

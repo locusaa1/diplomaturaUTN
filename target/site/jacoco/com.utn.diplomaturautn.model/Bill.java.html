@@ -44,7 +44,8 @@ public class Bill {
     public BillResponseDTO fromBillToResponseDTO() {
 
 <span class="nc" id="L46">        return new BillResponseDTO(</span>
-<span class="nc" id="L47">                this.client.getName(),</span>
+<span class="nc" id="L47">                this.getId(),</span>
+<span class="nc" id="L48">                this.client.getName(),</span>
                 this.callsSum,
                 this.total,
                 this.generatedDate,
@@ -53,13 +54,13 @@ public class Bill {
 
     public static List&lt;BillResponseDTO&gt; fromBillListToResponseDTO(List&lt;Bill&gt; bills) {
 
-<span class="nc" id="L56">        List&lt;BillResponseDTO&gt; billsResponse = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L57">        List&lt;BillResponseDTO&gt; billsResponse = new ArrayList&lt;&gt;();</span>
 
-<span class="nc bnc" id="L58" title="All 2 branches missed.">        for (Bill b : bills) {</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">        for (Bill b : bills) {</span>
 
-<span class="nc" id="L60">            billsResponse.add(b.fromBillToResponseDTO());</span>
-<span class="nc" id="L61">        }</span>
-<span class="nc" id="L62">        return billsResponse;</span>
+<span class="nc" id="L61">            billsResponse.add(b.fromBillToResponseDTO());</span>
+<span class="nc" id="L62">        }</span>
+<span class="nc" id="L63">        return billsResponse;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

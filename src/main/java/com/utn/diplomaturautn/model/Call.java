@@ -65,6 +65,7 @@ public class Call {
     public CallResponseDTO fromCallToResponseDTO() {
 
         return new CallResponseDTO(
+                this.getId(),
                 this.originPhone.getNumber(),
                 this.destinationPhone.getNumber(),
                 this.originCity.getName(),
@@ -75,11 +76,11 @@ public class Call {
                 this.total);
     }
 
-    public static List<CallResponseDTO> fromCallListToResponseDTO(List<Call> calls){
+    public static List<CallResponseDTO> fromCallListToResponseDTO(List<Call> calls) {
 
         List<CallResponseDTO> callsResponse = new ArrayList<>();
 
-        for (Call c : calls){
+        for (Call c : calls) {
 
             callsResponse.add(c.fromCallToResponseDTO());
         }

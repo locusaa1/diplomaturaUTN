@@ -11,6 +11,8 @@ import java.sql.Time;
 @NoArgsConstructor
 public class FeeResponseDTO {
 
+    private int id;
+
     private String originCity;
 
     private String destinationCity;
