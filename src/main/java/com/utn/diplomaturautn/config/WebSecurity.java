@@ -100,7 +100,7 @@ public class WebSecurity {
                 .and()
                 //Authorization GET map for the BillController with CLIENT usertype
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/api/bill/date/").hasAuthority(UserType.CLIENT.toString())
+                .antMatchers(HttpMethod.GET, "/api/bill/client/{id}/date/**").hasAuthority(UserType.CLIENT.toString())
                 .and()
                 //Authorization GET map for the BillController with EMPLOYEE usertype
                 .authorizeRequests()
